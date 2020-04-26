@@ -1,0 +1,72 @@
+$themes: (
+  light: (
+    primary-dark: #131e56,
+    primary-light: #364496,
+    secondary: #08d5e8,
+    background: #fff,
+    accent1: #69a445,
+    accent2: #253277,
+    accent3: #2dbfa0,
+    accent4: #eb9e2b,
+    accent5: #fe5454,
+    text-color: #000
+  ),
+  dark: (
+    primary-dark: #131e56,
+    primary-light: #364496,
+    secondary: #08d5e8,
+    background: black,
+    accent1: #69a445,
+    accent2: #253277,
+    accent3: #2dbfa0,
+    accent4: #eb9e2b,
+    accent5: #fe5454,
+    text-color: #fff
+  )
+);
+
+@mixin theme-aware($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+    .theme-#{$theme-name} & {
+      #{$key}: map-get(map-get($themes, $theme-name), $color);
+    }
+  }
+}
+
+// --- MEDIA QUERYS ---
+
+@mixin width1920 {
+  @media (max-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin width1500 {
+  @media (max-width: 1500px) {
+    @content;
+  }
+}
+
+@mixin width1000 {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin width1366 {
+  @media (max-width: 1366px) {
+    @content;
+  }
+}
+
+@mixin width768 {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin width360 {
+  @media (max-width: 360px) {
+    @content;
+  }
+}

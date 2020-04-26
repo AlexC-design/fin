@@ -1,0 +1,8 @@
+@import "../scss/variables.scss";
+
+body {
+  font-family: "Roboto", sans-serif;
+
+  @include theme-aware("background-color", "background");
+  @include theme-aware("color", "text-color");
+}
