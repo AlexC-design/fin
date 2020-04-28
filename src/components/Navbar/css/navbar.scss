@@ -1,0 +1,124 @@
+@import "../../../scss/variables.scss";
+
+//navbar common properties
+.navbar {
+  @include themed-linear-gradient("primary-light", "primary-dark");
+  color: #fff;
+  position: fixed;
+  display: flex;
+
+  .navbar-link {
+    display: flex;
+    align-items: center;
+
+    * {
+      transition: all 0s 0.1s step-end;
+    }
+
+    &--active {
+      * {
+        transition: all 0s 0.21s step-end;
+      }
+    }
+
+    &__icon {
+      filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(82deg)
+        brightness(106%) contrast(101%);
+    }
+
+    &__text {
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  //navabar side properties
+  &--side {
+    flex-direction: column;
+    width: 270px;
+    margin: 10px;
+    padding: 100px 0;
+    height: calc(100% - 220px);
+    border-radius: 20px;
+
+    .navbar-link {
+      margin-left: 50px;
+      margin-bottom: 40px;
+      padding-right: 30%;
+
+      &__icon {
+        margin-right: 20px;
+      }
+
+      &__text {
+      }
+
+      //theme button
+      &:last-child {
+        margin-top: auto;
+      }
+    }
+
+    //navbar link background
+    .link-bg {
+      position: absolute;
+      height: 50px;
+      width: 250px;
+      right: -5px;
+      z-index: -1;
+      border-radius: 100px 0 0 100px;
+
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+      transform-origin: right;
+
+      &--animate {
+        animation: stretch-squeeze-both-ways 0.4s
+          cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+      }
+
+      @include theme-aware("background-color", "background");
+    }
+  }
+
+  //navbar mobile properties
+  &--bottom {
+    flex-direction: column;
+
+    .navbar-link {
+      &__icon {
+      }
+
+      &__text {
+      }
+    }
+  }
+}
+
+.theme-light {
+  .navbar-link {
+    &--active {
+      img {
+        filter: invert(9%) sepia(78%) saturate(1933%) hue-rotate(220deg)
+          brightness(103%) contrast(102%);
+      }
+      div {
+        @include theme-aware("color", "primary-dark");
+      }
+    }
+  }
+}
+
+@keyframes stretch-squeeze-both-ways {
+  from {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.05, 0.7);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}

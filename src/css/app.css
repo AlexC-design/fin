@@ -1,4 +1,7 @@
 body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   font-family: "Roboto", sans-serif;
 }
 
@@ -16,5 +19,9 @@ body {
 
 .theme-dark body {
   color: #fff;
+}
+
+body #root {
+  position: relative;
 }
 /*# sourceMappingURL=app.css.map */
