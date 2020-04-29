@@ -35,6 +35,7 @@ const Doughnut = ({ categories }) => {
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        aspectRatio: 0.9,
         cutoutPercentage: 60,
         tooltips: {
           callbacks: {
@@ -61,12 +62,7 @@ const Doughnut = ({ categories }) => {
   return (
     <div className="doughnut">
       <div className="doughnut__chart">
-        <canvas
-          id="doughnut__chart__canvas"
-          ref={chartRef}
-          width="300"
-          height="300"
-        />
+        <canvas id="doughnut__chart__canvas" ref={chartRef} />
       </div>
       <div className="doughnut__total">
         <div className="doughnut__total__text">{total}&pound;</div>

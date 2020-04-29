@@ -1,5 +1,9 @@
 .breakdown-page {
-  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,6 +14,18 @@
 }
 
 .breakdown-page__left {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.breakdown-page__right {
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

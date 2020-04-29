@@ -1,10 +1,14 @@
 import React from "react";
 import "./css/categories.css";
 
-const Category = () => {
+const Category = ({ name, data, total }) => {
   return (
-    <div>
-      <div></div>
+    <div className="category">
+      <div className="category__icon"></div>
+      <div className="category__name">{name}</div>
+      <div className="category__percentage">
+        {Math.floor((data / total) * 100)}%
+      </div>
     </div>
   );
 };

@@ -5,7 +5,9 @@ const names = [
   "Services",
   "Transportation",
   "Entertainment",
-  "Health"
+  "Health",
+  "test1",
+  "test2"
 ];
 
 const colors = [
@@ -15,7 +17,9 @@ const colors = [
   "#eb9e2b",
   "#fe5454",
   "#712caa",
-  "#feed54"
+  "#feed54",
+  "#fe5454",
+  "#712caa"
 ];
 
 const mockCategories = names.map((name, index) => {
