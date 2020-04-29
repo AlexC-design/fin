@@ -1,0 +1,106 @@
+.month-ctrl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.month-ctrl__month {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.theme-light .month-ctrl__month {
+  color: #364496;
+}
+
+.theme-dark .month-ctrl__month {
+  color: #727272;
+}
+
+.month-ctrl .buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.month-ctrl .buttons-container .month-button {
+  border: none;
+  border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+}
+
+.theme-light .month-ctrl .buttons-container .month-button {
+  background-color: #131e56;
+}
+
+.theme-dark .month-ctrl .buttons-container .month-button {
+  background-color: #202020;
+}
+
+.theme-light .month-ctrl .buttons-container .month-button {
+  color: #fff;
+}
+
+.theme-dark .month-ctrl .buttons-container .month-button {
+  color: #202020;
+}
+
+.month-ctrl .buttons-container .month-button img {
+  margin: 0 20px;
+}
+
+.month-ctrl .buttons-container .month-button p {
+  margin: 0;
+}
+
+.month-ctrl .buttons-container .month-button--disabled {
+  background-color: #c5c9cd !important;
+  color: black !important;
+  opacity: 0.5;
+}
+
+.month-ctrl .buttons-container .month-button--left {
+  width: 45%;
+}
+
+.month-ctrl .buttons-container .month-button--right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.month-ctrl .buttons-container .month-button--right img {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+/*# sourceMappingURL=month-ctrl.css.map */

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
+import BreakdownPage from "./components/BreakdownPage/BreakdownPage";
 
 import "./css/app.css";
 
@@ -19,9 +20,15 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <Navbar position={"side"} changeTheme={changeTheme} theme={theme} />
-    </div>
+      <div className="main-screen">
+        <div className="page-spacer" />
+        <div className="page-container">
+          <BreakdownPage />
+        </div>
+      </div>
+    </>
   );
 };
 

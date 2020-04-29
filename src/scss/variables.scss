@@ -9,19 +9,25 @@ $themes: (
     accent3: #2dbfa0,
     accent4: #eb9e2b,
     accent5: #fe5454,
-    text-color: #000
+    accent6: #712caa,
+    accent7: #feed54,
+    text-color: #000,
+    outline-color: rgba(#113e82, 0.2)
   ),
   dark: (
     primary-dark: #202020,
     primary-light: #727272,
     secondary: #08d5e8,
-    background: black,
+    background: rgb(32, 32, 32),
     accent1: #69a445,
     accent2: #253277,
     accent3: #2dbfa0,
     accent4: #eb9e2b,
     accent5: #fe5454,
-    text-color: #fff
+    accent6: #712caa,
+    accent7: #feed54,
+    text-color: #fff,
+    outline-color: rgba(#08d5e8, 0.2)
   )
 );
 
@@ -29,6 +35,26 @@ $themes: (
   @each $theme-name, $theme-color in $themes {
     .theme-#{$theme-name} & {
       #{$key}: map-get(map-get($themes, $theme-name), $color);
+    }
+  }
+}
+
+@mixin themed-shadow($hoffset, $voffset, $blur, $spread, $color) {
+  @each $theme-name, $theme-color in $themes {
+    .theme-#{$theme-name} & {
+      box-shadow: #{$hoffset}px
+        #{$voffset}px
+        #{$blur}px
+        #{$spread}px
+        map-get(map-get($themes, $theme-name), $color);
+    }
+  }
+}
+
+@mixin themed-stroke($size, $color) {
+  @each $theme-name, $theme-color in $themes {
+    .theme-#{$theme-name} & {
+      border: solid #{$size}px map-get(map-get($themes, $theme-name), $color);
     }
   }
 }

@@ -1,0 +1,14 @@
+@import "../../../scss/variables.scss";
+
+.breakdown-page {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+  }
+  &__right {
+  }
+}

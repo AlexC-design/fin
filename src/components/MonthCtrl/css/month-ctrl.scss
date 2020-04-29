@@ -1,0 +1,58 @@
+@import "../../../scss/variables.scss";
+
+.month-ctrl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__month {
+    font-weight: bold;
+    margin-bottom: 20px;
+    @include theme-aware("color", "primary-light");
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .month-button {
+      border: none;
+      border-radius: 100px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 50px;
+      @include theme-aware("background-color", "primary-dark");
+      @include theme-aware("color", "background");
+
+      img {
+        margin: 0 20px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      &--disabled {
+        background-color: #c5c9cd !important;
+        color: black !important;
+        opacity: 0.5;
+      }
+      &--left {
+        width: 45%;
+      }
+      &--right {
+        flex-direction: row-reverse;
+        align-self: flex-end;
+        margin-bottom: 20px;
+        width: 80%;
+
+        img {
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import "../../../scss/variables.scss";
+
+.section {
+  min-width: 50px;
+  min-height: 50px;
+  padding: 40px;
+  @include theme-aware("background-color", "background");
+
+  margin-bottom: 40px;
+
+  &--shadow {
+    @include themed-shadow("0", "0", "20", "0", "outline-color");
+  }
+  &--stroke {
+    @include themed-stroke("2", "outline-color");
+  }
+
+  &--main {
+    width: 30vw;
+    height: 30vw;
+    max-width: 50vh;
+    max-height: 50vh;
+  }
+  &--second {
+    width: 30vw;
+    max-width: 50vh;
+  }
+  &--third {
+    width: 30vw;
+    max-width: 50vh;
+    margin-left: 40px;
+    // height: 100%;
+  }
+  &--small {
+  }
+}

@@ -95,7 +95,7 @@
 }
 
 .theme-dark .navbar--side .link-bg {
-  background-color: black;
+  background-color: #202020;
 }
 
 .navbar--bottom {
@@ -179,7 +179,7 @@
 }
 
 .theme-dark .theme-button-container .navbar-link {
-  background-color: black;
+  background-color: #202020;
 }
 
 .theme-button-container .navbar-link .icon-container {
