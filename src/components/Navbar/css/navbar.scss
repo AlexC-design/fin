@@ -2,10 +2,9 @@
 
 //navbar common properties
 .navbar {
-  @include themed-linear-gradient("primary-light", "primary-dark");
-  color: #fff;
   position: fixed;
   display: flex;
+  @include themed-linear-gradient("primary-light", "primary-dark");
 
   .navbar-link {
     display: flex;
@@ -19,14 +18,23 @@
       * {
         transition: all 0s 0.21s step-end;
       }
+
+      animation: bump 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+
+      .navbar-link__text {
+        font-weight: bold;
+      }
     }
 
     &__icon {
-      filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(82deg)
-        brightness(106%) contrast(101%);
     }
 
     &__text {
+    }
+
+    img {
+      filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(82deg)
+        brightness(106%) contrast(101%);
     }
 
     &:hover {
@@ -44,20 +52,13 @@
     border-radius: 20px;
 
     .navbar-link {
-      margin-left: 50px;
-      margin-bottom: 40px;
-      padding-right: 30%;
+      margin: 0 50px 40px;
 
       &__icon {
         margin-right: 20px;
       }
 
       &__text {
-      }
-
-      //theme button
-      &:last-child {
-        margin-top: auto;
       }
     }
 
@@ -70,7 +71,8 @@
       z-index: -1;
       border-radius: 100px 0 0 100px;
 
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+        color 0.6s ease-out, background-color 0.6s ease-out;
 
       transform-origin: right;
 
@@ -120,5 +122,117 @@
   }
   to {
     transform: scale(1, 1);
+  }
+}
+
+//theme button
+.theme-button-container {
+  margin: auto auto 0;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  .navbar-link {
+    padding: 9px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin: 0;
+    @include theme-aware("background-color", "background");
+
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      color 0.6s ease-out, background-color 0.6s ease-out;
+
+    .icon-container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include theme-aware("background-color", "primary-dark");
+
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+        color 0.6s ease-out, background-color 0.6s ease-out;
+      .icon {
+        transform: scale(0.8);
+      }
+    }
+
+    .text {
+      width: 0;
+      opacity: 0;
+      font-weight: bold;
+      @include theme-aware("color", "primary-dark");
+      transition: opacity 0.2s ease-out,
+        width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out,
+        background-color 0.6s ease-out;
+    }
+  }
+
+  //theme-button hover
+  &:hover {
+    .navbar-link {
+      width: 200px;
+      padding: 9px 11px;
+
+      .icon-container {
+        min-width: 40px;
+        min-height: 40px;
+        width: 40px;
+        height: 40px;
+        margin: 0 20px 0 0;
+      }
+
+      .text {
+        transition: opacity 0.2s 0.2s ease-out,
+          width 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out,
+          background-color 0.6s ease-out;
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
+
+  //theme-button click
+  &:active {
+    .navbar-link {
+      transform: scale(1.2, 0.8);
+    }
+  }
+}
+
+//themed specials
+.theme-light {
+  .navbar {
+    color: #fff;
+  }
+}
+.theme-dark {
+  .navbar {
+    color: #fff;
+  }
+  .theme-button-container {
+    .navbar-link {
+      .navbar-link__text {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@keyframes bump {
+  from {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  to {
+    transform: translateY(0);
   }
 }

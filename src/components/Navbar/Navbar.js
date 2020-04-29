@@ -27,7 +27,7 @@ const navbarLinks = [
   }
 ];
 
-const Navbar = ({ position }) => {
+const Navbar = ({ position, theme, changeTheme }) => {
   const [active, setActive] = useState(navbarLinks[0].name);
   const [animate, setAnimate] = useState("");
 
@@ -61,7 +61,11 @@ const Navbar = ({ position }) => {
         className={`link-bg link-bg${animate}`}
         style={{ top: `${91 + 70 * activeLinkIndex(active)}px` }}
       />
-      <ThemeChangeButton position={position} />
+      <ThemeChangeButton
+        position={position}
+        theme={theme}
+        changeTheme={changeTheme}
+      />
     </div>
   );
 };
