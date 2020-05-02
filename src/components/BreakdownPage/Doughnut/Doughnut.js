@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import Chart from "chart.js";
 import "./css/doughnut.css";
+import { connect } from "react-redux";
+import { setHovered } from "../../../store/state/hovered";
 
 Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
 Chart.defaults.global.legend.display = false;
 
-const Doughnut = ({ categories }) => {
+const Doughnut = ({ categories, setHovered, hoveredIndex }) => {
   const chartRef = React.createRef();
 
   const total = categories.reduce((acc, cur) => {
@@ -36,8 +38,20 @@ const Doughnut = ({ categories }) => {
         aspectRatio: 0.9,
         cutoutPercentage: 60,
         onHover: e => {
-          // console.log(e)
-          console.log(myDoughnut.getElementAtEvent(e));
+          if (myDoughnut.getElementAtEvent(e)[0]) {
+            if (myDoughnut.getElementAtEvent(e)[0]._index !== hoveredIndex) {
+              // console.log("(if) _INDEX HOVER", myDoughnut.getElementAtEvent(e)[0]._index  ,hoveredIndex);
+              setHovered(myDoughnut.getElementAtEvent(e)[0]._index);
+            }
+          } else {
+            if (hoveredIndex !== null) {
+              // console.log("else:", hoveredIndex);
+              setHovered(null);
+            }
+          }
+        },
+        animation: {
+          animateRotate: false
         }
         // tooltips: {
         //   callbacks: {
@@ -73,4 +87,11 @@ const Doughnut = ({ categories }) => {
   );
 };
 
-export default Doughnut;
+const mapStateToProps = state => ({
+  hoveredIndex: state.hovered.index
+});
+const mapDispatchToProps = dispatch => ({
+  setHovered: index => dispatch(setHovered(index))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Doughnut);

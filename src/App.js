@@ -25,7 +25,6 @@ const App = () => {
       <div className="main-screen">
         <div className="page-spacer" />
         <div className="page-container">
-          
           <BreakdownPage />
         </div>
       </div>
