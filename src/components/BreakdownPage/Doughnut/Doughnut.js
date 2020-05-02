@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Chart from "chart.js";
 import "./css/doughnut.css";
 
@@ -6,8 +6,6 @@ Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
 Chart.defaults.global.legend.display = false;
 
 const Doughnut = ({ categories }) => {
-  const [hovered, setHovered] = useState("");
-
   const chartRef = React.createRef();
 
   const total = categories.reduce((acc, cur) => {
@@ -17,7 +15,7 @@ const Doughnut = ({ categories }) => {
   useEffect(() => {
     const doughnutChart = chartRef.current.getContext("2d");
 
-    new Chart(doughnutChart, {
+    const myDoughnut = new Chart(doughnutChart, {
       type: "doughnut",
       data: {
         labels: categories.map(cat => cat.name),
@@ -37,24 +35,28 @@ const Doughnut = ({ categories }) => {
         maintainAspectRatio: true,
         aspectRatio: 0.9,
         cutoutPercentage: 60,
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              console.log("TEST", data.labels[tooltipItem.index]);
-              let dataLabel = " " + data.labels[tooltipItem.index];
-              let value =
-                ": " +
-                data.datasets[tooltipItem.datasetIndex].data[
-                  tooltipItem.index
-                ] +
-                "£";
-
-              dataLabel += value;
-
-              return dataLabel;
-            }
-          }
+        onHover: e => {
+          // console.log(e)
+          console.log(myDoughnut.getElementAtEvent(e));
         }
+        // tooltips: {
+        //   callbacks: {
+        //     label: function (tooltipItem, data) {
+        //       console.log("TEST", data.labels[tooltipItem.index]);
+        //       let dataLabel = " " + data.labels[tooltipItem.index];
+        //       let value =
+        //         ": " +
+        //         data.datasets[tooltipItem.datasetIndex].data[
+        //           tooltipItem.index
+        //         ] +
+        //         "£";
+
+        //       dataLabel += value;
+
+        //       return dataLabel;
+        //     }
+        //   }
+        // }
       }
     });
   });

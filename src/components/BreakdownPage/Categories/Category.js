@@ -1,9 +1,9 @@
 import React from "react";
 import "./css/categories.css";
 
-const Category = ({ name, data, total }) => {
+const Category = ({ name, data, total, active }) => {
   return (
-    <div className="category">
+    <div className={`category category${active ? "--active" : ""}`}>
       <div className="category__icon"></div>
       <div className="category__name">{name}</div>
       <div className="category__percentage">

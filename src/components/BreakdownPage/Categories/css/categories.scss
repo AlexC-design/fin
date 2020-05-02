@@ -24,6 +24,10 @@
       font-weight: bold;
       @include theme-aware("color", "primary-light");
     }
+
+    &--active {
+      border: solid 2px lightgray;
+    }
   }
 
   .simplebar-wrapper {

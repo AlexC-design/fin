@@ -42,6 +42,10 @@
   color: #727272;
 }
 
+.categories-container .category--active {
+  border: solid 2px lightgray;
+}
+
 .categories-container .simplebar-wrapper {
   height: 800px;
 }
