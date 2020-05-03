@@ -10,7 +10,7 @@ const NavbarLink = ({ position, icon, linkName, active, action }) => {
         active ? "--active" : ""
       }`}
     >
-      <img className="navbar-link__icon" src={icon} />
+      <img className="navbar-link__icon" src={icon} alt="" />
       <div className="navbar-link__text">{linkName}</div>
     </div>
   );

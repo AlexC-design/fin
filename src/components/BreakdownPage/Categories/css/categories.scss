@@ -12,6 +12,8 @@
     justify-content: space-between;
     align-items: center;
 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
     &__icon {
       width: 70px;
       height: 70px;
@@ -25,15 +27,20 @@
       @include theme-aware("color", "primary-light");
     }
 
-    &--active {
-      border: solid 2px lightgray;
+    &--hovered {
+      transform: scale(1.1);
+      @include themed-shadow("0", "0", "20", "0", "outline-color");
+      @include theme-aware("color", "primary-light");
     }
   }
 
   .simplebar-wrapper {
     height: 800px;
 
-    .simplebar-content {
+    .simplebar-content-wrapper {
+      padding: 20px;
+      .simplebar-content {
+      }
     }
   }
 

@@ -3,7 +3,7 @@
 .section {
   min-width: 50px;
   min-height: 50px;
-  padding: 40px;
+  padding: 20px;
   margin: 20px;
   @include theme-aware("background-color", "background");
 

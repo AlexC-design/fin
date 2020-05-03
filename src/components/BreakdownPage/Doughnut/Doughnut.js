@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import Chart from "chart.js";
 import "./css/doughnut.css";
 import { connect } from "react-redux";
 import { setHovered } from "../../../store/state/hovered";
 
 Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
-Chart.defaults.global.legend.display = false;
 
-const Doughnut = ({ categories, setHovered, hoveredIndex }) => {
+const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
+  const [localHovered, setLocalHovered] = useState(null);
+
   const chartRef = React.createRef();
 
   const total = categories.reduce((acc, cur) => {
@@ -39,40 +40,47 @@ const Doughnut = ({ categories, setHovered, hoveredIndex }) => {
         cutoutPercentage: 60,
         onHover: e => {
           if (myDoughnut.getElementAtEvent(e)[0]) {
-            if (myDoughnut.getElementAtEvent(e)[0]._index !== hoveredIndex) {
-              // console.log("(if) _INDEX HOVER", myDoughnut.getElementAtEvent(e)[0]._index  ,hoveredIndex);
-              setHovered(myDoughnut.getElementAtEvent(e)[0]._index);
+            // console.log("IF:", myDoughnut.getElementAtEvent(e)[0]);
+            if (myDoughnut.getElementAtEvent(e)[0]._index !== localHovered) {
+              setLocalHovered(myDoughnut.getElementAtEvent(e)[0]._index);
             }
           } else {
-            if (hoveredIndex !== null) {
-              // console.log("else:", hoveredIndex);
-              setHovered(null);
-            }
+            // console.log("else:", myDoughnut.getElementAtEvent(e), localHovered);
+            setLocalHovered(null);
           }
         },
         animation: {
           animateRotate: false
+        },
+        legend: {
+          display: false
+        },
+        tooltips: {
+          callbacks: {
+            label: function (tooltipItem, data) {
+              // console.log("TEST", data.labels[tooltipItem.index]);
+              let dataLabel = " " + data.labels[tooltipItem.index];
+              let value =
+                ": " +
+                data.datasets[tooltipItem.datasetIndex].data[
+                  tooltipItem.index
+                ] +
+                "£";
+
+              dataLabel += value;
+
+              return dataLabel;
+            }
+          }
         }
-        // tooltips: {
-        //   callbacks: {
-        //     label: function (tooltipItem, data) {
-        //       console.log("TEST", data.labels[tooltipItem.index]);
-        //       let dataLabel = " " + data.labels[tooltipItem.index];
-        //       let value =
-        //         ": " +
-        //         data.datasets[tooltipItem.datasetIndex].data[
-        //           tooltipItem.index
-        //         ] +
-        //         "£";
-
-        //       dataLabel += value;
-
-        //       return dataLabel;
-        //     }
-        //   }
-        // }
       }
     });
+  }, []);
+
+  useEffect(() => {
+    if (localHovered !== globalHovered) {
+      setGlobalHovered(localHovered);
+    }
   });
 
   return (
@@ -88,10 +96,10 @@ const Doughnut = ({ categories, setHovered, hoveredIndex }) => {
 };
 
 const mapStateToProps = state => ({
-  hoveredIndex: state.hovered.index
+  GlobalHovered: state.hovered.index
 });
 const mapDispatchToProps = dispatch => ({
-  setHovered: index => dispatch(setHovered(index))
+  setGlobalHovered: index => dispatch(setHovered(index))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Doughnut);

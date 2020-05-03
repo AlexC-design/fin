@@ -12,7 +12,7 @@ const ThemeChangeButton = ({ position, theme, changeTheme }) => {
     >
       <div className={`navbar-link navbar-link--${position}`}>
         <div className="navbar-link__icon icon-container">
-          <img className="icon" src={theme === "dark" ? light : dark} />
+          <img className="icon" src={theme === "dark" ? light : dark} alt="" />
         </div>
         <div className="navbar-link__text text">
           {theme === "light" ? "Dark" : "Light"} Theme

@@ -11,7 +11,7 @@ const MonthButton = ({ disabled, action, buttonName, direction }) => {
         disabled ? "--disabled" : ""
       } month-button--${direction}`}
     >
-      <img src={disabled ? arrowDisabled : arrow} />
+      <img src={disabled ? arrowDisabled : arrow} alt="" />
       <p>{buttonName}</p>
     </button>
   );
