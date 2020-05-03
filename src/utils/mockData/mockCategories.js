@@ -7,7 +7,8 @@ const names = [
   "Entertainment",
   "Health",
   "test1",
-  "test2"
+  "test2",
+  "test3"
 ];
 
 const colors = [
@@ -15,6 +16,7 @@ const colors = [
   "#253277",
   "#2dbfa0",
   "#eb9e2b",
+  "#712caa",
   "#fe5454",
   "#712caa",
   "#feed54",

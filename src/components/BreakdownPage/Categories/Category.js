@@ -1,9 +1,17 @@
 import React from "react";
 import "./css/categories.css";
 
-const Category = ({ name, data, total, hovered }) => {
+const Category = ({ name, data, total, hovered, setLocalHovered, index }) => {
+  const hoverToggle = on => {
+    on ? setLocalHovered(index) : setLocalHovered(null);
+  };
+
   return (
-    <div className={`category category${hovered ? "--hovered" : ""}`}>
+    <div
+      onMouseEnter={() => hoverToggle(true)}
+      onMouseLeave={() => hoverToggle(false)}
+      className={`category category${hovered ? "--hovered" : ""}`}
+    >
       <div className="category__icon"></div>
       <div className="category__name">{name}</div>
       <div className="category__percentage">

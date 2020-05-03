@@ -9,6 +9,7 @@
   &__month {
     font-weight: bold;
     margin-bottom: 20px;
+    cursor: default;
     @include theme-aware("color", "primary-light");
   }
 

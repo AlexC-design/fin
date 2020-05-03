@@ -17,6 +17,7 @@
 .month-ctrl__month {
   font-weight: bold;
   margin-bottom: 20px;
+  cursor: default;
 }
 
 .theme-light .month-ctrl__month {

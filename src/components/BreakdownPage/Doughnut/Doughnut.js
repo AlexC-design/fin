@@ -8,6 +8,7 @@ Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
 
 const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
   const [localHovered, setLocalHovered] = useState(null);
+  const [sectionHover, setSectionHover] = useState(false);
 
   const chartRef = React.createRef();
 
@@ -50,7 +51,7 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
           }
         },
         animation: {
-          animateRotate: false
+          animateRotate: true
         },
         legend: {
           display: false
@@ -78,13 +79,17 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
   }, []);
 
   useEffect(() => {
-    if (localHovered !== globalHovered) {
+    if (sectionHover && localHovered !== globalHovered) {
       setGlobalHovered(localHovered);
     }
   });
 
   return (
-    <div className="doughnut">
+    <div
+      onMouseEnter={() => setSectionHover(true)}
+      onMouseLeave={() => setSectionHover(false)}
+      className="doughnut"
+    >
       <div className="doughnut__chart">
         <canvas id="doughnut__chart__canvas" ref={chartRef} />
       </div>
