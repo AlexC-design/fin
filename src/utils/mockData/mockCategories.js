@@ -24,12 +24,20 @@ const colors = [
   "#712caa"
 ];
 
-const mockCategories = names.map((name, index) => {
-  return {
-    name,
-    data: Math.floor((Math.random() * 1000 + 300) / (index + 1)),
-    color: colors[index]
-  };
-});
+const mockCategories = () => {
+  const categories = names.map((name, index) => {
+    return {
+      name,
+      data: Math.floor((Math.random() * 1000 + 300) / (index + 1)),
+      color: colors[index]
+    };
+  });
 
-export default mockCategories;
+  return categories;
+};
+
+export const refreshData = () => {
+  return mockCategories();
+};
+
+export default mockCategories();

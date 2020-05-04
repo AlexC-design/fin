@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./css/categories.css";
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
-import mockCategories from "../../../utils/mockData/mockCategories";
 import Category from "./Category";
 import { connect } from "react-redux";
 import { setHovered } from "../../../store/state/hovered/index";
 
-const Categories = ({ globalHovered, setGlobalHovered }) => {
+const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
   const [outsideView, setOutsideView] = useState(false);
@@ -15,7 +14,7 @@ const Categories = ({ globalHovered, setGlobalHovered }) => {
 
   const scrollableNodeRef = React.createRef();
 
-  const total = mockCategories.reduce((acc, cur) => {
+  const total = categories.reduce((acc, cur) => {
     return acc + cur.data;
   }, 0);
 
@@ -26,9 +25,7 @@ const Categories = ({ globalHovered, setGlobalHovered }) => {
 
     const timeoutId = setTimeout(() => {
       const scrollAmount =
-        // document.querySelector(".simplebar-content-wrapper")
-        //   .scrollTop;
-        (scrollHeight / (mockCategories.length - 1)) * globalHovered;
+        (scrollHeight / (categories.length - 1)) * globalHovered;
 
       if (
         !sectionHover &&
@@ -68,7 +65,7 @@ const Categories = ({ globalHovered, setGlobalHovered }) => {
         autoHide={false}
         scrollableNodeProps={{ ref: scrollableNodeRef }}
       >
-        {mockCategories.map((cat, index) => (
+        {categories.map((cat, index) => (
           <Category
             setOutsideView={setOutsideView}
             outsideView={outsideView}

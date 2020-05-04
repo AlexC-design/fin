@@ -6,7 +6,12 @@ import { setHovered } from "../../../store/state/hovered";
 
 Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
 
-const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
+const Doughnut = ({
+  categories,
+  setGlobalHovered,
+  globalHovered,
+  currentMoment
+}) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
   const [chart, setChart] = useState("");
@@ -14,7 +19,6 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
   const chartRef = React.createRef();
 
   const highlightSegment = (chart, index, isHighlight) => {
-    console.log(chart);
     let activeSegment = chart.getDatasetMeta(0).data[index];
 
     chart.updateHoverStyle(
@@ -98,7 +102,7 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
     });
 
     setChart(myDoughnut);
-  }, []);
+  }, [categories, total, currentMoment]);
 
   useEffect(() => {
     if (sectionHover && localHovered !== globalHovered) {
@@ -107,25 +111,13 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
 
     if (chart && !sectionHover) {
       if (globalHovered !== null) {
-        console.log("ON:", globalHovered);
-
         highlightSegment(chart, globalHovered, true);
       }
     }
 
-    // if (chart && !sectionHover) {
-    //   highlightSegment(chart, globalHovered, true);
-    //   categories.forEach((_, index) => {
-    //     if (globalHovered !== index) {
-    //       highlightSegment(chart, index, false);
-    //     }
-    //   });
-    // }
-
     return () => {
       if (chart && !sectionHover) {
         if (globalHovered !== null) {
-          console.log("OFF:", globalHovered);
           highlightSegment(chart, globalHovered, false);
         }
       }
@@ -149,7 +141,8 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
 };
 
 const mapStateToProps = state => ({
-  globalHovered: state.hovered.index
+  globalHovered: state.hovered.index,
+  currentMoment: state.currentMoment.moment
 });
 const mapDispatchToProps = dispatch => ({
   setGlobalHovered: index => dispatch(setHovered(index))

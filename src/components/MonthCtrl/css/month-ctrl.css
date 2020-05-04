@@ -53,6 +53,14 @@
       -ms-flex-align: center;
           align-items: center;
   height: 50px;
+  margin-bottom: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
 }
 
 .theme-light .month-ctrl .buttons-container .month-button {
@@ -83,6 +91,8 @@
   background-color: #c5c9cd !important;
   color: black !important;
   opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
 }
 
 .month-ctrl .buttons-container .month-button--left {
@@ -96,12 +106,36 @@
           flex-direction: row-reverse;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-bottom: 20px;
   width: 80%;
 }
 
 .month-ctrl .buttons-container .month-button--right img {
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
+}
+
+.theme-light .month-ctrl .buttons-container .month-button:hover {
+  background-color: #364496;
+}
+
+.theme-dark .month-ctrl .buttons-container .month-button:hover {
+  background-color: #727272;
+}
+
+.month-ctrl .buttons-container .month-button:active {
+  -webkit-transform: scale(1.01, 0.99);
+          transform: scale(1.01, 0.99);
+}
+
+.theme-light .month-ctrl .buttons-container .month-button:active {
+  background-color: #131e56;
+}
+
+.theme-dark .month-ctrl .buttons-container .month-button:active {
+  background-color: #202020;
+}
+
+.month-ctrl .buttons-container .month-button:focus {
+  outline: none;
 }
 /*# sourceMappingURL=month-ctrl.css.map */
