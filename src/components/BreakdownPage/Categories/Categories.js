@@ -10,6 +10,8 @@ import { setHovered } from "../../../store/state/hovered/index";
 const Categories = ({ globalHovered, setGlobalHovered }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
+  const [outsideView, setOutsideView] = useState(false);
+  const [scrollView, setScrollView] = useState(0);
 
   const scrollableNodeRef = React.createRef();
 
@@ -22,16 +24,38 @@ const Categories = ({ globalHovered, setGlobalHovered }) => {
       document.querySelector(".simplebar-content-wrapper").scrollHeight -
       document.querySelector(".simplebar-content-wrapper").clientHeight;
 
-    if (globalHovered !== null && scrollableNodeRef.current) {
-      scrollableNodeRef.current.scrollTo({
-        top: (scrollHeight / (mockCategories.length - 1)) * globalHovered,
-        behavior: "smooth"
-      });
-    }
+    const timeoutId = setTimeout(() => {
+      const scrollAmount =
+        // document.querySelector(".simplebar-content-wrapper")
+        //   .scrollTop;
+        (scrollHeight / (mockCategories.length - 1)) * globalHovered;
+
+      if (
+        !sectionHover &&
+        globalHovered !== null &&
+        scrollView !== scrollAmount
+      ) {
+        setScrollView(scrollAmount);
+      }
+
+      if (
+        globalHovered !== null &&
+        scrollableNodeRef.current &&
+        !sectionHover &&
+        outsideView
+      ) {
+        scrollableNodeRef.current.scrollTo({
+          top: scrollView,
+          behavior: "smooth"
+        });
+      }
+    }, 100);
 
     if (sectionHover && localHovered !== globalHovered) {
       setGlobalHovered(localHovered);
     }
+
+    return () => clearTimeout(timeoutId);
   });
 
   return (
@@ -46,6 +70,8 @@ const Categories = ({ globalHovered, setGlobalHovered }) => {
       >
         {mockCategories.map((cat, index) => (
           <Category
+            setOutsideView={setOutsideView}
+            outsideView={outsideView}
             index={index}
             setLocalHovered={setLocalHovered}
             hovered={globalHovered === index ? true : false}

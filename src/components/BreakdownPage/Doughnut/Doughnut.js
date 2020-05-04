@@ -9,8 +9,21 @@ Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
 const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
+  const [chart, setChart] = useState("");
 
   const chartRef = React.createRef();
+
+  const highlightSegment = (chart, index, isHighlight) => {
+    console.log(chart);
+    let activeSegment = chart.getDatasetMeta(0).data[index];
+
+    chart.updateHoverStyle(
+      [activeSegment],
+      chart.options.hover.mode,
+      isHighlight
+    );
+    chart.draw();
+  };
 
   const total = categories.reduce((acc, cur) => {
     return acc + cur.data;
@@ -30,7 +43,7 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
             }),
             backgroundColor: categories.map(cat => cat.color),
             hoverBorderColor: "transparent",
-            borderWidth: 5
+            borderWidth: 2
           }
         ]
       },
@@ -39,19 +52,26 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
         maintainAspectRatio: true,
         aspectRatio: 0.9,
         cutoutPercentage: 60,
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
         onHover: e => {
           if (myDoughnut.getElementAtEvent(e)[0]) {
-            // console.log("IF:", myDoughnut.getElementAtEvent(e)[0]);
             if (myDoughnut.getElementAtEvent(e)[0]._index !== localHovered) {
               setLocalHovered(myDoughnut.getElementAtEvent(e)[0]._index);
             }
           } else {
-            // console.log("else:", myDoughnut.getElementAtEvent(e), localHovered);
             setLocalHovered(null);
           }
         },
         animation: {
           animateRotate: true
+          // animateScale: true
         },
         legend: {
           display: false
@@ -59,7 +79,7 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
         tooltips: {
           callbacks: {
             label: function (tooltipItem, data) {
-              // console.log("TEST", data.labels[tooltipItem.index]);
+              //
               let dataLabel = " " + data.labels[tooltipItem.index];
               let value =
                 ": " +
@@ -76,12 +96,40 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
         }
       }
     });
+
+    setChart(myDoughnut);
   }, []);
 
   useEffect(() => {
     if (sectionHover && localHovered !== globalHovered) {
       setGlobalHovered(localHovered);
     }
+
+    if (chart && !sectionHover) {
+      if (globalHovered !== null) {
+        console.log("ON:", globalHovered);
+
+        highlightSegment(chart, globalHovered, true);
+      }
+    }
+
+    // if (chart && !sectionHover) {
+    //   highlightSegment(chart, globalHovered, true);
+    //   categories.forEach((_, index) => {
+    //     if (globalHovered !== index) {
+    //       highlightSegment(chart, index, false);
+    //     }
+    //   });
+    // }
+
+    return () => {
+      if (chart && !sectionHover) {
+        if (globalHovered !== null) {
+          console.log("OFF:", globalHovered);
+          highlightSegment(chart, globalHovered, false);
+        }
+      }
+    };
   });
 
   return (
@@ -101,7 +149,7 @@ const Doughnut = ({ categories, setGlobalHovered, globalHovered }) => {
 };
 
 const mapStateToProps = state => ({
-  GlobalHovered: state.hovered.index
+  globalHovered: state.hovered.index
 });
 const mapDispatchToProps = dispatch => ({
   setGlobalHovered: index => dispatch(setHovered(index))
