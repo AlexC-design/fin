@@ -10,7 +10,8 @@ const Doughnut = ({
   categories,
   setGlobalHovered,
   globalHovered,
-  currentMoment
+  currentMoment,
+  total
 }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
@@ -29,14 +30,10 @@ const Doughnut = ({
     chart.draw();
   };
 
-  const total = categories.reduce((acc, cur) => {
-    return acc + cur.data;
-  }, 0);
-
   useEffect(() => {
     const doughnutChart = chartRef.current.getContext("2d");
 
-    const myDoughnut = new Chart(doughnutChart, {
+    let myDoughnut = new Chart(doughnutChart, {
       type: "doughnut",
       data: {
         labels: categories.map(cat => cat.name),
@@ -65,11 +62,11 @@ const Doughnut = ({
           }
         },
         onHover: e => {
-          if (myDoughnut.getElementAtEvent(e)[0]) {
+          if (myDoughnut && myDoughnut.getElementAtEvent(e)[0]) {
             if (myDoughnut.getElementAtEvent(e)[0]._index !== localHovered) {
               setLocalHovered(myDoughnut.getElementAtEvent(e)[0]._index);
             }
-          } else {
+          } else if (localHovered !== null) {
             setLocalHovered(null);
           }
         },
@@ -102,7 +99,11 @@ const Doughnut = ({
     });
 
     setChart(myDoughnut);
-  }, [categories, total, currentMoment]);
+
+    return () => {
+      myDoughnut.destroy();
+    };
+  }, [currentMoment]);
 
   useEffect(() => {
     if (sectionHover && localHovered !== globalHovered) {
@@ -122,7 +123,7 @@ const Doughnut = ({
         }
       }
     };
-  });
+  }, [localHovered]);
 
   return (
     <div
@@ -142,7 +143,9 @@ const Doughnut = ({
 
 const mapStateToProps = state => ({
   globalHovered: state.hovered.index,
-  currentMoment: state.currentMoment.moment
+  currentMoment: state.currentMoment.moment,
+  categories: state.mockData.categories,
+  total: state.mockData.total
 });
 const mapDispatchToProps = dispatch => ({
   setGlobalHovered: index => dispatch(setHovered(index))

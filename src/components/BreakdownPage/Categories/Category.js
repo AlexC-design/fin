@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import "./css/categories.css";
 
 const Category = ({
@@ -55,4 +56,8 @@ const Category = ({
   );
 };
 
-export default Category;
+const mapStateToProps = state => ({
+  total: state.mockData.total
+});
+
+export default connect(mapStateToProps)(Category);

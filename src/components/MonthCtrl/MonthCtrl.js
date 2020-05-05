@@ -4,7 +4,6 @@ import MonthButton from "./MonthButton";
 import moment from "moment";
 import { connect } from "react-redux";
 import { setMoment } from "../../store/state/currentMoment";
-import { refreshData } from "../../utils/mockData/mockCategories";
 
 const MonthCtrl = ({ setMoment }) => {
   const [currentTime, setCurrentTime] = useState(moment());
@@ -13,20 +12,20 @@ const MonthCtrl = ({ setMoment }) => {
   );
 
   const nextMonth = () => {
-    refreshData();
     setCurrentTime(moment(currentTime).add(1, "M"));
   };
   const prevMonth = () => {
-    refreshData();
     setCurrentTime(moment(currentTime).subtract(1, "M"));
   };
 
+  //------------------ just formatting --------------------
   const currentMonth = () => {
     return moment(currentTime).format("MMMM");
   };
   const currentYear = () => {
     return moment(currentTime).format("YYYY");
   };
+  //--------------------------------------------------------
 
   useEffect(() => {
     setIsCurrentMonth(moment(currentTime).isSame(moment(), "month"));

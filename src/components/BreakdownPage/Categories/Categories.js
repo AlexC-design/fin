@@ -14,10 +14,6 @@ const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
 
   const scrollableNodeRef = React.createRef();
 
-  const total = categories.reduce((acc, cur) => {
-    return acc + cur.data;
-  }, 0);
-
   useEffect(() => {
     const scrollHeight =
       document.querySelector(".simplebar-content-wrapper").scrollHeight -
@@ -74,7 +70,6 @@ const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
             hovered={globalHovered === index ? true : false}
             name={cat.name}
             data={cat.data}
-            total={total}
             key={cat.name}
           />
         ))}
@@ -84,7 +79,8 @@ const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
 };
 
 const mapStateToProps = state => ({
-  globalHovered: state.hovered.index
+  globalHovered: state.hovered.index,
+  categories: state.mockData.categories,
 });
 
 const mapDispatchToProps = dispatch => ({

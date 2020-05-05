@@ -36,8 +36,4 @@ const mockCategories = () => {
   return categories;
 };
 
-export const refreshData = () => {
-  return mockCategories();
-};
-
-export default mockCategories();
+export default mockCategories;
