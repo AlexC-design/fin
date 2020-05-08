@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
 import Section from "../Section/Section";
-import Doughnut from "./Doughnut/Doughnut";
+import Line from "./Line/Line";
 import MonthCtrl from "../MonthCtrl/MonthCtrl";
-import Categories from "./Categories/Categories";
+import Vendors from "./Vendors/Vendors";
+import "./css/history-page.css";
+import { connect } from "react-redux";
 import { setMobileView as setMobileViewGlobal } from "../../store/state/mobileView";
-import "./css/breakdown-page.css";
 
 const BreakdownPage = ({ setMobileViewGlobal, mobileViewGlobal }) => {
   const [mainHeight, setMainHeight] = useState(0);
@@ -92,18 +92,18 @@ const BreakdownPage = ({ setMobileViewGlobal, mobileViewGlobal }) => {
   });
 
   return (
-    <div className="breakdown-page">
-      <div className="breakdown-page__left">
+    <div className="history-page">
+      <div className="history-page__left">
         <Section outline="shadow" radius={20} type={"main"} height={mainHeight}>
-          <Doughnut />
+          <Line />
         </Section>
         <Section outline="shadow" radius={20} type={"second"}>
           <MonthCtrl />
         </Section>
       </div>
-      <div className="breakdown-page__right">
+      <div className="history-page__right">
         <Section outline="shadow" radius={20} type={"third"}>
-          <Categories simplebarHeight={simplebarHeight} />
+          <Vendors simplebarHeight={simplebarHeight} />
         </Section>
       </div>
     </div>

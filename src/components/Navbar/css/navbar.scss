@@ -99,7 +99,7 @@
 
     margin: 10px;
     width: calc(100% - 20px);
-    height: 50px;
+    height: 55px;
 
     bottom: 0;
 
@@ -107,14 +107,11 @@
 
     .navbar-link {
       margin: 0;
-      padding: 0 5px;
+      padding: 5px 5px 0;
       border-radius: 0 0 10px 10px;
       align-self: flex-start;
 
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-      &__icon {
-      }
 
       &__text {
         bottom: 5px;
@@ -128,12 +125,10 @@
         img {
           animation: stretch-squeeze-side-ways 0.4s
             cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-          }
-          
-          div {
-            animation: bump 0.4s
-              cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-            
+        }
+
+        div {
+          animation: bump 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
         }
 
         animation: fade-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
@@ -316,7 +311,7 @@
     min-width: 50px;
     max-width: 50px;
     width: 50px;
-    margin: 0 20px;
+    margin: 0;
 
     .navbar-link {
       min-width: unset;

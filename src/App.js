@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { HashRouter, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import BreakdownPage from "./components/BreakdownPage/BreakdownPage";
-import { setCategories } from "./store/state/mockData/index";
+import HistoryPage from "./components/HistoryPage/HistoryPage";
+import RedirectPage from "./utils/RedirectPage/RedirectPage";
+import { setCategories, setVendors } from "./store/state/mockData/index";
 import mockCategories from "./utils/mockData/mockCategories";
+import mockVendors from "./utils/mockData/mockVendors";
 
 import "./css/app.css";
 
@@ -24,28 +28,32 @@ const App = ({ setCategories, currentMoment }) => {
 
   const mockData = () => {
     const categories = mockCategories();
+    const vendors = mockVendors();
 
     const total = categories.reduce((acc, cur) => {
       return acc + cur.data;
     }, 0);
 
-    return { categories, total };
+    return { categories, total, vendors };
   };
 
   useEffect(() => {
     setCategories(mockData().categories, mockData().total);
+    setVendors(mockData().vendors);
   }, [currentMoment]);
 
   return (
-    <>
+    <HashRouter basename="/">
       <Navbar changeTheme={changeTheme} theme={theme} />
       <div className="main-screen">
         <div className="page-spacer" />
         <div className="page-container">
-          <BreakdownPage />
+          <Route path="/" exact component={RedirectPage} />
+          <Route path="/breakdown" exact component={BreakdownPage} />
+          <Route path="/history" exact component={HistoryPage} />
         </div>
       </div>
-    </>
+    </HashRouter>
   );
 };
 
@@ -55,7 +63,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setCategories: (categories, total) =>
-    dispatch(setCategories(categories, total))
+    dispatch(setCategories(categories, total)),
+  setVendors: vendors => dispatch(setVendors(vendors))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

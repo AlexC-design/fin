@@ -1,18 +1,24 @@
-import { SET_CATEGORIES } from "./index";
+import { SET_CATEGORIES, SET_VENDORS } from "./index";
 
 const initialState = {
   categories: [],
-  total: null
+  total: null,
+  vendors: []
 };
 
 export default (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case SET_CATEGORIES:
       return {
         ...state,
         categories: action.payload.categories,
         total: action.payload.total
+      };
+
+    case SET_VENDORS:
+      return {
+        ...state,
+        vendors: action.payload
       };
 
     default:

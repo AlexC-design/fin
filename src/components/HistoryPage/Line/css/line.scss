@@ -1,0 +1,36 @@
+@import "../../../../scss/variables.scss";
+
+.doughnut {
+  position: relative;
+
+  &__chart {
+    &__canvas {
+    }
+  }
+
+  &__total {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: none;
+
+    &__text {
+      font-size: 1.5em;
+      font-weight: bold;
+      @include theme-aware("color", "primary-light");
+    }
+
+    &__pound {
+      opacity: 0.8;
+      font-size: 1em;
+      font-weight: normal;
+    }
+  }
+}
