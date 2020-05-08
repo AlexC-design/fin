@@ -21,7 +21,7 @@
 }
 
 .doughnut__total__text {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
@@ -31,5 +31,11 @@
 
 .theme-dark .doughnut__total__text {
   color: #727272;
+}
+
+.doughnut__total__pound {
+  opacity: 0.8;
+  font-size: 1em;
+  font-weight: normal;
 }
 /*# sourceMappingURL=doughnut.css.map */

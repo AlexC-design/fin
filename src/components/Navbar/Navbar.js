@@ -7,6 +7,7 @@ import payments from "../../assets/icons/navbar/payments.svg";
 
 import "./css/navbar.css";
 import ThemeChangeButton from "./ThemeChangeButton";
+import { connect } from "react-redux";
 
 const navbarLinks = [
   {
@@ -27,7 +28,7 @@ const navbarLinks = [
   }
 ];
 
-const Navbar = ({ position, theme, changeTheme }) => {
+const Navbar = ({ size, theme, changeTheme, mobileView }) => {
   const [active, setActive] = useState(navbarLinks[0].name);
   const [animate, setAnimate] = useState("");
 
@@ -45,29 +46,32 @@ const Navbar = ({ position, theme, changeTheme }) => {
     return navbarLinks.findIndex(link => link.name === linkName);
   };
 
+  const Vstyle = { top: `${91 + 70 * activeLinkIndex(active)}px` };
+  const Hstyle = { left: `calc((80px + 30%)/1.5 + ${0}vw)` };
+
   return (
-    <div className={`navbar navbar--${position}`}>
+    <div className={`navbar navbar--${size}`}>
       {navbarLinks.map(link => (
         <NavbarLink
           active={active === link.name ? true : false}
           action={setActiveLink}
           icon={link.icon}
-          position={position}
+          size={size}
           linkName={link.name}
           key={link.name}
         />
       ))}
       <div
         className={`link-bg link-bg${animate}`}
-        style={{ top: `${91 + 70 * activeLinkIndex(active)}px` }}
+        style={mobileView ? Hstyle : Vstyle}
       />
-      <ThemeChangeButton
-        position={position}
-        theme={theme}
-        changeTheme={changeTheme}
-      />
+      <ThemeChangeButton size={size} theme={theme} changeTheme={changeTheme} />
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => ({
+  mobileView: state.mobileView
+});
+
+export default connect(mapStateToProps)(Navbar);

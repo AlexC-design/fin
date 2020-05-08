@@ -6,7 +6,7 @@ import Category from "./Category";
 import { connect } from "react-redux";
 import { setHovered } from "../../../store/state/hovered/index";
 
-const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
+const Categories = ({ globalHovered, setGlobalHovered, categories, simplebarHeight }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
   const [outsideView, setOutsideView] = useState(false);
@@ -32,9 +32,9 @@ const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
       }
 
       if (
+        !sectionHover &&
         globalHovered !== null &&
         scrollableNodeRef.current &&
-        !sectionHover &&
         outsideView
       ) {
         scrollableNodeRef.current.scrollTo({
@@ -58,7 +58,7 @@ const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
       className="categories-container"
     >
       <SimpleBar
-        autoHide={false}
+        style={{ height: `${simplebarHeight}px`, autoHide: false }}
         scrollableNodeProps={{ ref: scrollableNodeRef }}
       >
         {categories.map((cat, index) => (
@@ -80,7 +80,7 @@ const Categories = ({ globalHovered, setGlobalHovered, categories }) => {
 
 const mapStateToProps = state => ({
   globalHovered: state.hovered.index,
-  categories: state.mockData.categories,
+  categories: state.mockData.categories
 });
 
 const mapDispatchToProps = dispatch => ({

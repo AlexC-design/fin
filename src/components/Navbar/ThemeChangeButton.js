@@ -4,15 +4,20 @@ import light from "../../assets/icons/navbar/light.svg";
 
 import "./css/navbar.css";
 
-const ThemeChangeButton = ({ position, theme, changeTheme }) => {
+const ThemeChangeButton = ({ theme, changeTheme }) => {
   return (
     <div
       onClick={() => changeTheme(theme === "light" ? "dark" : "light")}
       className="theme-button-container"
     >
-      <div className={`navbar-link navbar-link--${position}`}>
+      <div className={`navbar-link`}>
         <div className="navbar-link__icon icon-container">
-          <img className="icon" src={theme === "dark" ? light : dark} alt="" />
+          <img
+            draggable="false"
+            className="icon"
+            src={theme === "dark" ? light : dark}
+            alt=""
+          />
         </div>
         <div className="navbar-link__text text">
           {theme === "light" ? "Dark" : "Light"} Theme

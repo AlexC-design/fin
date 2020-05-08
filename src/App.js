@@ -38,7 +38,7 @@ const App = ({ setCategories, currentMoment }) => {
 
   return (
     <>
-      <Navbar position={"side"} changeTheme={changeTheme} theme={theme} />
+      <Navbar changeTheme={changeTheme} theme={theme} />
       <div className="main-screen">
         <div className="page-spacer" />
         <div className="page-container">

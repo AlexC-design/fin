@@ -51,7 +51,7 @@ const Doughnut = ({
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 0.9,
+        aspectRatio: 1,
         cutoutPercentage: 60,
         layout: {
           padding: {
@@ -62,7 +62,7 @@ const Doughnut = ({
           }
         },
         onHover: e => {
-          if (myDoughnut && myDoughnut.getElementAtEvent(e)[0]) {
+          if (myDoughnut.getElementAtEvent(e)[0]) {
             if (myDoughnut.getElementAtEvent(e)[0]._index !== localHovered) {
               setLocalHovered(myDoughnut.getElementAtEvent(e)[0]._index);
             }
@@ -72,7 +72,6 @@ const Doughnut = ({
         },
         animation: {
           animateRotate: true
-          // animateScale: true
         },
         legend: {
           display: false
@@ -80,14 +79,10 @@ const Doughnut = ({
         tooltips: {
           callbacks: {
             label: function (tooltipItem, data) {
-              //
-              let dataLabel = " " + data.labels[tooltipItem.index];
+              let dataLabel = " " + data.labels[tooltipItem.index] + ": ";
               let value =
-                ": " +
-                data.datasets[tooltipItem.datasetIndex].data[
-                  tooltipItem.index
-                ] +
-                "£";
+                "£" +
+                data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
 
               dataLabel += value;
 
@@ -123,7 +118,7 @@ const Doughnut = ({
         }
       }
     };
-  }, [localHovered]);
+  }, [localHovered, globalHovered]);
 
   return (
     <div
@@ -135,7 +130,10 @@ const Doughnut = ({
         <canvas id="doughnut__chart__canvas" ref={chartRef} />
       </div>
       <div className="doughnut__total">
-        <div className="doughnut__total__text">{total}&pound;</div>
+        <div className="doughnut__total__text">
+          <span className="doughnut__total__pound">&pound;</span>
+          {total}
+        </div>
       </div>
     </div>
   );

@@ -96,8 +96,20 @@ $themes: (
   }
 }
 
+@mixin width1280 {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
 @mixin width768 {
   @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin width640 {
+  @media (max-width: 640px) {
     @content;
   }
 }

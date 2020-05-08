@@ -22,9 +22,15 @@
     pointer-events: none;
 
     &__text {
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-weight: bold;
       @include theme-aware("color", "primary-light");
+    }
+
+    &__pound {
+      opacity: 0.8;
+      font-size: 1em;
+      font-weight: normal;
     }
   }
 }

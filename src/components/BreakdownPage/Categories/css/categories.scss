@@ -33,10 +33,20 @@
       @include themed-shadow("0", "0", "20", "0", "outline-color");
       @include theme-aware("color", "primary-light");
     }
+
+    @include width1000 {
+      height: 50px;
+      margin: 0 20px 10px;
+
+      &__icon {
+        width: 35px;
+        height: 35px;
+      }
+    }
   }
 
   .simplebar-wrapper {
-    height: 800px;
+    // max-height: 850px;
 
     .simplebar-content-wrapper {
       padding: 20px;

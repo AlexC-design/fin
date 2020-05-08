@@ -6,18 +6,28 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
 }
 
 .month-ctrl__month {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-weight: bold;
-  margin-bottom: 20px;
   cursor: default;
+  height: 30%;
 }
 
 .theme-light .month-ctrl__month {
@@ -29,6 +39,7 @@
 }
 
 .month-ctrl .buttons-container {
+  height: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,10 +47,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 100%;
 }
 
 .month-ctrl .buttons-container .month-button {
+  margin-bottom: 10px;
   border: none;
   border-radius: 100px;
   display: -webkit-box;
@@ -53,7 +67,6 @@
       -ms-flex-align: center;
           align-items: center;
   height: 50px;
-  margin-bottom: 20px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -137,5 +150,42 @@
 
 .month-ctrl .buttons-container .month-button:focus {
   outline: none;
+}
+
+@media (max-width: 1000px) {
+  .month-ctrl__month {
+    margin: 10px 0;
+  }
+  .month-ctrl .buttons-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .month-ctrl .buttons-container .month-button {
+    margin: 10px;
+    height: 35px;
+  }
+  .month-ctrl .buttons-container .month-button--left {
+    width: 40%;
+  }
+  .month-ctrl .buttons-container .month-button--right {
+    width: 40%;
+  }
+}
+
+@media (max-width: 640px) {
+  .month-ctrl__month {
+    margin: 5px;
+  }
+  .month-ctrl .buttons-container .month-button {
+    margin: 5px;
+  }
+  .month-ctrl .buttons-container .month-button img {
+    margin: 0 5px;
+  }
 }
 /*# sourceMappingURL=month-ctrl.css.map */

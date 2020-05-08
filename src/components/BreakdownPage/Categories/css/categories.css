@@ -68,8 +68,15 @@
   color: #727272;
 }
 
-.categories-container .simplebar-wrapper {
-  height: 800px;
+@media (max-width: 1000px) {
+  .categories-container .category {
+    height: 50px;
+    margin: 0 20px 10px;
+  }
+  .categories-container .category__icon {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .categories-container .simplebar-wrapper .simplebar-content-wrapper {
