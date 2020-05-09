@@ -6,7 +6,12 @@ import Category from "./Category";
 import { connect } from "react-redux";
 import { setHovered } from "../../../store/state/hovered/index";
 
-const Categories = ({ globalHovered, setGlobalHovered, categories, simplebarHeight }) => {
+const Categories = ({
+  globalHovered,
+  setGlobalHovered,
+  categories,
+  simplebarHeight
+}) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
   const [outsideView, setOutsideView] = useState(false);
@@ -63,9 +68,9 @@ const Categories = ({ globalHovered, setGlobalHovered, categories, simplebarHeig
       >
         {categories.map((cat, index) => (
           <Category
+            index={index}
             setOutsideView={setOutsideView}
             outsideView={outsideView}
-            index={index}
             setLocalHovered={setLocalHovered}
             hovered={globalHovered === index ? true : false}
             name={cat.name}

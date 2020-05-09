@@ -15,19 +15,21 @@ const Doughnut = ({
 }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
-  const [chart, setChart] = useState("");
+  const [chart, setChart] = useState(null);
 
   const chartRef = React.createRef();
 
   const highlightSegment = (chart, index, isHighlight) => {
-    let activeSegment = chart.getDatasetMeta(0).data[index];
+    if (chart !== null) {
+      let activeSegment = chart.getDatasetMeta(0).data[index];
 
-    chart.updateHoverStyle(
-      [activeSegment],
-      chart.options.hover.mode,
-      isHighlight
-    );
-    chart.draw();
+      chart.updateHoverStyle(
+        [activeSegment],
+        chart.options.hover.mode,
+        isHighlight
+      );
+      chart.draw();
+    }
   };
 
   useEffect(() => {
@@ -66,7 +68,7 @@ const Doughnut = ({
             if (myDoughnut.getElementAtEvent(e)[0]._index !== localHovered) {
               setLocalHovered(myDoughnut.getElementAtEvent(e)[0]._index);
             }
-          } else if (localHovered !== null) {
+          } else {
             setLocalHovered(null);
           }
         },
@@ -93,11 +95,14 @@ const Doughnut = ({
       }
     });
 
-    setChart(myDoughnut);
+    if (myDoughnut) {
+      setChart(myDoughnut);
+    }
 
     return () => {
       myDoughnut.destroy();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMoment]);
 
   useEffect(() => {
@@ -118,6 +123,7 @@ const Doughnut = ({
         }
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localHovered, globalHovered]);
 
   return (

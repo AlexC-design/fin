@@ -89,7 +89,7 @@ const BreakdownPage = ({ setMobileViewGlobal, mobileViewGlobal }) => {
     if (mobileView !== mobileViewGlobal) {
       setMobileViewGlobal(mobileView);
     }
-  });
+  }, [mobileView, mobileViewGlobal, setMobileViewGlobal]);
 
   return (
     <div className="history-page">

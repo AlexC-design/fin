@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { isOutsideOfView } from "../../../utils/isOutsideOfView";
 import "./css/categories.css";
 
 const Category = ({
@@ -14,14 +15,6 @@ const Category = ({
 }) => {
   const hoverToggle = on => {
     on ? setLocalHovered(index) : setLocalHovered(null);
-  };
-
-  const isOutsideOfView = (viewTop, viewBot, elTop, elBot) => {
-    if (elTop < viewTop || elBot > viewBot) {
-      return true;
-    } else {
-      return false;
-    }
   };
 
   const catRef = React.createRef();

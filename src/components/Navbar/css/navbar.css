@@ -416,11 +416,11 @@
 }
 
 .theme-light .theme-light .navbar-link--active div {
-  color: #131e56;
+  color: #364496;
 }
 
 .theme-dark .theme-light .navbar-link--active div {
-  color: #202020;
+  color: #727272;
 }
 
 @media (max-width: 640px) {

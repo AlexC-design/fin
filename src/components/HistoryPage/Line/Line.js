@@ -13,19 +13,21 @@ const Line = ({
 }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
-  const [chart, setChart] = useState("");
+  const [chart, setChart] = useState(null);
 
   const chartRef = React.createRef();
 
   const highlightSegment = (chart, index, isHighlight) => {
-    let activeSegment = chart.getDatasetMeta(0).data[index];
+    if (chart !== null) {
+      let activeSegment = chart.getDatasetMeta(0).data[index];
 
-    chart.updateHoverStyle(
-      [activeSegment],
-      chart.options.hover.mode,
-      isHighlight
-    );
-    chart.draw();
+      chart.updateHoverStyle(
+        [activeSegment],
+        chart.options.hover.mode,
+        isHighlight
+      );
+      chart.draw();
+    }
   };
 
   useEffect(() => {
@@ -75,7 +77,7 @@ const Line = ({
           if (myLine.getElementAtEvent(e)[0]._index !== localHovered) {
             setLocalHovered(myLine.getElementAtEvent(e)[0]._index);
           }
-        } else if (localHovered !== null) {
+        } else {
           setLocalHovered(null);
         }
       },
@@ -118,14 +120,19 @@ const Line = ({
       options
     });
 
-    setChart(myLine);
+    if (myLine) {
+      setChart(myLine);
+    }
 
     return () => {
       myLine.destroy();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMoment, days]);
 
   useEffect(() => {
+    console.log({ localHovered }, { globalHovered });
+
     if (sectionHover && localHovered !== globalHovered) {
       setGlobalHovered(localHovered);
     }
@@ -137,12 +144,13 @@ const Line = ({
     }
 
     return () => {
-      if (chart && !sectionHover) {
+      if (chart !== null && !sectionHover) {
         if (globalHovered !== null) {
           highlightSegment(chart, globalHovered, false);
         }
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localHovered, globalHovered]);
 
   return (

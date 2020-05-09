@@ -2,7 +2,11 @@
 
 .vendors-container {
   .day-section {
+    padding: 10px;
     opacity: 0;
+    border-radius: 20px;
+
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation: fade-in 1s 0.4s ease-out forwards;
 
     &__title {
@@ -83,9 +87,29 @@
       @include theme-aware("background-color", "primary-light");
       opacity: 0.2;
       border-radius: 5px;
+
+      transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
-    margin-bottom: 20px;
+    &--hovered {
+      padding: 40px 0px 20px;
+
+      transform: scale(1.01);
+      @include themed-shadow("0", "0", "20", "0", "outline-color");
+      @include theme-aware("color", "primary-light");
+
+      .day-section {
+        &__separator {
+          opacity: 0;
+        }
+        &__title {
+          &__day {
+            font-weight: bold;
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 
   .simplebar-wrapper {

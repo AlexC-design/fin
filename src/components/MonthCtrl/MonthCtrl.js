@@ -30,7 +30,7 @@ const MonthCtrl = ({ setMoment }) => {
   useEffect(() => {
     setIsCurrentMonth(moment(currentTime).isSame(moment(), "month"));
     setMoment(currentTime);
-  });
+  }, [currentTime, setMoment]);
 
   return (
     <div className="month-ctrl">

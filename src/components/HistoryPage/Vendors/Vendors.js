@@ -27,7 +27,7 @@ const Vendors = ({
 
     const timeoutId = setTimeout(() => {
       const scrollAmount =
-        (scrollHeight / (vendors.length - 1)) * globalHovered;
+        (scrollHeight / (days.length - 1)) * globalHovered;
 
       if (
         !sectionHover &&
@@ -67,13 +67,18 @@ const Vendors = ({
         style={{ height: `${simplebarHeight}px`, autoHide: false }}
         scrollableNodeProps={{ ref: scrollableNodeRef }}
       >
-        {days.map(day => {
+        {days.map((day, index) => {
           return (
             <Day
-              key={day.day}
+              index={index}
+              setOutsideView={setOutsideView}
+              outsideView={outsideView}
+              setLocalHovered={setLocalHovered}
+              hovered={globalHovered === index ? true : false}
               day={day.day}
               amount={day.amount}
               vendorsNo={Math.floor(Math.random() * 7) + 1}
+              key={day.day}
             />
           );
         })}

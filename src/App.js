@@ -45,6 +45,7 @@ const App = ({ setCategories, currentMoment, setVendors }) => {
   useEffect(() => {
     setCategories(mockData().categories, mockData().total);
     setVendors(mockData().vendors);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMoment]);
 
   return (
