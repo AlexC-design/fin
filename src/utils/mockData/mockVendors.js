@@ -9,16 +9,24 @@ const names = [
   "Vendor Name 8"
 ];
 
-const mockVendors = () => {
-  const vendors = names.map((name, index) => {
-    return {
-      name,
-      price: (Math.random() * 100).toFixed(2),
-      time: (Math.random() * 100).toFixed(2)
-    };
-  });
-
-  return vendors;
+const hours = {
+  start: 8,
+  end: 21
 };
 
-export default mockVendors;
+const mockVendor = (amount, index, vendorsNo) => {
+  const hour =
+    hours.start + Math.round((hours.end - hours.start) / vendorsNo) * index;
+
+  return {
+    name: names[Math.floor(Math.random() * names.length)],
+    amount: `£${amount}`,
+    time: `${hour > 12 ? hour - 12 : hour}:${(
+      Math.floor(Math.random() * 60) + 1
+    )
+      .toString()
+      .padStart(2, "0")} ${hour > 12 ? "PM" : "AM"}`
+  };
+};
+
+export default mockVendor;

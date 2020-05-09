@@ -156,10 +156,6 @@
     -webkit-transition: all 0s step-end;
     transition: all 0s step-end;
   }
-  .navbar .navbar-link--active {
-    -webkit-animation: fade-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-            animation: fade-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-  }
   .theme-light .navbar .navbar-link--active {
     background-color: #fff;
   }

@@ -1,48 +1,91 @@
 @import "../../../../scss/variables.scss";
 
 .vendors-container {
-  .vendor {
-    height: 100px;
-    border-radius: 10px;
-    margin: 20px 20px;
-    padding: 20px 2vw;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    cursor: default;
+  .day-section {
+    opacity: 0;
+    animation: fade-in 1s 0.4s ease-out forwards;
 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    &__title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 10%;
 
-    &__icon {
-      width: 70px;
-      height: 70px;
-      background-color: lightgreen;
-    }
-    &__name {
-      font-weight: bold;
-    }
-    &__percentage {
-      font-weight: bold;
-      @include theme-aware("color", "primary-light");
-    }
-
-    &--hovered {
-      transform: scale(1.1);
-      @include themed-shadow("0", "0", "20", "0", "outline-color");
-      @include theme-aware("color", "primary-light");
-    }
-
-    @include width1000 {
-      height: 50px;
-      margin: 0 20px 10px;
-
-      &__icon {
-        width: 35px;
-        height: 35px;
+      &__day {
+      }
+      &__amount {
+        font-size: 1.2em;
+        font-weight: bold;
+        @include theme-aware("color", "primary-light");
       }
     }
+
+    &__vendors {
+      .vendor {
+        height: 100px;
+        border-radius: 10px;
+        margin: 20px 20px;
+        padding: 20px 2vw;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: default;
+
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &__icon {
+          min-width: 70px;
+          height: 70px;
+          background-color: lightgreen;
+          margin-right: 20px;
+        }
+
+        &__data {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+
+          &__top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            &__name {
+              font-size: 1.2em;
+              font-weight: bold;
+            }
+            &__amount {
+            }
+          }
+
+          &__time {
+            opacity: 0.5;
+          }
+        }
+
+        @include width1000 {
+          height: 50px;
+          margin: 0 20px 10px;
+
+          &__icon {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+    }
+
+    &__separator {
+      height: 2px;
+      width: 100%;
+      @include theme-aware("background-color", "primary-light");
+      opacity: 0.2;
+      border-radius: 5px;
+    }
+
+    margin-bottom: 20px;
   }
 
   .simplebar-wrapper {
@@ -56,6 +99,9 @@
   }
 
   .simplebar-track.simplebar-vertical {
+    opacity: 0;
+    animation: fade-in 1s 0.4s ease-out forwards;
+
     width: 3px;
     overflow: visible;
     border-radius: 100px !important;
@@ -70,5 +116,14 @@
         opacity: 1;
       }
     }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

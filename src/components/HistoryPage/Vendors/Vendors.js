@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
-import Vendor from "./Vendor";
 import { connect } from "react-redux";
 import { setHovered } from "../../../store/state/hovered/index";
 import "./css/vendors.css";
+import Day from "./Day";
 
 const Vendors = ({
   globalHovered,
   setGlobalHovered,
   vendors,
-  simplebarHeight
+  simplebarHeight,
+  days
 }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
@@ -66,18 +67,16 @@ const Vendors = ({
         style={{ height: `${simplebarHeight}px`, autoHide: false }}
         scrollableNodeProps={{ ref: scrollableNodeRef }}
       >
-        {vendors.map((cat, index) => (
-          <Vendor
-            setOutsideView={setOutsideView}
-            outsideView={outsideView}
-            index={index}
-            setLocalHovered={setLocalHovered}
-            hovered={globalHovered === index ? true : false}
-            name={cat.name}
-            data={cat.data}
-            key={cat.name}
-          />
-        ))}
+        {days.map(day => {
+          return (
+            <Day
+              key={day.day}
+              day={day.day}
+              amount={day.amount}
+              vendorsNo={Math.floor(Math.random() * 7) + 1}
+            />
+          );
+        })}
       </SimpleBar>
     </div>
   );
@@ -85,7 +84,8 @@ const Vendors = ({
 
 const mapStateToProps = state => ({
   globalHovered: state.hovered.index,
-  vendors: state.mockData.vendors
+  vendors: state.mockData.vendors,
+  days: state.mockData.days
 });
 
 const mapDispatchToProps = dispatch => ({

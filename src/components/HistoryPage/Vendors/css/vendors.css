@@ -1,4 +1,38 @@
-.vendors-container .vendor {
+.vendors-container .day-section {
+  opacity: 0;
+  -webkit-animation: fade-in 1s 0.4s ease-out forwards;
+          animation: fade-in 1s 0.4s ease-out forwards;
+  margin-bottom: 20px;
+}
+
+.vendors-container .day-section__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 10%;
+}
+
+.vendors-container .day-section__title__amount {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.theme-light .vendors-container .day-section__title__amount {
+  color: #364496;
+}
+
+.theme-dark .vendors-container .day-section__title__amount {
+  color: #727272;
+}
+
+.vendors-container .day-section__vendors .vendor {
   height: 100px;
   border-radius: 10px;
   margin: 20px 20px;
@@ -12,9 +46,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -23,60 +57,70 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.vendors-container .vendor__icon {
-  width: 70px;
+.vendors-container .day-section__vendors .vendor__icon {
+  min-width: 70px;
   height: 70px;
   background-color: lightgreen;
+  margin-right: 20px;
 }
 
-.vendors-container .vendor__name {
+.vendors-container .day-section__vendors .vendor__data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.vendors-container .day-section__vendors .vendor__data__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.vendors-container .day-section__vendors .vendor__data__top__name {
+  font-size: 1.2em;
   font-weight: bold;
 }
 
-.vendors-container .vendor__percentage {
-  font-weight: bold;
-}
-
-.theme-light .vendors-container .vendor__percentage {
-  color: #364496;
-}
-
-.theme-dark .vendors-container .vendor__percentage {
-  color: #727272;
-}
-
-.vendors-container .vendor--hovered {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.theme-light .vendors-container .vendor--hovered {
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(17, 62, 130, 0.2);
-          box-shadow: 0px 0px 20px 0px rgba(17, 62, 130, 0.2);
-}
-
-.theme-dark .vendors-container .vendor--hovered {
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(8, 213, 232, 0.2);
-          box-shadow: 0px 0px 20px 0px rgba(8, 213, 232, 0.2);
-}
-
-.theme-light .vendors-container .vendor--hovered {
-  color: #364496;
-}
-
-.theme-dark .vendors-container .vendor--hovered {
-  color: #727272;
+.vendors-container .day-section__vendors .vendor__data__time {
+  opacity: 0.5;
 }
 
 @media (max-width: 1000px) {
-  .vendors-container .vendor {
+  .vendors-container .day-section__vendors .vendor {
     height: 50px;
     margin: 0 20px 10px;
   }
-  .vendors-container .vendor__icon {
+  .vendors-container .day-section__vendors .vendor__icon {
     width: 35px;
     height: 35px;
   }
+}
+
+.vendors-container .day-section__separator {
+  height: 2px;
+  width: 100%;
+  opacity: 0.2;
+  border-radius: 5px;
+}
+
+.theme-light .vendors-container .day-section__separator {
+  background-color: #364496;
+}
+
+.theme-dark .vendors-container .day-section__separator {
+  background-color: #727272;
 }
 
 .vendors-container .simplebar-wrapper .simplebar-content-wrapper {
@@ -84,6 +128,9 @@
 }
 
 .vendors-container .simplebar-track.simplebar-vertical {
+  opacity: 0;
+  -webkit-animation: fade-in 1s 0.4s ease-out forwards;
+          animation: fade-in 1s 0.4s ease-out forwards;
   width: 3px;
   overflow: visible;
   border-radius: 100px !important;
@@ -110,5 +157,23 @@
 
 .theme-dark .vendors-container .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
   background: #727272;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=vendors.css.map */
