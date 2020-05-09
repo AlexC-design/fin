@@ -1,36 +1,20 @@
 const names = [
-  "Shopping",
-  "Food & Drinks",
-  "Bills",
-  "Services",
-  "Transportation",
-  "Entertainment",
-  "Health",
-  "test1",
-  "test2",
-  "test3"
-];
-
-const colors = [
-  "#69a445",
-  "#253277",
-  "#2dbfa0",
-  "#eb9e2b",
-  "#712caa",
-  "#fe5454",
-  "#712caa",
-  "#feed54",
-  "#fe5454",
-  "#712caa"
+  "Vendor Name 1",
+  "Vendor Name 2",
+  "Vendor Name 3",
+  "Vendor Name 4",
+  "Vendor Name 5",
+  "Vendor Name 6",
+  "Vendor Name 7",
+  "Vendor Name 8"
 ];
 
 const mockVendors = () => {
   const vendors = names.map((name, index) => {
     return {
       name,
-      price: (Math.random() * 1000 + 300) / (index + 1).toFixed(2),
-      time: (Math.random() * 1000 + 300) / (index + 1).toFixed(2),
-      color: colors[index]
+      price: (Math.random() * 100).toFixed(2),
+      time: (Math.random() * 100).toFixed(2)
     };
   });
 

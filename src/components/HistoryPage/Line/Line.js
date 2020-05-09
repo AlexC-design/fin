@@ -3,15 +3,14 @@ import Chart from "chart.js";
 import "./css/line.css";
 import { connect } from "react-redux";
 import { setHovered } from "../../../store/state/hovered";
-
-Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
+// import "chartjs-plugin-crosshair";
 
 const Line = ({
-  categories,
   setGlobalHovered,
   globalHovered,
   currentMoment,
-  total
+  total,
+  days
 }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
@@ -31,66 +30,128 @@ const Line = ({
   };
 
   useEffect(() => {
-    const lineCHart = chartRef.current.getContext("2d");
+    const lineChart = chartRef.current.getContext("2d");
 
-    let myLine = new Chart(lineCHart, {
-      type: "line",
-      data: {
-        labels: categories.map(cat => cat.name),
-        datasets: [
+    let gradientFill = lineChart.createLinearGradient(0, 1, 0, 250);
+    gradientFill.addColorStop(0, "rgba(54, 68, 150, 0.9)");
+    gradientFill.addColorStop(1, "rgba(54, 68, 150, 0)");
+
+    let options = {
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1,
+      title: {
+        display: true,
+        fontSize: 18,
+        padding: 20,
+        fontColor: "rgba(54, 68, 150, 0.9)",
+        text: "Total spendings: £" + total
+      },
+      scales: {
+        xAxes: [
           {
-            data: categories.map(cat => {
-              return cat.data;
-            }),
-            backgroundColor: categories.map(cat => cat.color),
-            hoverBorderColor: "transparent",
-            borderWidth: 2
+            gridLines: {
+              drawOnChartArea: false,
+              drawBorder: false
+            },
+            ticks: {
+              maxTicksLimit: 1
+            }
+          }
+        ],
+        yAxes: [
+          {
+            gridLines: {
+              drawBorder: false,
+              borderDash: [8, 4]
+            },
+            ticks: {
+              maxTicksLimit: 4
+            }
           }
         ]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        aspectRatio: 1,
-        cutoutPercentage: 60,
-        layout: {
-          padding: {
-            left: 10,
-            right: 10,
-            top: 10,
-            bottom: 10
+      onHover: e => {
+        console.log(myLine);
+        if (myLine.getElementAtEvent(e)[0]) {
+          if (myLine.getElementAtEvent(e)[0]._index !== localHovered) {
+            setLocalHovered(myLine.getElementAtEvent(e)[0]._index);
           }
-        },
-        onHover: e => {
-          if (myLine.getElementAtEvent(e)[0]) {
-            if (myLine.getElementAtEvent(e)[0]._index !== localHovered) {
-              setLocalHovered(myLine.getElementAtEvent(e)[0]._index);
-            }
-          } else if (localHovered !== null) {
-            setLocalHovered(null);
-          }
-        },
-        animation: {
-          animateRotate: true
-        },
-        legend: {
-          display: false
-        },
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              let dataLabel = " " + data.labels[tooltipItem.index] + ": ";
-              let value =
-                "£" +
-                data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-
-              dataLabel += value;
-
-              return dataLabel;
-            }
-          }
+        } else if (localHovered !== null) {
+          setLocalHovered(null);
         }
+      },
+      animation: {
+        animateRotate: true
+      },
+      legend: {
+        display: false
+      },
+      tooltips: {
+        // mode: "interpolate",
+        // intersect: false,
+        // callbacks: {
+        //   label: function (tooltipItem, data) {
+        //     let dataLabel = " " + data.labels[tooltipItem.index] + ": ";
+        //     let value =
+        //       "£" +
+        //       data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+        //     dataLabel += value;
+        //     return dataLabel;
+        //   }
+        // }
+      },
+      plugins: {
+        // crosshair: {
+        //   line: {
+        //     color: "#F66", // crosshair line color
+        //     width: 1 // crosshair line width
+        //   },
+        //   sync: {
+        //     enabled: true, // enable trace line syncing with other charts
+        //     group: 1, // chart group
+        //     suppressTooltips: false // suppress tooltips when showing a synced tracer
+        //   },
+        //   zoom: {
+        //     enabled: true, // enable zooming
+        //     zoomboxBackgroundColor: "rgba(66,133,244,0.2)", // background color of zoom box
+        //     zoomboxBorderColor: "#48F", // border color of zoom box
+        //     zoomButtonText: "Reset Zoom", // reset zoom button text
+        //     zoomButtonClass: "reset-zoom" // reset zoom button class
+        //   },
+        //   callbacks: {
+        //     beforeZoom: function (start, end) {
+        //       // called before zoom, return false to prevent zoom
+        //       return true;
+        //     },
+        //     afterZoom: function (start, end) {
+        //       // called after zoom
+        //     }
+        //   }
+        // }
       }
+    };
+
+    let myLine = new Chart(lineChart, {
+      type: "line",
+      data: {
+        labels: days.map(day => day.day),
+        datasets: [
+          {
+            data: days.map(day => day.accTotal),
+            borderColor: "rgba(54, 68, 150, 0.9)",
+            fill: true,
+            backgroundColor: gradientFill,
+            hoverBorderWidth: 5,
+            hoverBorderColor: "#08d5e8",
+            hoverBackgroundColor: "#08d5e8",
+            pointBorderWidth: 0,
+            pointBorderColor: "rgba(0, 0, 0, 0)",
+            pointBackgroundColor: "rgba(0, 0, 0, 0)"
+          }
+        ]
+      },
+      options
     });
 
     setChart(myLine);
@@ -98,7 +159,7 @@ const Line = ({
     return () => {
       myLine.destroy();
     };
-  }, [currentMoment]);
+  }, [currentMoment, days]);
 
   useEffect(() => {
     if (sectionHover && localHovered !== globalHovered) {
@@ -129,12 +190,6 @@ const Line = ({
       <div className="Line__chart">
         <canvas id="Line__chart__canvas" ref={chartRef} />
       </div>
-      <div className="Line__total">
-        <div className="Line__total__text">
-          <span className="Line__total__pound">&pound;</span>
-          {total}
-        </div>
-      </div>
     </div>
   );
 };
@@ -142,7 +197,7 @@ const Line = ({
 const mapStateToProps = state => ({
   globalHovered: state.hovered.index,
   currentMoment: state.currentMoment.moment,
-  categories: state.mockData.categories,
+  days: state.mockData.days,
   total: state.mockData.total
 });
 const mapDispatchToProps = dispatch => ({

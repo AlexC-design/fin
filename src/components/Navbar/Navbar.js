@@ -40,7 +40,6 @@ const Navbar = ({ history, theme, changeTheme, mobileView }) => {
   const [animate, setAnimate] = useState("");
 
   const setActiveLink = path => {
-    console.log({ path });
     setActive(path);
     setAnimate("--animate");
     const timeoutId = setTimeout(() => {
@@ -57,7 +56,6 @@ const Navbar = ({ history, theme, changeTheme, mobileView }) => {
   };
 
   useEffect(() => {
-    console.log("setting active");
     setActive(history.location.pathname.replace("/", ""));
   }, [history.location.pathname]);
 

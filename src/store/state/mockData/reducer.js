@@ -1,9 +1,10 @@
-import { SET_CATEGORIES, SET_VENDORS } from "./index";
+import { SET_CATEGORIES, SET_VENDORS, SET_DAYS } from "./index";
 
 const initialState = {
   categories: [],
   total: null,
-  vendors: []
+  vendors: [],
+  days: []
 };
 
 export default (state = initialState, action) => {
@@ -19,6 +20,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         vendors: action.payload
+      };
+
+    case SET_DAYS:
+      return {
+        ...state,
+        days: action.payload
       };
 
     default:

@@ -28,7 +28,7 @@ const mockCategories = () => {
   const categories = names.map((name, index) => {
     return {
       name,
-      data: Math.floor((Math.random() * 1000 + 300) / (index + 1)),
+      data: parseFloat(((Math.random() * 1000 + 300) / (index + 1)).toFixed(2)),
       color: colors[index]
     };
   });

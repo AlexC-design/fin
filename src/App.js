@@ -6,12 +6,13 @@ import BreakdownPage from "./components/BreakdownPage/BreakdownPage";
 import HistoryPage from "./components/HistoryPage/HistoryPage";
 import RedirectPage from "./utils/RedirectPage/RedirectPage";
 import { setCategories, setVendors } from "./store/state/mockData/index";
+import MockDays from "./utils/mockData/MockDays";
 import mockCategories from "./utils/mockData/mockCategories";
 import mockVendors from "./utils/mockData/mockVendors";
 
 import "./css/app.css";
 
-const App = ({ setCategories, currentMoment }) => {
+const App = ({ setCategories, currentMoment, setVendors }) => {
   const [theme, setTheme] = useState("light");
 
   const changeTheme = newTheme => {
@@ -30,9 +31,13 @@ const App = ({ setCategories, currentMoment }) => {
     const categories = mockCategories();
     const vendors = mockVendors();
 
-    const total = categories.reduce((acc, cur) => {
-      return acc + cur.data;
-    }, 0);
+    const total = parseFloat(
+      categories
+        .reduce((acc, cur) => {
+          return acc + cur.data;
+        }, 0)
+        .toFixed(2)
+    );
 
     return { categories, total, vendors };
   };
@@ -44,6 +49,7 @@ const App = ({ setCategories, currentMoment }) => {
 
   return (
     <HashRouter basename="/">
+      <MockDays />
       <Navbar changeTheme={changeTheme} theme={theme} />
       <div className="main-screen">
         <div className="page-spacer" />

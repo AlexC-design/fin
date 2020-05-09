@@ -1,1 +1,45 @@
-/* No CSS *//*# sourceMappingURL=history-page.css.map */
+.history-page {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 1000px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.history-page__left, .history-page__right {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+  .history-page {
+    height: 100%;
+    max-width: 500px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .history-page__left {
+    width: 100%;
+  }
+  .history-page__right {
+    width: 100%;
+    height: 100%;
+  }
+}
+/*# sourceMappingURL=history-page.css.map */
