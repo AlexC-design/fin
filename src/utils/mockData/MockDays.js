@@ -37,8 +37,6 @@ const MockDays = ({ total, setDays, currentMoment }) => {
       }
     });
 
-    console.log(accTotal);
-
     for (let day = 1; day <= moment(currentMoment).daysInMonth(); day++) {
       days.push({
         day: moment(currentMoment).date(day).format("DD MMM"),

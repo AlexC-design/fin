@@ -3,7 +3,6 @@ import Chart from "chart.js";
 import "./css/line.css";
 import { connect } from "react-redux";
 import { setHovered } from "../../../store/state/hovered";
-// import "chartjs-plugin-crosshair";
 
 const Line = ({
   setGlobalHovered,
@@ -72,7 +71,6 @@ const Line = ({
         ]
       },
       onHover: e => {
-        console.log(myLine);
         if (myLine.getElementAtEvent(e)[0]) {
           if (myLine.getElementAtEvent(e)[0]._index !== localHovered) {
             setLocalHovered(myLine.getElementAtEvent(e)[0]._index);
@@ -81,54 +79,20 @@ const Line = ({
           setLocalHovered(null);
         }
       },
-      animation: {
-        animateRotate: true
-      },
       legend: {
         display: false
       },
       tooltips: {
-        // mode: "interpolate",
-        // intersect: false,
-        // callbacks: {
-        //   label: function (tooltipItem, data) {
-        //     let dataLabel = " " + data.labels[tooltipItem.index] + ": ";
-        //     let value =
-        //       "£" +
-        //       data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-        //     dataLabel += value;
-        //     return dataLabel;
-        //   }
-        // }
-      },
-      plugins: {
-        // crosshair: {
-        //   line: {
-        //     color: "#F66", // crosshair line color
-        //     width: 1 // crosshair line width
-        //   },
-        //   sync: {
-        //     enabled: true, // enable trace line syncing with other charts
-        //     group: 1, // chart group
-        //     suppressTooltips: false // suppress tooltips when showing a synced tracer
-        //   },
-        //   zoom: {
-        //     enabled: true, // enable zooming
-        //     zoomboxBackgroundColor: "rgba(66,133,244,0.2)", // background color of zoom box
-        //     zoomboxBorderColor: "#48F", // border color of zoom box
-        //     zoomButtonText: "Reset Zoom", // reset zoom button text
-        //     zoomButtonClass: "reset-zoom" // reset zoom button class
-        //   },
-        //   callbacks: {
-        //     beforeZoom: function (start, end) {
-        //       // called before zoom, return false to prevent zoom
-        //       return true;
-        //     },
-        //     afterZoom: function (start, end) {
-        //       // called after zoom
-        //     }
-        //   }
-        // }
+        mode: "nearest",
+        intersect: false,
+        callbacks: {
+          label: function (tooltipItem, data) {
+            return (
+              "£" +
+              data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+            );
+          }
+        }
       }
     };
 
