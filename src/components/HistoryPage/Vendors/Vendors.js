@@ -9,7 +9,6 @@ import Day from "./Day";
 const Vendors = ({
   globalHovered,
   setGlobalHovered,
-  vendors,
   simplebarHeight,
   days
 }) => {
@@ -21,40 +20,21 @@ const Vendors = ({
   const scrollableNodeRef = React.createRef();
 
   useEffect(() => {
-    const scrollHeight =
-      document.querySelector(".simplebar-content-wrapper").scrollHeight -
-      document.querySelector(".simplebar-content-wrapper").clientHeight;
-
-    const timeoutId = setTimeout(() => {
-      const scrollAmount =
-        (scrollHeight / (days.length - 1)) * globalHovered;
-
-      if (
-        !sectionHover &&
-        globalHovered !== null &&
-        scrollView !== scrollAmount
-      ) {
-        setScrollView(scrollAmount);
-      }
-
-      if (
-        !sectionHover &&
-        globalHovered !== null &&
-        scrollableNodeRef.current &&
-        outsideView
-      ) {
-        scrollableNodeRef.current.scrollTo({
-          top: scrollView,
-          behavior: "smooth"
-        });
-      }
-    }, 100);
+    if (
+      !sectionHover &&
+      globalHovered !== null &&
+      scrollableNodeRef.current &&
+      outsideView
+    ) {
+      scrollableNodeRef.current.scrollTo({
+        top: scrollView
+        // behavior: "smooth"
+      });
+    }
 
     if (sectionHover && localHovered !== globalHovered) {
       setGlobalHovered(localHovered);
     }
-
-    return () => clearTimeout(timeoutId);
   });
 
   return (
@@ -70,6 +50,7 @@ const Vendors = ({
         {days.map((day, index) => {
           return (
             <Day
+              setScrollView={setScrollView}
               index={index}
               setOutsideView={setOutsideView}
               outsideView={outsideView}

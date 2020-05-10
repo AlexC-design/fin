@@ -30,6 +30,7 @@ const Line = ({
     }
   };
 
+  //= = = = = = = = = = = = = = =  CDM = = = = = = = = = = = = = = = = = = = = =
   useEffect(() => {
     const lineChart = chartRef.current.getContext("2d");
 
@@ -37,6 +38,7 @@ const Line = ({
     gradientFill.addColorStop(0, "rgba(54, 68, 150, 0.9)");
     gradientFill.addColorStop(1, "rgba(54, 68, 150, 0)");
 
+    //============================== OPTIONS ====================================
     let options = {
       responsive: true,
       maintainAspectRatio: true,
@@ -72,23 +74,22 @@ const Line = ({
           }
         ]
       },
-      onHover: e => {
-        if (myLine.getElementAtEvent(e)[0]) {
-          if (myLine.getElementAtEvent(e)[0]._index !== localHovered) {
-            setLocalHovered(myLine.getElementAtEvent(e)[0]._index);
-          }
-        } else {
-          setLocalHovered(null);
-        }
-      },
       legend: {
         display: false
       },
       tooltips: {
+        custom: function (tooltip) {
+          if (!tooltip) return;
+          // disable displaying the color box;
+          tooltip.displayColors = false;
+        },
         mode: "nearest",
         intersect: false,
         callbacks: {
           label: function (tooltipItem, data) {
+            if (tooltipItem && tooltipItem.index !== undefined) {
+              setLocalHovered(tooltipItem.index);
+            }
             return (
               "£" +
               data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
@@ -97,7 +98,9 @@ const Line = ({
         }
       }
     };
+    //============================ OPTIONS END ==================================
 
+    //= = = = = = = = = = = = = = =  CHART = = = = = = = = = = = = = = = = = = = = =
     let myLine = new Chart(lineChart, {
       type: "line",
       data: {
@@ -108,7 +111,7 @@ const Line = ({
             borderColor: "rgba(54, 68, 150, 0.9)",
             fill: true,
             backgroundColor: gradientFill,
-            hoverBorderWidth: 5,
+            hoverBorderWidth: 2,
             hoverBorderColor: "#08d5e8",
             hoverBackgroundColor: "#08d5e8",
             pointBorderWidth: 0,
@@ -130,13 +133,23 @@ const Line = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMoment, days]);
 
+  // = = = = = = = = = = = = = = =  CDU hover local = = = = = = = = = = = = = = = = = = = =
   useEffect(() => {
-    console.log({ localHovered }, { globalHovered });
+    const timeoutId = setTimeout(() => {
+      if (sectionHover) {
+        setGlobalHovered(localHovered);
+      }
+    }, 200);
 
-    if (sectionHover && localHovered !== globalHovered) {
-      setGlobalHovered(localHovered);
-    }
+    return () => {
+      clearTimeout(timeoutId);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localHovered]);
 
+  // = = = = = = = = = = = = = = =  CDU hover global = = = = = = = = = = = = = = = = = = = =
+  useEffect(() => {
+    console.log({ localHovered }, { globalHovered }, { sectionHover });
     if (chart && !sectionHover) {
       if (globalHovered !== null) {
         highlightSegment(chart, globalHovered, true);
@@ -151,7 +164,7 @@ const Line = ({
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localHovered, globalHovered]);
+  }, [globalHovered]);
 
   return (
     <div

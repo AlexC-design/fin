@@ -12,11 +12,18 @@ const Day = ({
   setLocalHovered,
   setOutsideView,
   outsideView,
-  hovered
+  hovered,
+  setScrollView
 }) => {
   const [vendors, setVendors] = useState([]);
 
   const dayRef = React.createRef();
+
+  useEffect(() => {
+    if (hovered) {
+      setScrollView(dayRef.current.offsetTop - 20);
+    }
+  });
 
   const hoverToggle = on => {
     on ? setLocalHovered(index) : setLocalHovered(null);
