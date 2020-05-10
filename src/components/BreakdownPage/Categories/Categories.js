@@ -68,6 +68,7 @@ const Categories = ({
       >
         {categories.map((cat, index) => (
           <Category
+            icon={cat.icon}
             index={index}
             setOutsideView={setOutsideView}
             outsideView={outsideView}

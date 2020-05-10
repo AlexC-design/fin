@@ -11,7 +11,8 @@ const Category = ({
   setLocalHovered,
   setOutsideView,
   index,
-  outsideView
+  outsideView,
+  icon
 }) => {
   const hoverToggle = on => {
     on ? setLocalHovered(index) : setLocalHovered(null);
@@ -40,7 +41,7 @@ const Category = ({
       onMouseLeave={() => hoverToggle(false)}
       className={`category category${hovered ? "--hovered" : ""}`}
     >
-      <div className="category__icon"></div>
+      <img src={icon} className="category__icon" />
       <div className="category__name">{name}</div>
       <div className="category__percentage">
         {Math.floor((data / total) * 100)}%

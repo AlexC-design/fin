@@ -23,7 +23,7 @@ const MonthCtrl = ({ setMoment }) => {
       if (setTempDisabled) {
         setTempDisabled(false);
       }
-    }, 1000);
+    }, 500);
 
     return () => {
       clearTimeout(timeoutId);
