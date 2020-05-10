@@ -96,6 +96,10 @@
   font-weight: bold;
 }
 
+.vendors-container .day-section__vendors .vendor__data__top__amount {
+  opacity: 0.5;
+}
+
 .vendors-container .day-section__vendors .vendor__data__time {
   opacity: 0.5;
 }
@@ -108,6 +112,23 @@
   .vendors-container .day-section__vendors .vendor__icon {
     width: 35px;
     height: 35px;
+  }
+  .vendors-container .day-section__vendors .vendor__data__top__name {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .vendors-container .day-section__vendors .vendor {
+    height: 35px;
+    margin: 0 20px 5px;
+    font-size: 0.8em;
+  }
+  .vendors-container .day-section__vendors .vendor__icon {
+    max-width: 25px;
+    min-width: unset;
+    max-height: 25px;
+    min-height: unset;
   }
 }
 
@@ -144,16 +165,20 @@
           box-shadow: 0px 0px 20px 0px rgba(8, 213, 232, 0.2);
 }
 
-.theme-light .vendors-container .day-section--hovered {
+.vendors-container .day-section--hovered .day-section__separator {
+  opacity: 0;
+}
+
+.vendors-container .day-section--hovered .day-section__title {
+  font-size: 1.2em;
+}
+
+.theme-light .vendors-container .day-section--hovered .day-section__title {
   color: #364496;
 }
 
-.theme-dark .vendors-container .day-section--hovered {
+.theme-dark .vendors-container .day-section--hovered .day-section__title {
   color: #727272;
-}
-
-.vendors-container .day-section--hovered .day-section__separator {
-  opacity: 0;
 }
 
 .vendors-container .day-section--hovered .day-section__title__day {
@@ -161,8 +186,42 @@
   opacity: 1;
 }
 
+.vendors-container .day-section--hovered .vendor__data__top__amount {
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.theme-light .vendors-container .day-section--hovered .vendor__data__top__amount {
+  color: #364496;
+}
+
+.theme-dark .vendors-container .day-section--hovered .vendor__data__top__amount {
+  color: #727272;
+}
+
+@media (max-width: 1000px) {
+  .vendors-container .day-section--hovered {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .vendors-container .day-section .day-section__title {
+    font-size: 1em;
+  }
+  .vendors-container .day-section .day-section__title__amount {
+    font-size: 1em;
+  }
+}
+
 .vendors-container .simplebar-wrapper .simplebar-content-wrapper {
   padding: 20px;
+}
+
+@media (max-width: 640px) {
+  .vendors-container .simplebar-wrapper .simplebar-content-wrapper {
+    padding: 5px;
+  }
 }
 
 .vendors-container .simplebar-track.simplebar-vertical {

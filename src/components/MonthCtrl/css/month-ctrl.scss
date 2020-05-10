@@ -55,6 +55,14 @@
         pointer-events: none;
         cursor: default;
       }
+
+      &--temp-disabled {
+        transition: opacity 0.2s ease-out;
+        opacity: 0.9;
+        pointer-events: none;
+        cursor: default;
+      }
+
       &--left {
         width: 45%;
       }
@@ -94,9 +102,6 @@
       .month-button {
         margin: 10px;
         height: 35px;
-
-        &--disabled {
-        }
 
         &--left {
           width: 40%;

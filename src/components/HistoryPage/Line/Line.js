@@ -34,8 +34,13 @@ const Line = ({
   useEffect(() => {
     const lineChart = chartRef.current.getContext("2d");
 
-    let gradientFill = lineChart.createLinearGradient(0, 1, 0, 250);
-    gradientFill.addColorStop(0, "rgba(54, 68, 150, 0.9)");
+    let gradientFill = lineChart.createLinearGradient(
+      0,
+      1,
+      0,
+      chartRef.current.clientHeight * 3.2
+    );
+    gradientFill.addColorStop(0, "rgba(54, 68, 150, 0.5)");
     gradientFill.addColorStop(1, "rgba(54, 68, 150, 0)");
 
     //============================== OPTIONS ====================================
@@ -147,15 +152,15 @@ const Line = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localHovered]);
 
+  // = = = = = = = = = = = = = = =  CDU clear hovers = = = = = = = = = = = = = = = = = = = =
+  useEffect(() => {
+    if (!sectionHover && localHovered !== null) {
+      setLocalHovered(null);
+      setGlobalHovered(null);
+    }
+  });
   // = = = = = = = = = = = = = = =  CDU hover global = = = = = = = = = = = = = = = = = = = =
   useEffect(() => {
-    console.log({ localHovered }, { globalHovered }, { sectionHover });
-    if (chart && !sectionHover) {
-      if (globalHovered !== null) {
-        highlightSegment(chart, globalHovered, true);
-      }
-    }
-
     return () => {
       if (chart !== null && !sectionHover) {
         if (globalHovered !== null) {

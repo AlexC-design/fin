@@ -108,6 +108,14 @@
   cursor: default;
 }
 
+.month-ctrl .buttons-container .month-button--temp-disabled {
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+  opacity: 0.9;
+  pointer-events: none;
+  cursor: default;
+}
+
 .month-ctrl .buttons-container .month-button--left {
   width: 45%;
 }

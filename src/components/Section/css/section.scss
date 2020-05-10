@@ -5,7 +5,10 @@
   min-height: 50px;
   padding: 20px;
   margin: 20px;
+  opacity: 0;
   @include theme-aware("background-color", "background");
+
+  animation: fade-in 1s 0.4s ease-out forwards;
 
   &--shadow {
     @include themed-shadow("0", "0", "20", "0", "outline-color");

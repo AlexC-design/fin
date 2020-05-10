@@ -61,6 +61,7 @@
               font-weight: bold;
             }
             &__amount {
+              opacity: 0.5;
             }
           }
 
@@ -76,6 +77,34 @@
           &__icon {
             width: 35px;
             height: 35px;
+          }
+
+          &__data {
+            &__top {
+              &__name {
+                font-size: 1em;
+              }
+            }
+          }
+        }
+
+        @include width768 {
+          height: 35px;
+          margin: 0 20px 5px;
+          font-size: 0.8em;
+
+          &__icon {
+            max-width: 25px;
+            min-width: unset;
+            max-height: 25px;
+            min-height: unset;
+          }
+
+          &__data {
+            &__top {
+              &__name {
+              }
+            }
           }
         }
       }
@@ -96,16 +125,45 @@
 
       transform: scale(1.01);
       @include themed-shadow("0", "0", "20", "0", "outline-color");
-      @include theme-aware("color", "primary-light");
 
       .day-section {
         &__separator {
           opacity: 0;
         }
         &__title {
+          @include theme-aware("color", "primary-light");
+          font-size: 1.2em;
+
           &__day {
             font-weight: bold;
             opacity: 1;
+          }
+        }
+      }
+
+      .vendor {
+        &__data {
+          &__top {
+            &__amount {
+              font-weight: bold;
+              opacity: 0.8;
+              @include theme-aware("color", "primary-light");
+            }
+          }
+        }
+      }
+
+      @include width1000 {
+        padding-top: 20px;
+      }
+    }
+    @include width640 {
+      .day-section {
+        &__title {
+          font-size: 1em;
+
+          &__amount {
+            font-size: 1em;
           }
         }
       }
@@ -117,6 +175,10 @@
 
     .simplebar-content-wrapper {
       padding: 20px;
+
+      @include width640 {
+        padding: 5px;
+      }
       .simplebar-content {
       }
     }

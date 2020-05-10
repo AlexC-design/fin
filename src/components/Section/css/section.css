@@ -3,6 +3,9 @@
   min-height: 50px;
   padding: 20px;
   margin: 20px;
+  opacity: 0;
+  -webkit-animation: fade-in 1s 0.4s ease-out forwards;
+          animation: fade-in 1s 0.4s ease-out forwards;
 }
 
 .theme-light .section {
