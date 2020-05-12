@@ -18,6 +18,7 @@
     &__icon {
       width: 70px;
       height: 70px;
+      opacity: 0.5;
     }
     &__name {
       font-weight: bold;
@@ -31,6 +32,10 @@
       transform: scale(1.1);
       @include themed-shadow("0", "0", "20", "0", "outline-color");
       @include theme-aware("color", "primary-light");
+
+      .category__icon {
+        opacity: 1;
+      }
     }
 
     @include width1000 {

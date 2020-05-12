@@ -27,8 +27,8 @@ const Vendors = ({
       outsideView
     ) {
       scrollableNodeRef.current.scrollTo({
-        top: scrollView
-        // behavior: "smooth"
+        top: scrollView,
+        behavior: "smooth"
       });
     }
 

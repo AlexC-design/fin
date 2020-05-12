@@ -5,14 +5,13 @@ import Navbar from "./components/Navbar/Navbar";
 import BreakdownPage from "./components/BreakdownPage/BreakdownPage";
 import HistoryPage from "./components/HistoryPage/HistoryPage";
 import RedirectPage from "./utils/RedirectPage/RedirectPage";
-import { setCategories, setVendors } from "./store/state/mockData/index";
+import { setCategories } from "./store/state/mockData/index";
 import MockDays from "./utils/mockData/MockDays";
 import mockCategories from "./utils/mockData/mockCategories";
-import mockVendors from "./utils/mockData/mockVendors";
 
 import "./css/app.css";
 
-const App = ({ setCategories, currentMoment, setVendors }) => {
+const App = ({ setCategories, currentMoment }) => {
   const [theme, setTheme] = useState("light");
 
   const changeTheme = newTheme => {
@@ -29,7 +28,6 @@ const App = ({ setCategories, currentMoment, setVendors }) => {
 
   const mockData = () => {
     const categories = mockCategories();
-    const vendors = mockVendors();
 
     const total = parseFloat(
       categories
@@ -39,12 +37,11 @@ const App = ({ setCategories, currentMoment, setVendors }) => {
         .toFixed(2)
     );
 
-    return { categories, total, vendors };
+    return { categories, total };
   };
 
   useEffect(() => {
     setCategories(mockData().categories, mockData().total);
-    setVendors(mockData().vendors);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMoment]);
 
@@ -70,8 +67,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setCategories: (categories, total) =>
-    dispatch(setCategories(categories, total)),
-  setVendors: vendors => dispatch(setVendors(vendors))
+    dispatch(setCategories(categories, total))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -26,6 +26,7 @@
 .categories-container .category__icon {
   width: 70px;
   height: 70px;
+  opacity: 0.5;
 }
 
 .categories-container .category__name {
@@ -65,6 +66,10 @@
 
 .theme-dark .categories-container .category--hovered {
   color: #727272;
+}
+
+.categories-container .category--hovered .category__icon {
+  opacity: 1;
 }
 
 @media (max-width: 1000px) {
