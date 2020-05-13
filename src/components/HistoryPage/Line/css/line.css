@@ -1,4 +1,82 @@
-.line {
-  position: relative;
+.line .toggle-button {
+  border: none;
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 45px);
+  height: 30px;
+  width: 90px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: pop-in 0.4s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+          animation: pop-in 0.4s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  -webkit-transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.theme-light .line .toggle-button {
+  background-color: #364496;
+}
+
+.theme-dark .line .toggle-button {
+  background-color: #727272;
+}
+
+.theme-light .line .toggle-button:hover {
+  background-color: #131e56;
+}
+
+.theme-dark .line .toggle-button:hover {
+  background-color: #202020;
+}
+
+.line .toggle-button:active {
+  -webkit-transform: scale(0, 2);
+          transform: scale(0, 2);
+}
+
+.theme-light .line .toggle-button:active {
+  background-color: #364496;
+}
+
+.theme-dark .line .toggle-button:active {
+  background-color: #727272;
+}
+
+.line .toggle-button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .line .toggle-button {
+    bottom: 5px;
+  }
+}
+
+@-webkit-keyframes pop-in {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=line.css.map */

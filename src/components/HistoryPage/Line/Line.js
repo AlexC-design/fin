@@ -14,6 +14,7 @@ const Line = ({
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
   const [chart, setChart] = useState(null);
+  const [mode, setMode] = useState("total");
 
   const chartRef = React.createRef();
 
@@ -30,6 +31,10 @@ const Line = ({
     }
   };
 
+  const toggleMode = () => {
+    mode === "total" ? setMode("daily") : setMode("total");
+  };
+
   //= = = = = = = = = = = = = = =  CDM = = = = = = = = = = = = = = = = = = = = =
   useEffect(() => {
     const lineChart = chartRef.current.getContext("2d");
@@ -38,7 +43,7 @@ const Line = ({
       0,
       1,
       0,
-      chartRef.current.clientHeight * 3.2
+      chartRef.current.clientHeight * (mode === "total" ? 3.4 : 20)
     );
     gradientFill.addColorStop(0, "rgba(54, 68, 150, 0.5)");
     gradientFill.addColorStop(1, "rgba(54, 68, 150, 0)");
@@ -88,7 +93,7 @@ const Line = ({
           // disable displaying the color box;
           tooltip.displayColors = false;
         },
-        mode: "nearest",
+        mode: `${mode === "total" ? "nearest" : "index"}`,
         intersect: false,
         callbacks: {
           label: function (tooltipItem, data) {
@@ -107,18 +112,20 @@ const Line = ({
 
     //= = = = = = = = = = = = = = =  CHART = = = = = = = = = = = = = = = = = = = = =
     let myLine = new Chart(lineChart, {
-      type: "line",
+      type: `${mode === "total" ? "line" : "bar"}`,
       data: {
         labels: days.map(day => day.day),
         datasets: [
           {
-            data: days.map(day => day.accTotal),
+            data: days.map(day =>
+              mode === "total" ? day.accTotal : day.amount
+            ),
             borderColor: "rgba(54, 68, 150, 0.9)",
             fill: true,
             backgroundColor: gradientFill,
-            hoverBorderWidth: 2,
-            hoverBorderColor: "#08d5e8",
-            hoverBackgroundColor: "#08d5e8",
+            // hoverBorderWidth: 2,
+            // hoverBorderColor: "#08d5e8",
+            // hoverBackgroundColor: "#08d5e8",
             pointBorderWidth: 0,
             pointBorderColor: "rgba(0, 0, 0, 0)",
             pointBackgroundColor: "rgba(0, 0, 0, 0)"
@@ -136,7 +143,7 @@ const Line = ({
       myLine.destroy();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentMoment, days]);
+  }, [currentMoment, days, mode]);
 
   // = = = = = = = = = = = = = = =  CDU hover local = = = = = = = = = = = = = = = = = = = =
   useEffect(() => {
@@ -158,7 +165,7 @@ const Line = ({
       setLocalHovered(null);
       setGlobalHovered(null);
     }
-  });
+  }, [sectionHover, localHovered, setGlobalHovered]);
   // = = = = = = = = = = = = = = =  CDU hover global = = = = = = = = = = = = = = = = = = = =
   useEffect(() => {
     return () => {
@@ -175,10 +182,13 @@ const Line = ({
     <div
       onMouseEnter={() => setSectionHover(true)}
       onMouseLeave={() => setSectionHover(false)}
-      className="Line"
+      className="line"
     >
-      <div className="Line__chart">
-        <canvas id="Line__chart__canvas" ref={chartRef} />
+      <div className="line__chart">
+        <canvas id="line__chart__canvas" ref={chartRef} />
+        <button className="toggle-button" onClick={toggleMode}>
+          {mode}
+        </button>
       </div>
     </div>
   );

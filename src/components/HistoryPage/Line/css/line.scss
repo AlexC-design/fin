@@ -1,10 +1,55 @@
 @import "../../../../scss/variables.scss";
 
 .line {
-  position: relative;
-
   &__chart {
     &__canvas {
     }
+  }
+
+  .toggle-button {
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 45px);
+    height: 30px;
+    width: 90px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transform: scale(0);
+    transform-origin: bottom;
+
+    animation: pop-in 0.4s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+
+    transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    @include theme-aware("background-color", "primary-light");
+
+    &:hover {
+      @include theme-aware("background-color", "primary-dark");
+    }
+
+    &:active {
+      transform: scale(0, 2);
+      @include theme-aware("background-color", "primary-light")
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include width768 {
+      bottom: 5px;
+    }
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1);
   }
 }

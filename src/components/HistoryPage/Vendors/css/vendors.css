@@ -1,5 +1,5 @@
 .vendors-container .day-section {
-  padding: 10px;
+  padding: 10px 10px 30px;
   opacity: 0;
   border-radius: 20px;
   -webkit-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -8,10 +8,17 @@
           animation: fade-in 1s 0.4s ease-out forwards;
 }
 
+@media (max-width: 768px) {
+  .vendors-container .day-section {
+    padding-bottom: 10px;
+  }
+}
+
 .vendors-container .day-section__title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-weight: bold;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -19,11 +26,13 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 10%;
+  padding: 0 2% 10px;
+  -webkit-transition: padding 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: padding 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .vendors-container .day-section__title__amount {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
 }
 
@@ -36,9 +45,9 @@
 }
 
 .vendors-container .day-section__vendors .vendor {
-  height: 100px;
+  height: 80px;
   border-radius: 10px;
-  margin: 20px 20px;
+  margin: 0 20px;
   padding: 15px 1vw;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -61,8 +70,8 @@
 }
 
 .vendors-container .day-section__vendors .vendor__icon {
-  min-width: 70px;
-  height: 70px;
+  min-width: 50px;
+  height: 50px;
   margin-right: 20px;
 }
 
@@ -92,7 +101,7 @@
 
 .vendors-container .day-section__vendors .vendor__data__top__name {
   opacity: 0.8;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
 }
 
@@ -172,6 +181,7 @@
 
 .vendors-container .day-section--hovered .day-section__title {
   font-size: 1.2em;
+  padding: 0 25% 10px;
 }
 
 .theme-light .vendors-container .day-section--hovered .day-section__title {
@@ -219,6 +229,9 @@
 }
 
 @media (max-width: 640px) {
+  .vendors-container .day-section .day-section {
+    padding-bottom: 20px;
+  }
   .vendors-container .day-section .day-section__title {
     font-size: 1em;
   }

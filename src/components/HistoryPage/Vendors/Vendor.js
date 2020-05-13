@@ -2,8 +2,6 @@ import React from "react";
 import "./css/vendors.css";
 
 const Vendor = ({ name, amount, time, icon }) => {
-  console.log('re-rendering vendor')
-  
   return (
     <div className="vendor">
       <img className="vendor__icon" src={icon} alt="vendor logo" />

@@ -33,6 +33,18 @@
   color: #727272;
 }
 
+@media (max-width: 1000px) {
+  .doughnut__total__text {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 640px) {
+  .doughnut__total__text {
+    font-size: 1.1em;
+  }
+}
+
 .doughnut__total__pound {
   opacity: 0.8;
   font-size: 1em;

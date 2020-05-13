@@ -165,6 +165,7 @@
     margin: 10px 0;
   }
   .month-ctrl .buttons-container {
+    margin-bottom: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -175,7 +176,7 @@
   }
   .month-ctrl .buttons-container .month-button {
     margin: 10px;
-    height: 35px;
+    height: 30px;
   }
   .month-ctrl .buttons-container .month-button--left {
     width: 40%;

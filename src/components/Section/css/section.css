@@ -34,6 +34,10 @@
   border: solid 2px rgba(8, 213, 232, 0.2);
 }
 
+.section--main {
+  position: relative;
+}
+
 .section--second {
   height: 100%;
 }

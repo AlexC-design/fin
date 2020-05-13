@@ -41,7 +41,7 @@ const Category = ({
       onMouseLeave={() => hoverToggle(false)}
       className={`category category${hovered ? "--hovered" : ""}`}
     >
-      <img src={icon} className="category__icon" />
+      <img src={icon} className="category__icon" alt="category" />
       <div className="category__name">{name}</div>
       <div className="category__percentage">
         {Math.floor((data / total) * 100)}%

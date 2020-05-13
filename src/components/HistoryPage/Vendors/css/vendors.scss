@@ -2,23 +2,30 @@
 
 .vendors-container {
   .day-section {
-    padding: 10px;
+    padding: 10px 10px 30px;
     opacity: 0;
     border-radius: 20px;
 
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation: fade-in 1s 0.4s ease-out forwards;
 
+    @include width768 {
+      padding-bottom: 10px;
+    }
+
     &__title {
       display: flex;
+      font-weight: bold;
       flex-direction: row;
       justify-content: space-between;
-      padding: 0 10%;
+      padding: 0 2% 10px;
+
+      transition: padding 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
       &__day {
       }
       &__amount {
-        font-size: 1.2em;
+        font-size: 1em;
         font-weight: bold;
         @include theme-aware("color", "primary-light");
       }
@@ -26,9 +33,9 @@
 
     &__vendors {
       .vendor {
-        height: 100px;
+        height: 80px;
         border-radius: 10px;
-        margin: 20px 20px;
+        margin: 0 20px;
         padding: 15px 1vw;
         box-sizing: border-box;
         display: flex;
@@ -40,8 +47,8 @@
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
         &__icon {
-          min-width: 70px;
-          height: 70px;
+          min-width: 50px;
+          height: 50px;
           margin-right: 20px;
         }
 
@@ -57,7 +64,7 @@
 
             &__name {
               opacity: 0.8;
-              font-size: 1.2em;
+              font-size: 1em;
               font-weight: bold;
             }
             &__amount {
@@ -135,6 +142,7 @@
         &__title {
           @include theme-aware("color", "primary-light");
           font-size: 1.2em;
+          padding: 0 25% 10px;
 
           &__day {
             font-weight: bold;
@@ -165,8 +173,11 @@
         padding-top: 20px;
       }
     }
+
     @include width640 {
       .day-section {
+        padding-bottom: 20px;
+
         &__title {
           font-size: 1em;
 

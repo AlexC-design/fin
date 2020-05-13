@@ -39,12 +39,14 @@
     }
 
     @include width1000 {
-      height: 50px;
+      height: 40px;
       margin: 0 20px 10px;
+      padding: 10px;
+      font-size: 0.9em;
 
       &__icon {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
       }
     }
   }
