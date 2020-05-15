@@ -1,0 +1,138 @@
+.popup-button {
+  width: 80px;
+  height: 35px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.theme-light .popup-button--primary {
+  background-color: #364496;
+}
+
+.theme-dark .popup-button--primary {
+  background-color: #727272;
+}
+
+.theme-light .popup-button--primary {
+  color: #fff;
+}
+
+.theme-dark .popup-button--primary {
+  color: #202020;
+}
+
+.theme-light .popup-button--primary {
+  border-color: #364496;
+}
+
+.theme-dark .popup-button--primary {
+  border-color: #727272;
+}
+
+.theme-light .popup-button--primary:hover {
+  background-color: #131e56;
+}
+
+.theme-dark .popup-button--primary:hover {
+  background-color: #202020;
+}
+
+.theme-light .popup-button--primary:hover {
+  border-color: #131e56;
+}
+
+.theme-dark .popup-button--primary:hover {
+  border-color: #202020;
+}
+
+.theme-light .popup-button--primary:active {
+  background-color: #364496;
+}
+
+.theme-dark .popup-button--primary:active {
+  background-color: #727272;
+}
+
+.theme-light .popup-button--primary:active {
+  border-color: #364496;
+}
+
+.theme-dark .popup-button--primary:active {
+  border-color: #727272;
+}
+
+.popup-button--primary:focus {
+  outline: none;
+}
+
+.theme-light .popup-button--secondary {
+  background-color: #fff;
+}
+
+.theme-dark .popup-button--secondary {
+  background-color: #202020;
+}
+
+.theme-light .popup-button--secondary {
+  color: #131e56;
+}
+
+.theme-dark .popup-button--secondary {
+  color: #202020;
+}
+
+.theme-light .popup-button--secondary {
+  border-color: rgba(17, 62, 130, 0.2);
+}
+
+.theme-dark .popup-button--secondary {
+  border-color: rgba(8, 213, 232, 0.2);
+}
+
+.theme-light .popup-button--secondary:hover {
+  background-color: #e83508;
+}
+
+.theme-dark .popup-button--secondary:hover {
+  background-color: #08d5e8;
+}
+
+.theme-light .popup-button--secondary:hover {
+  color: #fff;
+}
+
+.theme-dark .popup-button--secondary:hover {
+  color: #202020;
+}
+
+.theme-light .popup-button--secondary:hover {
+  border-color: #e83508;
+}
+
+.theme-dark .popup-button--secondary:hover {
+  border-color: #08d5e8;
+}
+
+.theme-light .popup-button--secondary:active {
+  background-color: #e83508;
+}
+
+.theme-dark .popup-button--secondary:active {
+  background-color: #08d5e8;
+}
+
+.theme-light .popup-button--secondary:active {
+  border-color: #fff;
+}
+
+.theme-dark .popup-button--secondary:active {
+  border-color: #202020;
+}
+
+.popup-button--secondary:focus {
+  outline: none;
+}
+/*# sourceMappingURL=popup-button.css.map */

@@ -1,0 +1,29 @@
+@import "../../../../../../scss/variables.scss";
+
+.success-popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  animation: popup-exit 0.2s 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+
+  &__image {
+    height: 50px;
+    width: 50px;
+    margin: 50px;
+  }
+  &__message {
+    font-weight: bold;
+    @include theme-aware("color", "secondary");
+  }
+}
+
+@keyframes popup-exit {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

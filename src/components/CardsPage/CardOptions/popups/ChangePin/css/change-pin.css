@@ -1,0 +1,105 @@
+.change-pin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.change-pin__field {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.theme-light .change-pin__field {
+  color: #364496;
+}
+
+.theme-dark .change-pin__field {
+  color: #727272;
+}
+
+.change-pin__field__input {
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1.2em;
+  width: 200px;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+.theme-light .change-pin__field__input {
+  border: solid 1px rgba(17, 62, 130, 0.2);
+}
+
+.theme-dark .change-pin__field__input {
+  border: solid 1px rgba(8, 213, 232, 0.2);
+}
+
+.change-pin__field__input:focus {
+  outline: none;
+}
+
+.theme-light .change-pin__field__input:focus {
+  border: solid 1px #364496;
+}
+
+.theme-dark .change-pin__field__input:focus {
+  border: solid 1px #727272;
+}
+
+.change-pin__field__button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 13px;
+  right: 20px;
+  background-color: transparent;
+  opacity: 0.5;
+  border: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  background-image: url(../../../../../../assets/icons/misc/hide.svg);
+  background-size: contain;
+  -webkit-filter: invert(19%) sepia(78%) saturate(1730%) hue-rotate(217deg) brightness(95%) contrast(82%);
+          filter: invert(19%) sepia(78%) saturate(1730%) hue-rotate(217deg) brightness(95%) contrast(82%);
+}
+
+.change-pin__field__button:hover {
+  opacity: 1;
+  -webkit-filter: invert(9%) sepia(78%) saturate(1933%) hue-rotate(220deg) brightness(103%) contrast(102%);
+          filter: invert(9%) sepia(78%) saturate(1933%) hue-rotate(220deg) brightness(103%) contrast(102%);
+}
+
+.change-pin__field__button:focus {
+  outline: none;
+}
+
+.theme-light .change-pin__error {
+  color: #e83508;
+}
+
+.theme-dark .change-pin__error {
+  color: #08d5e8;
+}
+/*# sourceMappingURL=change-pin.css.map */

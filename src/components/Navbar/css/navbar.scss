@@ -4,6 +4,7 @@
 .navbar {
   position: fixed;
   display: flex;
+  z-index: 30;
   @include themed-linear-gradient("primary-light", "primary-dark");
 
   .navbar-link {
@@ -107,8 +108,6 @@
     height: 40px;
 
     bottom: 0;
-
-    z-index: 2;
 
     .navbar-link {
       margin: 0;

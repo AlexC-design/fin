@@ -3,6 +3,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 30;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -136,7 +137,6 @@
     width: calc(100% - 20px);
     height: 40px;
     bottom: 0;
-    z-index: 2;
   }
   .theme-light .navbar {
     background: -webkit-gradient(linear, left top, left bottom, from(#131e56), to(#131e56));

@@ -1,0 +1,82 @@
+.popup {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  opacity: 0;
+  -webkit-animation: fade-in 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          animation: fade-in 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-light .popup {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-dark .popup {
+  background-color: rgba(32, 32, 32, 0.9);
+}
+
+.popup .popup_inner {
+  height: auto;
+  width: auto;
+  padding: 40px;
+  border-radius: 20px;
+  -webkit-animation: pop-in-vertical 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          animation: pop-in-vertical 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.theme-light .popup .popup_inner {
+  background-color: #fff;
+}
+
+.theme-dark .popup .popup_inner {
+  background-color: #202020;
+}
+
+.theme-light .popup .popup_inner {
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(17, 62, 130, 0.2);
+          box-shadow: 0px 0px 20px 0px rgba(17, 62, 130, 0.2);
+}
+
+.theme-dark .popup .popup_inner {
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(8, 213, 232, 0.2);
+          box-shadow: 0px 0px 20px 0px rgba(8, 213, 232, 0.2);
+}
+
+@-webkit-keyframes pop-in-vertical {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes pop-in-vertical {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+/*# sourceMappingURL=popup.css.map */

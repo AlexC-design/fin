@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EAEX,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,UAAU;CACzB",
+    "sources": [
+        "cards-page.scss"
+    ],
+    "names": [],
+    "file": "cards-page.css"
+}

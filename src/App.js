@@ -4,16 +4,16 @@ import { HashRouter, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import BreakdownPage from "./components/BreakdownPage/BreakdownPage";
 import HistoryPage from "./components/HistoryPage/HistoryPage";
+import CardsPage from "./components/CardsPage/CardsPage";
 import RedirectPage from "./utils/RedirectPage/RedirectPage";
 import { setCategories } from "./store/state/mockData/index";
 import MockDays from "./utils/mockData/MockDays";
 import mockCategories from "./utils/mockData/mockCategories";
+import { setTheme } from "./store/state/theme";
 
 import "./css/app.css";
 
-const App = ({ setCategories, currentMoment }) => {
-  const [theme, setTheme] = useState("light");
-
+const App = ({ setCategories, currentMoment, setTheme, theme }) => {
   const changeTheme = newTheme => {
     document.querySelector("body").classList.remove(`theme-${theme}`);
     document.querySelector("body").classList.add(`theme-${newTheme}`);
@@ -55,6 +55,7 @@ const App = ({ setCategories, currentMoment }) => {
           <Route path="/" exact component={RedirectPage} />
           <Route path="/breakdown" exact component={BreakdownPage} />
           <Route path="/history" exact component={HistoryPage} />
+          <Route path="/cards" exact component={CardsPage} />
         </div>
       </div>
     </HashRouter>
@@ -62,12 +63,14 @@ const App = ({ setCategories, currentMoment }) => {
 };
 
 const mapStateToProps = state => ({
-  currentMoment: state.currentMoment.moment
+  currentMoment: state.currentMoment.moment,
+  theme: state.theme
 });
 
 const mapDispatchToProps = dispatch => ({
   setCategories: (categories, total) =>
-    dispatch(setCategories(categories, total))
+    dispatch(setCategories(categories, total)),
+  setTheme: theme => dispatch(setTheme(theme))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

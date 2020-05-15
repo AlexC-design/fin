@@ -1,0 +1,65 @@
+@import "../../../../../../scss/variables.scss";
+
+.change-pin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-weight: bold;
+    @include theme-aware("color", "primary-light");
+
+    &__input {
+      border-radius: 10px;
+      @include themed-stroke("1", "outline-color");
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1.2em;
+      width: 200px;
+      letter-spacing: 10px;
+      text-align: center;
+
+      &:focus {
+        @include themed-stroke("1", "primary-light");
+        outline: none;
+      }
+    }
+
+    &__button {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      bottom: 13px;
+      right: 20px;
+      background-color: transparent;
+      opacity: 0.5;
+      border: none;
+      user-select: none;
+      cursor: pointer;
+
+      background-image: url(../../../../../../assets/icons/misc/hide.svg);
+      background-size: contain;
+      filter: invert(19%) sepia(78%) saturate(1730%) hue-rotate(217deg)
+        brightness(95%) contrast(82%);
+
+      &:hover {
+        opacity: 1;
+        filter: invert(9%) sepia(78%) saturate(1933%) hue-rotate(220deg)
+          brightness(103%) contrast(102%);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__error {
+    @include theme-aware("color", "ternary");
+  }
+}
