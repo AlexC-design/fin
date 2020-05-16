@@ -39,6 +39,10 @@ const CardOption = ({ name, description, icon, setPopupType }) => {
         setPopupType("change-pin");
         break;
 
+      case "Payment methods":
+        setPopupType("payment-methods");
+        break;
+
       default:
         console.log(`No case found for ${name}`);
     }

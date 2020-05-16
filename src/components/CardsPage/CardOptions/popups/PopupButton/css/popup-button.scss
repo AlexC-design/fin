@@ -8,6 +8,7 @@
   border: 2px solid;
   font-weight: bold;
   cursor: pointer;
+  user-select: none;
 
   &--primary {
     @include theme-aware("background-color", "primary-light");
@@ -44,5 +45,13 @@
     &:focus {
       outline: none;
     }
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    border: none;
+    pointer-events: none;
+
+    @include theme-aware("background-color", "outline-color");
   }
 }

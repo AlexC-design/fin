@@ -20,10 +20,6 @@ const ChangePin = ({ setPopupType, setSuccessMessage }) => {
     return /^\d+$/.test(str);
   };
 
-  const closePopup = () => {
-    setPopupType(null);
-  };
-
   const handleInputChange = e => {
     const value = e.target.value;
     const name = e.target.name;
@@ -108,7 +104,11 @@ const ChangePin = ({ setPopupType, setSuccessMessage }) => {
       </label>
       {error && <p className="change-pin__error">{error}</p>}
       <div className="buttons-container">
-        <PopupButton action={closePopup} type={"secondary"} text={"Cancel"} />
+        <PopupButton
+          action={"close-popup"}
+          type={"secondary"}
+          text={"Cancel"}
+        />
         <PopupButton action={handleSubmit} type={"primary"} text={"Change"} />
       </div>
     </form>

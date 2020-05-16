@@ -1,0 +1,106 @@
+.payment-methods {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.payment-methods .payment-method {
+  margin: 0 10px 20px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  border: solid 2px transparent;
+  border-radius: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  width: 300px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70px auto;
+      grid-template-columns: 70px auto;
+      grid-template-areas: "icon name" "icon description";
+  -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.payment-methods .payment-method__icon {
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: 2px solid deepskyblue;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: icon;
+}
+
+.payment-methods .payment-method__name {
+  font-weight: bold;
+  margin: 0;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: name;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+.theme-light .payment-methods .payment-method__name {
+  color: #131e56;
+}
+
+.theme-dark .payment-methods .payment-method__name {
+  color: #202020;
+}
+
+.payment-methods .payment-method__description {
+  opacity: 0.5;
+  margin: 0;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: description;
+}
+
+.payment-methods .payment-method--disabled .payment-method__name {
+  font-weight: normal;
+  opacity: 0.5;
+}
+
+.payment-methods .payment-method--disabled .payment-method__description {
+  opacity: 1;
+}
+
+.theme-light .payment-methods .payment-method--disabled .payment-method__description {
+  color: #364496;
+}
+
+.theme-dark .payment-methods .payment-method--disabled .payment-method__description {
+  color: #727272;
+}
+
+.payment-methods .payment-method--disabled .payment-method__icon {
+  border: 2px solid rgba(192, 192, 192, 0.253);
+}
+
+.payment-methods .payment-method:hover {
+  border: solid 2px;
+  border-radius: 10px;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.theme-light .payment-methods .payment-method:hover {
+  border-color: rgba(17, 62, 130, 0.2);
+}
+
+.theme-dark .payment-methods .payment-method:hover {
+  border-color: rgba(8, 213, 232, 0.2);
+}
+/*# sourceMappingURL=payment-methods.css.map */

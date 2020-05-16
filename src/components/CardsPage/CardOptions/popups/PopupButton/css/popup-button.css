@@ -6,6 +6,10 @@
   border: 2px solid;
   font-weight: bold;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .theme-light .popup-button--primary {
@@ -134,5 +138,19 @@
 
 .popup-button--secondary:focus {
   outline: none;
+}
+
+.popup-button--disabled {
+  opacity: 0.5;
+  border: none;
+  pointer-events: none;
+}
+
+.theme-light .popup-button--disabled {
+  background-color: rgba(17, 62, 130, 0.2);
+}
+
+.theme-dark .popup-button--disabled {
+  background-color: rgba(8, 213, 232, 0.2);
 }
 /*# sourceMappingURL=popup-button.css.map */

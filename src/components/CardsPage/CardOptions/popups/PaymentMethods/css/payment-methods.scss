@@ -1,0 +1,69 @@
+@import "../../../../../../scss/variables.scss";
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  .payment-method {
+    margin: 0 10px 20px;
+    box-sizing: content-box;
+    border: solid 2px transparent;
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+    width: 300px;
+
+    display: grid;
+    grid-template-columns: 70px auto;
+    grid-template-areas:
+      "icon name"
+      "icon description";
+
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &__icon {
+      border-radius: 10px;
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      border: 2px solid deepskyblue;
+      align-self: center;
+
+      grid-area: icon;
+    }
+
+    &__name {
+      font-weight: bold;
+      margin: 0;
+      grid-area: name;
+      align-self: end;
+      @include theme-aware("color", "primary-dark");
+    }
+    &__description {
+      opacity: 0.5;
+      margin: 0;
+      grid-area: description;
+    }
+
+    &--disabled {
+      .payment-method__name {
+          font-weight: normal;
+        opacity: 0.5;
+      }
+      .payment-method__description {
+        opacity: 1;
+        @include theme-aware("color", "primary-light");
+      }
+      .payment-method__icon {
+        border: 2px solid rgba(192, 192, 192, 0.253);
+      }
+    }
+
+    &:hover {
+      border: solid 2px;
+      border-radius: 10px;
+      transform: scale(1.1);
+      @include theme-aware("border-color", "outline-color");
+    }
+  }
+}

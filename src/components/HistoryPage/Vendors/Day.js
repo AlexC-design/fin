@@ -11,7 +11,7 @@ const Day = ({
   index,
   setLocalHovered,
   setOutsideView,
-  // outsideView,
+  outsideView,
   hovered,
   setScrollView
 }) => {
@@ -25,12 +25,16 @@ const Day = ({
     }
   });
 
-  const hoverToggle = on => {
-    on ? setLocalHovered(index) : setLocalHovered(null);
+  const handleMouseEnter = () => {
+    setLocalHovered(index);
+  };
+
+  const handleMouseLeave = () => {
+    setLocalHovered(null);
   };
 
   useEffect(() => {
-    setVendors((buildVendors(vendorsNo, amount)));
+    setVendors(buildVendors(vendorsNo, amount));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -43,7 +47,7 @@ const Day = ({
       dayRef.current.offsetTop + dayRef.current.offsetHeight
     );
 
-    if (hovered && 'outsideView' !== outside) {
+    if (hovered && outsideView !== outside) {
       setOutsideView(dayRef.current.offsetTop);
     }
   });
@@ -51,8 +55,8 @@ const Day = ({
   return (
     <div
       ref={dayRef}
-      onMouseEnter={() => hoverToggle(true)}
-      onMouseLeave={() => hoverToggle(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={`day-section day-section${hovered ? "--hovered" : ""}`}
     >
       <div className="day-section__title">
