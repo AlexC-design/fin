@@ -47,6 +47,25 @@
     }
   }
 
+  &--ternary {
+    @include theme-aware("background-color", "background");
+    @include theme-aware("color", "primary-dark");
+    @include theme-aware("border-color", "outline-color");
+
+    &:hover {
+      @include theme-aware("background-color", "primary-dark");
+      @include theme-aware("color", "background");
+      @include theme-aware("border-color", "primary-dark");
+    }
+    &:active {
+      @include theme-aware("background-color", "primary-dark");
+      @include theme-aware("border-color", "background");
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
   &--disabled {
     opacity: 0.5;
     border: none;

@@ -160,6 +160,10 @@
   color: #727272;
 }
 
+.card-options .card-option:active {
+  padding: 15px;
+}
+
 .card-options .card-option--active {
   width: 40%;
 }

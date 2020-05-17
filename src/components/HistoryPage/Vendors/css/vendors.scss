@@ -6,7 +6,7 @@
     opacity: 0;
     border-radius: 20px;
 
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.2s $cbInOut;
     animation: fade-in 1s 0.4s ease-out forwards;
 
     @include width768 {
@@ -20,7 +20,7 @@
       justify-content: space-between;
       padding: 0 2% 10px;
 
-      transition: padding 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: padding 0.4s $cbInOut;
 
       &__day {
       }
@@ -44,7 +44,7 @@
         align-items: center;
         cursor: default;
 
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.4s $cbInOut;
 
         &__icon {
           min-width: 50px;
@@ -126,7 +126,7 @@
       opacity: 0.2;
       border-radius: 5px;
 
-      transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: all 0.2s $cbOut;
     }
 
     &--hovered {

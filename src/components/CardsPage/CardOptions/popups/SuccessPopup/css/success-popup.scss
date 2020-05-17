@@ -6,12 +6,14 @@
   justify-content: center;
   align-items: center;
 
-  animation: popup-exit 0.2s 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+  animation: popup-exit 0.2s 1s $cbIn forwards;
 
   &__image {
     height: 50px;
     width: 50px;
     margin: 50px;
+
+    animation: pop-in 0.2s ease-out forwards;
   }
   &__message {
     font-weight: bold;

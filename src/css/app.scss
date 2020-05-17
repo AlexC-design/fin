@@ -23,7 +23,7 @@ body {
         height: 100vh;
         width: 0px;
 
-        transition: margin-right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: margin-right 0.4s $cbOut;
         
         @include width1280 {
           margin-right: 70px;

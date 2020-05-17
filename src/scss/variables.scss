@@ -41,6 +41,13 @@ $themes: (
   )
 );
 
+$cbInOut: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$cbIn: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$cbOut: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$cbSlowIn: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$cbSlowInMild: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$cbSlowOut: cubic-bezier(0.075, 0.82, 0.165, 1);
+
 @mixin theme-aware($key, $color) {
   @each $theme-name, $theme-color in $themes {
     .theme-#{$theme-name} & {

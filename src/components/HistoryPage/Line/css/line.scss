@@ -20,9 +20,9 @@
     transform: scale(0);
     transform-origin: bottom;
 
-    animation: pop-in 0.4s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation: pop-in 0.4s 0.4s $cbOut forwards;
 
-    transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.1s $cbOut;
 
     @include theme-aware("background-color", "primary-light");
 

@@ -43,6 +43,10 @@ const CardOption = ({ name, description, icon, setPopupType }) => {
         setPopupType("payment-methods");
         break;
 
+      case "Spending limit":
+        setPopupType("spending-limit");
+        break;
+
       default:
         console.log(`No case found for ${name}`);
     }

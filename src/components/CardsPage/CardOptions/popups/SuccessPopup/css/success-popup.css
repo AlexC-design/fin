@@ -20,6 +20,8 @@
   height: 50px;
   width: 50px;
   margin: 50px;
+  -webkit-animation: pop-in 0.2s ease-out forwards;
+          animation: pop-in 0.2s ease-out forwards;
 }
 
 .success-popup__message {

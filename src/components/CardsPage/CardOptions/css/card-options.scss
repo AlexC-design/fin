@@ -23,7 +23,7 @@
       "icon name special"
       "icon description special";
 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s $cbInOut;
 
     &__icon {
       margin: 10px;
@@ -32,14 +32,14 @@
       background-color: rgb(0, 255, 255);
       grid-area: icon;
       user-select: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.4s $cbInOut;
     }
     &__name {
       font-weight: bold;
       align-self: end;
       grid-area: name;
       user-select: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.4s $cbInOut;
 
       @include theme-aware("color", "primary-light");
     }
@@ -47,7 +47,7 @@
       opacity: 0.5;
       grid-area: description;
       user-select: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.4s $cbInOut;
     }
     &__loading-icon {
       align-self: center;
@@ -59,7 +59,7 @@
       animation: spin 0.4s ease-out infinite;
     }
 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s $cbInOut;
 
     &:hover {
       border: 2px solid rgba(255, 255, 255, 0);
@@ -81,6 +81,11 @@
         @include theme-aware("color", "primary-light");
       }
     }
+
+    &:active {
+      padding: 15px;
+    }
+
     &--active {
       width: 40%;
       @include theme-aware("background-color", "primary-light");
@@ -89,7 +94,7 @@
       .card-option__name {
         @include theme-aware("color", "background");
       }
-      
+
       &:hover {
         .card-option__name {
           @include theme-aware("color", "background");

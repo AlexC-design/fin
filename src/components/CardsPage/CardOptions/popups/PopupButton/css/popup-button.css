@@ -140,6 +140,74 @@
   outline: none;
 }
 
+.theme-light .popup-button--ternary {
+  background-color: #fff;
+}
+
+.theme-dark .popup-button--ternary {
+  background-color: #202020;
+}
+
+.theme-light .popup-button--ternary {
+  color: #131e56;
+}
+
+.theme-dark .popup-button--ternary {
+  color: #202020;
+}
+
+.theme-light .popup-button--ternary {
+  border-color: rgba(17, 62, 130, 0.2);
+}
+
+.theme-dark .popup-button--ternary {
+  border-color: rgba(8, 213, 232, 0.2);
+}
+
+.theme-light .popup-button--ternary:hover {
+  background-color: #131e56;
+}
+
+.theme-dark .popup-button--ternary:hover {
+  background-color: #202020;
+}
+
+.theme-light .popup-button--ternary:hover {
+  color: #fff;
+}
+
+.theme-dark .popup-button--ternary:hover {
+  color: #202020;
+}
+
+.theme-light .popup-button--ternary:hover {
+  border-color: #131e56;
+}
+
+.theme-dark .popup-button--ternary:hover {
+  border-color: #202020;
+}
+
+.theme-light .popup-button--ternary:active {
+  background-color: #131e56;
+}
+
+.theme-dark .popup-button--ternary:active {
+  background-color: #202020;
+}
+
+.theme-light .popup-button--ternary:active {
+  border-color: #fff;
+}
+
+.theme-dark .popup-button--ternary:active {
+  border-color: #202020;
+}
+
+.popup-button--ternary:focus {
+  outline: none;
+}
+
 .popup-button--disabled {
   opacity: 0.5;
   border: none;

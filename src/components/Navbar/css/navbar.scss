@@ -30,15 +30,15 @@
         transition: all 0s 0.21s step-end;
       }
 
-      animation: bump 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+      animation: bump 0.4s $cbOut forwards;
 
       @include width1280 {
         animation: stretch-squeeze-both-ways 0.4s
-          cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+          $cbOut forwards;
 
         .navbar-link__text {
           opacity: 1;
-          transition: opacity 0.4s 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          transition: opacity 0.4s 0.2s $cbIn;
         }
       }
 
@@ -54,7 +54,7 @@
   height: calc(100% - 220px);
   border-radius: 20px;
 
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s $cbOut;
 
   .navbar-link {
     margin: 0 50px 40px;
@@ -115,7 +115,7 @@
       border-radius: 0 0 10px 10px;
       align-self: flex-start;
 
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: all 0.4s $cbOut;
 
       &__text {
         display: none;
@@ -129,11 +129,11 @@
 
         img {
           animation: stretch-squeeze-side-ways 0.4s
-            cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            $cbOut forwards;
         }
 
         div {
-          animation: bump 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+          animation: bump 0.4s $cbOut forwards;
         }
       }
     }
@@ -149,10 +149,10 @@
 
   &--animate {
     animation: stretch-squeeze-both-ways 0.4s
-      cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+      $cbOut forwards;
   }
 
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+  transition: all 0.4s $cbOut,
     color 0.6s ease-out, background-color 0.6s ease-out;
 
   transform-origin: right;
@@ -185,7 +185,7 @@
   justify-content: center;
   align-items: center;
 
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s $cbOut;
 
   .navbar-link {
     padding: 9px;
@@ -195,7 +195,7 @@
     margin: 0;
     @include theme-aware("background-color", "background");
 
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    transition: all 0.4s $cbOut,
       color 0.6s ease-out, background-color 0.6s ease-out;
 
     .icon-container {
@@ -208,7 +208,7 @@
       align-items: center;
       @include theme-aware("background-color", "primary-dark");
 
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      transition: all 0.4s $cbOut,
         color 0.6s ease-out, background-color 0.6s ease-out;
       .icon {
         transform: scale(0.8);
@@ -221,7 +221,7 @@
       font-weight: bold;
       @include theme-aware("color", "primary-dark");
       transition: opacity 0.2s ease-out,
-        width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out,
+        width 0.4s $cbOut, color 0.6s ease-out,
         background-color 0.6s ease-out;
     }
   }
@@ -242,7 +242,7 @@
 
       .text {
         transition: opacity 0.2s 0.2s ease-out,
-          width 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out,
+          width 0.1s $cbOut, color 0.6s ease-out,
           background-color 0.6s ease-out;
         width: 100%;
         opacity: 1;
@@ -264,7 +264,7 @@
     width: 40px;
 
     .navbar-link {
-      transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+      transition: all 0.2s $cbSlowInMild,
         background-color 0.6s ease-out;
       min-width: 50px;
       min-height: 50px;
