@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EAEX,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,UAAU;CACzB",
+    "mappings": "AAEA,AAAA,WAAW,CAAC;EACR,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EAEX,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,UAAU;CAKzB;;AC8GC,MAAM,EAAE,SAAS,EAAE,KAAK;EDxH1B,AAAA,WAAW,CAAC;IAQJ,OAAO,EAAE,WAAW;GAE3B",
     "sources": [
-        "cards-page.scss"
+        "cards-page.scss",
+        "../../../scss/variables.scss"
     ],
     "names": [],
     "file": "cards-page.css"

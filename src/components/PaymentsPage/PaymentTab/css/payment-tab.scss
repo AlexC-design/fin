@@ -1,0 +1,108 @@
+@import "../../../../scss/variables.scss";
+
+.payment-tab {
+  .friend-card {
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 400px;
+
+    grid-template-areas:
+      "photo name right"
+      "photo phone right";
+
+    &__photo {
+      border: solid 2px;
+      border-radius: 100px;
+      width: 50px;
+      box-sizing: border-box;
+
+      @include theme-aware("border-color", "primary-light");
+      grid-area: photo;
+    }
+    &__name {
+      font-weight: bold;
+      grid-area: name;
+    }
+    &__phone {
+      opacity: 0.5;
+      grid-area: phone;
+    }
+    &__recent {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      grid-area: right;
+
+      &__amount {
+        font-weight: bold;
+        @include theme-aware("color", "primary-light");
+        margin: 0 10px;
+
+        &--in {
+          @include theme-aware("color", "secondary");
+        }
+      }
+      &__icon {
+      }
+    }
+
+    &__send {
+      @include theme-aware("background-color", "primary-light");
+      @include theme-aware("color", "background");
+      border: none;
+      border-radius: 5px;
+      padding: 7px;
+      cursor: pointer;
+
+      &:hover {
+        @include theme-aware("background-color", "primary-dark");
+      }
+
+      &:active {
+        @include theme-aware("background-color", "primary-light");
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      grid-area: right;
+    }
+  }
+}
+
+.payments-simplebar {
+  height: 100%;
+
+  .simplebar-wrapper {
+    // max-height: 850px;
+
+    .simplebar-content-wrapper {
+      padding: 0 40px;
+      .simplebar-content {
+      }
+    }
+  }
+
+  .simplebar-track.simplebar-vertical {
+    width: 3px;
+    overflow: visible;
+    border-radius: 100px !important;
+    margin: 2px 0;
+    @include theme-aware("background-color", "outline-color");
+
+    .simplebar-scrollbar {
+      &:before {
+        margin-left: -4px;
+        width: 7px;
+        @include theme-aware("background", "primary-light");
+        opacity: 1;
+      }
+    }
+  }
+}

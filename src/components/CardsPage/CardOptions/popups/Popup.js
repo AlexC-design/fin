@@ -3,6 +3,7 @@ import ChangePin from "./ChangePin/ChangePin";
 import SuccessPopup from "../popups/SuccessPopup/SuccessPopup";
 import PaymentMethods from "../popups/PaymentMethods/PaymentMethods";
 import SpendingLimit from "../popups/SpendingLimit/SpendingLimit";
+import SendPopup from "./SendPopup/SendPopup";
 import "./css/popup.css";
 
 const Popup = ({ type, message }) => {
@@ -12,6 +13,7 @@ const Popup = ({ type, message }) => {
         {type === "change-pin" && <ChangePin />}
         {type === "payment-methods" && <PaymentMethods />}
         {type === "spending-limit" && <SpendingLimit spent={3000} />}
+        {type === "send" && <SendPopup />}
         {type === "success" && <SuccessPopup message={message} />}
       </div>
     </div>

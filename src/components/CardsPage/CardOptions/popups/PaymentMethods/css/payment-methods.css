@@ -16,7 +16,7 @@
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
-  width: 300px;
+  width: 270px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 70px auto;
@@ -102,5 +102,12 @@
 
 .theme-dark .payment-methods .payment-method:hover {
   border-color: rgba(8, 213, 232, 0.2);
+}
+
+@media (max-width: 768px) {
+  .payment-methods {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
 }
 /*# sourceMappingURL=payment-methods.css.map */

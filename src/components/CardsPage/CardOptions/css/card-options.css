@@ -11,6 +11,8 @@
           justify-content: center;
   height: 60%;
   position: relative;
+  -webkit-animation: fade-in 1s ease-out;
+          animation: fade-in 1s ease-out;
 }
 
 .card-options .card-option {
@@ -117,7 +119,7 @@
 
 .card-options .card-option:hover {
   border: 2px solid rgba(255, 255, 255, 0);
-  padding: 10px 10px;
+  padding: 10px;
   margin: 0;
 }
 
@@ -206,6 +208,47 @@
 
 .theme-dark .card-options .card-option--active:hover .card-option__description {
   color: #202020;
+}
+
+@media (max-width: 1000px) {
+  .card-options .card-option {
+    width: 95%;
+    margin: 5px;
+    -ms-grid-columns: 55px 70% 10%;
+        grid-template-columns: 55px 70% 10%;
+  }
+  .card-options .card-option__icon {
+    margin: 5px;
+  }
+  .card-options .card-option--active {
+    width: 80%;
+  }
+  .card-options .card-option:hover {
+    padding: 5px;
+    margin: 0px;
+  }
+  .card-options .card-option:hover .card-option__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .card-options .card-option:hover .card-option__name {
+    font-size: 1em;
+  }
+  .card-options .card-option:hover .card-option__description {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1000px) {
+  .card-options .card-option {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-options--popup-opened {
+    height: 100%;
+  }
 }
 
 @-webkit-keyframes spin {

@@ -11,7 +11,7 @@
     border-radius: 10px;
     user-select: none;
     cursor: pointer;
-    width: 300px;
+    width: 270px;
 
     display: grid;
     grid-template-columns: 70px auto;
@@ -65,5 +65,9 @@
       transform: scale(1.1);
       @include theme-aware("border-color", "outline-color");
     }
+  }
+
+  @include width768 {
+    grid-template-columns: 100%;
   }
 }

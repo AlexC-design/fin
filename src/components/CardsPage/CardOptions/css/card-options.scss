@@ -7,6 +7,8 @@
   height: 60%;
   position: relative;
 
+  animation: fade-in 1s ease-out;
+
   .card-option {
     margin: 10px 0;
     padding: 5px;
@@ -63,7 +65,7 @@
 
     &:hover {
       border: 2px solid rgba(255, 255, 255, 0);
-      padding: 10px 10px;
+      padding: 10px;
       margin: 0;
 
       @include themed-shadow("0", "0", "20", "0", "outline-color");
@@ -106,6 +108,47 @@
 
       .card-option__icon {
       }
+    }
+
+    @include width1000 {
+      width: 95%;
+      margin: 5px;
+
+      grid-template-columns: 55px 70% 10%;
+
+      &__icon {
+        margin: 5px;
+      }
+
+      &--active {
+        width: 80%;
+      }
+
+      &:hover {
+        padding: 5px;
+        margin: 0px;
+
+        .card-option__icon {
+          width: 40px;
+          height: 40px;
+        }
+        .card-option__name {
+          font-size: 1em;
+        }
+        .card-option__description {
+          font-size: 1em;
+        }
+      }
+    }
+
+    @include width1000 {
+      padding: 0;
+    }
+  }
+
+  &--popup-opened {
+    @include width768 {
+      height: 100%;
     }
   }
 }

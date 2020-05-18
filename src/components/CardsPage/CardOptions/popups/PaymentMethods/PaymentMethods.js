@@ -48,6 +48,7 @@ const PaymentMethods = ({ setPopupType, setSuccessMessage }) => {
         {methods.map(method => {
           return (
             <PaymentMethod
+              key={method.name}
               name={method.name}
               icon={""}
               setChanged={setChanged}

@@ -30,7 +30,11 @@ const CardOptions = ({ popupType, successMessage }) => {
 
   return (
     <>
-      <div className="card-options">
+      <div
+        className={`card-options card-options${
+          popupType !== null ? "--popup-opened" : ""
+        }`}
+      >
         {popupType && <Popup type={popupType} message={successMessage} />}
         {options.map(option => {
           return (

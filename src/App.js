@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
 import { HashRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
 import BreakdownPage from "./components/BreakdownPage/BreakdownPage";
 import HistoryPage from "./components/HistoryPage/HistoryPage";
 import CardsPage from "./components/CardsPage/CardsPage";
+import PaymentsPage from "./components/PaymentsPage/PaymentsPage";
 import RedirectPage from "./utils/RedirectPage/RedirectPage";
-import { setCategories } from "./store/state/mockData/index";
 import MockDays from "./utils/mockData/MockDays";
 import mockCategories from "./utils/mockData/mockCategories";
 import { setTheme } from "./store/state/theme";
-
+import { setCategories } from "./store/state/mockData/index";
 import "./css/app.css";
 
 const App = ({ setCategories, currentMoment, setTheme, theme }) => {
@@ -56,6 +56,7 @@ const App = ({ setCategories, currentMoment, setTheme, theme }) => {
           <Route path="/breakdown" exact component={BreakdownPage} />
           <Route path="/history" exact component={HistoryPage} />
           <Route path="/cards" exact component={CardsPage} />
+          <Route path="/payments" exact component={PaymentsPage} />
         </div>
       </div>
     </HashRouter>

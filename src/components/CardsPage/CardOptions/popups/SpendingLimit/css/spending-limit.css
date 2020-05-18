@@ -35,7 +35,6 @@
 
 .spending-limit .main-container .arc svg path.background {
   stroke: lightgrey;
-  stroke-width: 2;
 }
 
 .spending-limit .main-container .arc svg path.fill {
@@ -66,6 +65,14 @@
           align-items: center;
 }
 
+.theme-light .spending-limit .main-container .text-container {
+  color: #364496;
+}
+
+.theme-dark .spending-limit .main-container .text-container {
+  color: #727272;
+}
+
 .spending-limit .main-container .text-container .numbers-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,9 +100,25 @@
   font-size: 1.5em;
 }
 
+.theme-light .spending-limit .main-container .text-container .numbers-container .slash {
+  color: #131e56;
+}
+
+.theme-dark .spending-limit .main-container .text-container .numbers-container .slash {
+  color: #202020;
+}
+
 .spending-limit .main-container .text-container .numbers-container .limit {
   font-weight: bold;
   font-size: 1.5em;
+}
+
+.theme-light .spending-limit .main-container .text-container .numbers-container .limit {
+  color: #131e56;
+}
+
+.theme-dark .spending-limit .main-container .text-container .numbers-container .limit {
+  color: #202020;
 }
 
 .spending-limit .main-container .text-container .numbers-container .limit-input {

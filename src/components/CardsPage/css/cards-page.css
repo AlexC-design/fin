@@ -5,4 +5,10 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+  .cards-page {
+    padding: 0 10px 10px;
+  }
+}
 /*# sourceMappingURL=cards-page.css.map */

@@ -108,6 +108,12 @@ const SpendingLimit = ({ total, setSuccessMessage, setPopupType }) => {
                         total < limit ? (1 - total / limit) * 387 : 0
                       }; }
                   }
+
+                  path.background {
+                    stroke-width: ${(total / limit) * 10 + 1}px;
+
+                    transition: all 1s cubic-bezier(0.57, 0.01, 0.49, 1.1);
+                  }
               `}</style>
 
               <path

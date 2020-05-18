@@ -1,0 +1,175 @@
+.payment-tab .friend-card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 50% 30%;
+      grid-template-columns: 20% 50% 30%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px auto;
+  max-width: 400px;
+      grid-template-areas: "photo name right" "photo phone right";
+}
+
+.payment-tab .friend-card__photo {
+  border: solid 2px;
+  border-radius: 100px;
+  width: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: photo;
+}
+
+.theme-light .payment-tab .friend-card__photo {
+  border-color: #364496;
+}
+
+.theme-dark .payment-tab .friend-card__photo {
+  border-color: #727272;
+}
+
+.payment-tab .friend-card__name {
+  font-weight: bold;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: name;
+}
+
+.payment-tab .friend-card__phone {
+  opacity: 0.5;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: phone;
+}
+
+.payment-tab .friend-card__recent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: right;
+}
+
+.payment-tab .friend-card__recent__amount {
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.theme-light .payment-tab .friend-card__recent__amount {
+  color: #364496;
+}
+
+.theme-dark .payment-tab .friend-card__recent__amount {
+  color: #727272;
+}
+
+.theme-light .payment-tab .friend-card__recent__amount--in {
+  color: #08d5e8;
+}
+
+.theme-dark .payment-tab .friend-card__recent__amount--in {
+  color: #08d5e8;
+}
+
+.payment-tab .friend-card__send {
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+  cursor: pointer;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: right;
+}
+
+.theme-light .payment-tab .friend-card__send {
+  background-color: #364496;
+}
+
+.theme-dark .payment-tab .friend-card__send {
+  background-color: #727272;
+}
+
+.theme-light .payment-tab .friend-card__send {
+  color: #fff;
+}
+
+.theme-dark .payment-tab .friend-card__send {
+  color: #202020;
+}
+
+.theme-light .payment-tab .friend-card__send:hover {
+  background-color: #131e56;
+}
+
+.theme-dark .payment-tab .friend-card__send:hover {
+  background-color: #202020;
+}
+
+.theme-light .payment-tab .friend-card__send:active {
+  background-color: #364496;
+}
+
+.theme-dark .payment-tab .friend-card__send:active {
+  background-color: #727272;
+}
+
+.payment-tab .friend-card__send:focus {
+  outline: none;
+}
+
+.payments-simplebar {
+  height: 100%;
+}
+
+.payments-simplebar .simplebar-wrapper .simplebar-content-wrapper {
+  padding: 0 40px;
+}
+
+.payments-simplebar .simplebar-track.simplebar-vertical {
+  width: 3px;
+  overflow: visible;
+  border-radius: 100px !important;
+  margin: 2px 0;
+}
+
+.theme-light .payments-simplebar .simplebar-track.simplebar-vertical {
+  background-color: rgba(17, 62, 130, 0.2);
+}
+
+.theme-dark .payments-simplebar .simplebar-track.simplebar-vertical {
+  background-color: rgba(8, 213, 232, 0.2);
+}
+
+.payments-simplebar .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  margin-left: -4px;
+  width: 7px;
+  opacity: 1;
+}
+
+.theme-light .payments-simplebar .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  background: #364496;
+}
+
+.theme-dark .payments-simplebar .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  background: #727272;
+}
+/*# sourceMappingURL=payment-tab.css.map */
