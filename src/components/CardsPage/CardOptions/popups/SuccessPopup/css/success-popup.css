@@ -12,8 +12,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-animation: popup-exit 0.2s 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
-          animation: popup-exit 0.2s 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+  -webkit-animation: popup-exit 0.2s 2.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+          animation: popup-exit 0.2s 2.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
 }
 
 .success-popup__image {
@@ -26,6 +26,8 @@
 
 .success-popup__message {
   font-weight: bold;
+  -webkit-animation: fade-in 0.4s ease-out forwards;
+          animation: fade-in 0.4s ease-out forwards;
 }
 
 .theme-light .success-popup__message {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Section from "../Section/Section";
 import PaymentTab from "./PaymentTab/PaymentTab";
 import "./css/payments-page.css";
@@ -6,15 +6,36 @@ import { connect } from "react-redux";
 import Popup from "../CardsPage/CardOptions/popups/Popup";
 
 const PaymentsPage = ({ popupType, successMessage }) => {
+  const [active, setActive] = useState("friends");
+  const [mobileView, setMobileView] = useState(false);
+
+  const handleResize = () => {
+    window.innerWidth < 1000 ? setMobileView(true) : setMobileView(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="payments-page">
       {popupType && <Popup type={popupType} message={successMessage} />}
-      <Section outline="shadow" radius={20} type={"half"}>
-        <PaymentTab type={"friends"} />
-      </Section>
-      <Section outline="shadow" radius={20} type={"half"}>
-        <PaymentTab type={"recent"} />
-      </Section>
+      {(!mobileView || active === "friends") && (
+        <Section outline="shadow" radius={20} type={"half"}>
+          <PaymentTab type={"friends"} active={active} setActive={setActive} />
+        </Section>
+      )}
+      {(!mobileView || active === "payments") && (
+        <Section outline="shadow" radius={20} type={"half"}>
+          <PaymentTab type={"payments"} active={active} setActive={setActive} />
+        </Section>
+      )}
     </div>
   );
 };

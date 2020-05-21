@@ -191,6 +191,8 @@
 
   .simplebar-wrapper {
     // max-height: 850px;
+    @include fade-masking;
+
 
     .simplebar-content-wrapper {
       padding: 20px;

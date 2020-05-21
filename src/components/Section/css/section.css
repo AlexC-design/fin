@@ -50,12 +50,21 @@
   width: 40%;
   height: 80%;
   max-width: 550px;
+  opacity: 1;
+  -webkit-animation: none;
+          animation: none;
 }
 
 @media (max-width: 1000px) {
   .section--half {
     width: 90%;
-    height: 85%;
+    height: calc(100% - 80px);
+  }
+}
+
+@media (max-width: 640px) {
+  .section--half {
+    width: 99%;
   }
 }
 

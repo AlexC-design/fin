@@ -42,7 +42,7 @@
 }
 
 .theme-dark .categories-container .category__percentage {
-  color: #727272;
+  color: #364496;
 }
 
 .categories-container .category--hovered {
@@ -65,7 +65,7 @@
 }
 
 .theme-dark .categories-container .category--hovered {
-  color: #727272;
+  color: #364496;
 }
 
 .categories-container .category--hovered .category__icon {
@@ -83,6 +83,13 @@
     width: 30px;
     height: 30px;
   }
+}
+
+.categories-container .simplebar-wrapper {
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), to(transparent));
+  -webkit-mask-image: linear-gradient(transparent, black, black, black, black, black, black, black, black, black, black, black, black, black, black, transparent);
+          mask-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), to(transparent));
+          mask-image: linear-gradient(transparent, black, black, black, black, black, black, black, black, black, black, black, black, black, black, transparent);
 }
 
 .categories-container .simplebar-wrapper .simplebar-content-wrapper {
@@ -115,6 +122,6 @@
 }
 
 .theme-dark .categories-container .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
-  background: #727272;
+  background: #364496;
 }
 /*# sourceMappingURL=categories.css.map */

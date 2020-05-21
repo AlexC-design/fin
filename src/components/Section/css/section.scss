@@ -32,10 +32,17 @@
     width: 40%;
     height: 80%;
     max-width: 550px;
+    
+    opacity: 1;
+    animation: none;
 
     @include width1000 {
       width: 90%;
-      height: 85%;
+      height: calc(100% - 80px);
+    }
+
+    @include width640 {
+      width: 99%;
     }
   }
 

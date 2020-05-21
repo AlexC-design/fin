@@ -17,11 +17,12 @@ $themes: (
     accent9: #6775bb,
     accent10: #7c7c7c,
     text-color: #000,
+    text-reversed: #fff,
     outline-color: rgba(#113e82, 0.2)
   ),
   dark: (
-    primary-dark: #202020,
-    primary-light: #727272,
+    primary-dark: #131e56,
+    primary-light: #364496,
     secondary: #08d5e8,
     ternary: #08d5e8,
     background: rgb(32, 32, 32),
@@ -37,6 +38,7 @@ $themes: (
     accent9: #6775bb,
     accent10: #7c7c7c,
     text-color: #fff,
+    text-reversed: #000,
     outline-color: rgba(#08d5e8, 0.2)
   )
 );
@@ -74,6 +76,27 @@ $cbSlowOut: cubic-bezier(0.075, 0.82, 0.165, 1);
       border: solid #{$size}px map-get(map-get($themes, $theme-name), $color);
     }
   }
+}
+
+@mixin fade-masking {
+  mask-image: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    transparent
+  );
 }
 
 @mixin themed-linear-gradient($color1, $color2) {
@@ -133,6 +156,12 @@ $cbSlowOut: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 @mixin width360 {
   @media (max-width: 360px) {
+    @content;
+  }
+}
+
+@mixin widthAbove1000 {
+  @media (min-width: 1000px) {
     @content;
   }
 }

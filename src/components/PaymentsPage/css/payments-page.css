@@ -15,4 +15,12 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+@media (max-width: 640px) {
+  .payments-page {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
 /*# sourceMappingURL=payments-page.css.map */

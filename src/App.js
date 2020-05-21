@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { HashRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
+import moment from "moment";
 import Navbar from "./components/Navbar/Navbar";
 import BreakdownPage from "./components/BreakdownPage/BreakdownPage";
 import HistoryPage from "./components/HistoryPage/HistoryPage";
@@ -27,7 +28,15 @@ const App = ({ setCategories, currentMoment, setTheme, theme }) => {
   };
 
   const mockData = () => {
-    const categories = mockCategories();
+    let categories = mockCategories();
+    if (moment(currentMoment).format("MM YY") === moment().format("MM YY")) {
+      categories = categories.map(cat => {
+        return {
+          ...cat,
+          data: parseFloat((cat.data * (moment().date() / 32)).toFixed(2))
+        };
+      });
+    }
 
     const total = parseFloat(
       categories

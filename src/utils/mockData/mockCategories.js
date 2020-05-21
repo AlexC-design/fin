@@ -55,6 +55,8 @@ const mockCategories = () => {
     };
   });
 
+  categories.sort((a, b) => b.data - a.data);
+
   return categories;
 };
 

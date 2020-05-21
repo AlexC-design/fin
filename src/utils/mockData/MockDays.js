@@ -37,7 +37,15 @@ const MockDays = ({ total, setDays, currentMoment }) => {
       }
     });
 
-    for (let day = 1; day <= moment(currentMoment).daysInMonth(); day++) {
+    const numberOfDays = () => {
+      if (moment(currentMoment).format("MM YY") === moment().format("MM YY")) {
+        return moment(currentMoment).date();
+      } else {
+        return moment(currentMoment).daysInMonth();
+      }
+    };
+
+    for (let day = 1; day <= numberOfDays(); day++) {
       days.push({
         day: moment(currentMoment).date(day).format("DD MMM"),
         amount: amounts[day - 1],

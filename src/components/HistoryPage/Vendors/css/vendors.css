@@ -41,7 +41,7 @@
 }
 
 .theme-dark .vendors-container .day-section__title__amount {
-  color: #727272;
+  color: #364496;
 }
 
 .vendors-container .day-section__vendors .vendor {
@@ -156,7 +156,7 @@
 }
 
 .theme-dark .vendors-container .day-section__separator {
-  background-color: #727272;
+  background-color: #364496;
 }
 
 .vendors-container .day-section--hovered {
@@ -189,7 +189,7 @@
 }
 
 .theme-dark .vendors-container .day-section--hovered .day-section__title {
-  color: #727272;
+  color: #364496;
 }
 
 .vendors-container .day-section--hovered .day-section__title__day {
@@ -206,7 +206,7 @@
 }
 
 .theme-dark .vendors-container .day-section--hovered .vendor__data__top__name {
-  color: #202020;
+  color: #131e56;
 }
 
 .vendors-container .day-section--hovered .vendor__data__top__amount {
@@ -219,7 +219,7 @@
 }
 
 .theme-dark .vendors-container .day-section--hovered .vendor__data__top__amount {
-  color: #727272;
+  color: #364496;
 }
 
 @media (max-width: 1000px) {
@@ -238,6 +238,13 @@
   .vendors-container .day-section .day-section__title__amount {
     font-size: 1em;
   }
+}
+
+.vendors-container .simplebar-wrapper {
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), to(transparent));
+  -webkit-mask-image: linear-gradient(transparent, black, black, black, black, black, black, black, black, black, black, black, black, black, black, transparent);
+          mask-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), color-stop(black), to(transparent));
+          mask-image: linear-gradient(transparent, black, black, black, black, black, black, black, black, black, black, black, black, black, black, transparent);
 }
 
 .vendors-container .simplebar-wrapper .simplebar-content-wrapper {
@@ -279,7 +286,7 @@
 }
 
 .theme-dark .vendors-container .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
-  background: #727272;
+  background: #364496;
 }
 
 @-webkit-keyframes fade-in {

@@ -13,6 +13,10 @@
       "photo name right"
       "photo phone right";
 
+    // animation: pop-in-vertical 5s 5s $cbInOut;
+
+    transform-origin: top;
+
     &__photo {
       border: solid 2px;
       border-radius: 100px;
@@ -30,7 +34,7 @@
       opacity: 0.5;
       grid-area: phone;
     }
-    &__recent {
+    &__payments {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
@@ -73,17 +77,26 @@
 
       grid-area: right;
     }
+
+    @include width640 {
+      margin-top: 0;
+    }
   }
 }
 
 .payments-simplebar {
-  height: 100%;
+  height: 90%;
 
   .simplebar-wrapper {
     // max-height: 850px;
+    @include fade-masking;
 
     .simplebar-content-wrapper {
       padding: 0 40px;
+
+      @include width640 {
+        padding: 30px 10px;
+      }
       .simplebar-content {
       }
     }
@@ -104,5 +117,75 @@
         opacity: 1;
       }
     }
+  }
+}
+
+.buttons-container-payments {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+
+  button {
+    width: 40%;
+    height: 40px;
+    margin: 0 0 20px;
+    border: 2px solid;
+    border-radius: 100px;
+    @include theme-aware("border-color", "primary-light");
+    @include theme-aware("background-color", "background");
+    @include theme-aware("color", "primary-light");
+    font-weight: bold;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      @include theme-aware("border-color", "primary-dark");
+      @include theme-aware("background-color", "primary-dark");
+      @include theme-aware("color", "text-reversed");
+    }
+
+    &:active {
+      @include theme-aware("border-color", "primary-light");
+      @include theme-aware("background-color", "primary-light");
+      @include theme-aware("color", "text-reversed");
+    }
+
+    &.--active {
+      @include theme-aware("border-color", "primary-light");
+      @include theme-aware("background-color", "primary-light");
+      @include theme-aware("color", "text-reversed");
+    }
+
+    @include widthAbove1000 {
+      font-weight: bold;
+      font-size: 1.2em;
+      border: none;
+      pointer-events: none;
+      cursor: default;
+      margin: 0;
+      @include theme-aware("background-color", "background");
+      @include theme-aware("color", "text-color");
+
+      &.--active {
+        border: none;
+        @include theme-aware("background-color", "background");
+        @include theme-aware("color", "text-color");
+      }
+
+      &.--hidden {
+        display: none;
+      }
+    }
+  }
+
+  @include width640 {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
   }
 }

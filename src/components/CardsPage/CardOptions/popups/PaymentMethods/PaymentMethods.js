@@ -39,7 +39,7 @@ const PaymentMethods = ({ setPopupType, setSuccessMessage }) => {
     setTimeout(() => {
       setPopupType(null);
       setSuccessMessage("");
-    }, 1500);
+    }, 2700);
   };
 
   return (

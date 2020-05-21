@@ -35,7 +35,7 @@
 }
 
 .theme-dark .month-ctrl__month {
-  color: #727272;
+  color: #364496;
 }
 
 .month-ctrl .buttons-container {
@@ -81,7 +81,7 @@
 }
 
 .theme-dark .month-ctrl .buttons-container .month-button {
-  background-color: #202020;
+  background-color: #131e56;
 }
 
 .theme-light .month-ctrl .buttons-container .month-button {
@@ -140,7 +140,7 @@
 }
 
 .theme-dark .month-ctrl .buttons-container .month-button:hover {
-  background-color: #727272;
+  background-color: #364496;
 }
 
 .month-ctrl .buttons-container .month-button:active {
@@ -153,7 +153,7 @@
 }
 
 .theme-dark .month-ctrl .buttons-container .month-button:active {
-  background-color: #202020;
+  background-color: #131e56;
 }
 
 .month-ctrl .buttons-container .month-button:focus {

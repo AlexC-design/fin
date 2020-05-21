@@ -85,7 +85,7 @@
 }
 
 .theme-dark .card-options .card-option__name {
-  color: #727272;
+  color: #364496;
 }
 
 .card-options .card-option__description {
@@ -147,7 +147,7 @@
 }
 
 .theme-dark .card-options .card-option:hover .card-option__name {
-  color: #727272;
+  color: #364496;
 }
 
 .card-options .card-option:hover .card-option__description {
@@ -159,7 +159,7 @@
 }
 
 .theme-dark .card-options .card-option:hover .card-option__description {
-  color: #727272;
+  color: #364496;
 }
 
 .card-options .card-option:active {
@@ -175,7 +175,7 @@
 }
 
 .theme-dark .card-options .card-option--active {
-  background-color: #727272;
+  background-color: #364496;
 }
 
 .theme-light .card-options .card-option--active {

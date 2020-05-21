@@ -94,5 +94,6 @@
   .error-message {
     @include theme-aware("color", "ternary");
     margin-bottom: 20px;
+    text-align: center;
   }
 }

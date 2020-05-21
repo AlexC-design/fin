@@ -57,7 +57,7 @@
 }
 
 .theme-dark .payment-methods .payment-method__name {
-  color: #202020;
+  color: #131e56;
 }
 
 .payment-methods .payment-method__description {
@@ -82,7 +82,7 @@
 }
 
 .theme-dark .payment-methods .payment-method--disabled .payment-method__description {
-  color: #727272;
+  color: #364496;
 }
 
 .payment-methods .payment-method--disabled .payment-method__icon {

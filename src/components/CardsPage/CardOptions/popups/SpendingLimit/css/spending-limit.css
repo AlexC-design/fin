@@ -70,7 +70,7 @@
 }
 
 .theme-dark .spending-limit .main-container .text-container {
-  color: #727272;
+  color: #364496;
 }
 
 .spending-limit .main-container .text-container .numbers-container {
@@ -105,7 +105,7 @@
 }
 
 .theme-dark .spending-limit .main-container .text-container .numbers-container .slash {
-  color: #202020;
+  color: #131e56;
 }
 
 .spending-limit .main-container .text-container .numbers-container .limit {
@@ -118,7 +118,7 @@
 }
 
 .theme-dark .spending-limit .main-container .text-container .numbers-container .limit {
-  color: #202020;
+  color: #131e56;
 }
 
 .spending-limit .main-container .text-container .numbers-container .limit-input {
@@ -137,6 +137,7 @@
 
 .spending-limit .error-message {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .theme-light .spending-limit .error-message {

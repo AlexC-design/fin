@@ -46,7 +46,7 @@ const SpendingLimit = ({ total, setSuccessMessage, setPopupType }) => {
     const value = e.target.value;
 
     if ((value.length <= 5 && isNumber(value)) || value === "") {
-      setNewLimit(value);
+      setNewLimit(value === "" ? "" : parseInt(value, 10).toString());
     }
   };
 
@@ -60,7 +60,7 @@ const SpendingLimit = ({ total, setSuccessMessage, setPopupType }) => {
     setTimeout(() => {
       setPopupType(null);
       setSuccessMessage("");
-    }, 1500);
+    }, 2700);
   };
 
   return (
@@ -105,7 +105,7 @@ const SpendingLimit = ({ total, setSuccessMessage, setPopupType }) => {
                         (1 - total / previousLimit) * 387
                       }; }
                       100% { stroke-dashoffset: ${
-                        total < limit ? (1 - total / limit) * 387 : 0
+                        total < limit ? (1 - total / limit) * 387 + 1 : 0
                       }; }
                   }
 

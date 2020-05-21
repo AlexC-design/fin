@@ -32,7 +32,7 @@
 }
 
 .theme-dark .change-pin__field {
-  color: #727272;
+  color: #364496;
 }
 
 .change-pin__field__input {
@@ -62,7 +62,7 @@
 }
 
 .theme-dark .change-pin__field__input:focus {
-  border: solid 1px #727272;
+  border: solid 1px #364496;
 }
 
 .change-pin__field__button {

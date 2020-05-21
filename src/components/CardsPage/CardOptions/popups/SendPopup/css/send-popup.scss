@@ -1,5 +1,33 @@
-@import '../../../../../../scss/variables.scss';
+@import "../../../../../../scss/variables.scss";
 
 .send-popup {
-    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-weight: bold;
+    @include theme-aware("color", "primary-light");
+
+    &__input {
+      border-radius: 10px;
+      @include themed-stroke("1", "outline-color");
+      padding: 10px 60px;
+      margin-top: 10px;
+      font-size: 1.2em;
+      width: 70px;
+      letter-spacing: 2px;
+      text-align: left;
+
+      &:focus {
+        @include themed-stroke("1", "primary-light");
+        outline: none;
+      }
+    }
+  }
 }

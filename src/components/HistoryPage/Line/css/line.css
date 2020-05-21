@@ -24,7 +24,7 @@
 }
 
 .theme-dark .line .toggle-button {
-  background-color: #727272;
+  background-color: #364496;
 }
 
 .theme-light .line .toggle-button:hover {
@@ -32,7 +32,7 @@
 }
 
 .theme-dark .line .toggle-button:hover {
-  background-color: #202020;
+  background-color: #131e56;
 }
 
 .line .toggle-button:active {
@@ -45,7 +45,7 @@
 }
 
 .theme-dark .line .toggle-button:active {
-  background-color: #727272;
+  background-color: #364496;
 }
 
 .line .toggle-button:focus {

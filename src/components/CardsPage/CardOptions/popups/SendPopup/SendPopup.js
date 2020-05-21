@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import "./css/send-popup.css";
+import { connect } from "react-redux";
 import PopupButton from "../PopupButton/PopupButton";
+import {
+  setSuccessMessage,
+  setPopupType
+} from "../../../../../store/state/popup";
+import "./css/send-popup.css";
 
-const SendPopup = () => {
+const SendPopup = ({ recipient, setSuccessMessage, setPopupType }) => {
   const [amount, setAmount] = useState("£");
 
   const isNumber = str => {
@@ -12,12 +17,9 @@ const SendPopup = () => {
   const handleInputChange = e => {
     const value = e.target.value;
 
-    console.log({ value });
-    console.log(value.charAt(0));
-
     if (
       (value.charAt(0) === "£" &&
-        value.length <= 6 &&
+        value.length <= 5 &&
         isNumber(value.charAt(value.length - 1))) ||
       value === "£"
     ) {
@@ -28,19 +30,30 @@ const SendPopup = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    alert("sent");
+    setSuccessMessage(`Sent ${amount} to ${recipient}`);
+
+    setTimeout(() => {
+      setPopupType("success");
+    }, 10);
+
+    setTimeout(() => {
+      setPopupType(null);
+      setSuccessMessage("");
+    }, 2700);
   };
 
   return (
     <form className="send-popup">
       <label className="send-popup__field">
-        Amount:
+        Amount
         <input
           className="send-popup__field__input"
           name="amount"
           type={"text"}
           value={amount}
           onChange={handleInputChange}
+          autoComplete="off"
+          autoFocus
         />
       </label>
       <div className="buttons-container">
@@ -49,10 +62,19 @@ const SendPopup = () => {
           type={"secondary"}
           text={"Cancel"}
         />
-        <PopupButton action={handleSubmit} type={"primary"} text={"Change"} />
+        <PopupButton action={handleSubmit} type={"primary"} text={"Send"} />
       </div>
     </form>
   );
 };
 
-export default SendPopup;
+const mapStateToProps = state => ({
+  recipient: state.popup.recipient
+});
+
+const mapDispatchToProps = dispatch => ({
+  setPopupType: type => dispatch(setPopupType(type)),
+  setSuccessMessage: message => dispatch(setSuccessMessage(message))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SendPopup);

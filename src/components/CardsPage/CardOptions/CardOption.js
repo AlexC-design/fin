@@ -66,14 +66,14 @@ const CardOption = ({ name, description, icon, setPopupType }) => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [loading, setLoading]);
+  }, [loading, setLoading, active]);
 
   return (
     <div
       onClick={() => clickAction(name[active])}
       className={`card-option card-option${active ? "--active" : ""}`}
     >
-      <img src={icon} className="card-option__icon" />
+      <img src={icon} className="card-option__icon" alt="" />
       <div className="card-option__name">{name[active]}</div>
       <div className="card-option__description">{description[active]}</div>
       {displayLoadingIcon && loading && (

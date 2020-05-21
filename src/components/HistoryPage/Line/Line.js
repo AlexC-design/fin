@@ -117,9 +117,9 @@ const Line = ({
         labels: days.map(day => day.day),
         datasets: [
           {
-            data: days.map(day =>
-              mode === "total" ? day.accTotal : day.amount
-            ),
+            data: days.map(day => {
+              return mode === "total" ? day.accTotal : day.amount;
+            }),
             borderColor: "rgba(54, 68, 150, 0.9)",
             fill: true,
             backgroundColor: gradientFill,

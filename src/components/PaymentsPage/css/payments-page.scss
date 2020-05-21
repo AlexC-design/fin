@@ -9,4 +9,7 @@
   justify-content: center;
   align-items: center;
   
+  @include width640 {
+    align-items: flex-start;
+  }
 }
