@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./css/payment-methods.css";
+import { connect } from "react-redux";
 
-const PaymentMethod = ({ name, icon, setChanged }) => {
+const PaymentMethod = ({ name, icon, setChanged, theme }) => {
   const [enabled, setEnabled] = useState(true);
 
   const toggleEnable = () => {
@@ -15,7 +16,10 @@ const PaymentMethod = ({ name, icon, setChanged }) => {
       onClick={toggleEnable}
     >
       {/* <img className="payment-method__icon" src={icon} alt="" /> */}
-      <img className="payment-method__icon" src={icon} />
+      <img
+        className={`payment-method__icon payment-method__icon--${theme}`}
+        src={icon}
+      />
       <p className="payment-method__name">{name}</p>
       <p className="payment-method__description">
         Click to {enabled ? "disable" : "enable"}
@@ -24,4 +28,8 @@ const PaymentMethod = ({ name, icon, setChanged }) => {
   );
 };
 
-export default PaymentMethod;
+const mapStateToProps = state => ({
+  theme: state.theme
+});
+
+export default connect(mapStateToProps)(PaymentMethod);

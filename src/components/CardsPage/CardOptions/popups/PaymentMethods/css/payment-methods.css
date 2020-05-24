@@ -34,12 +34,17 @@
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  -webkit-filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg) brightness(88%) contrast(80%);
-          filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg) brightness(88%) contrast(80%);
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: icon;
+  -webkit-filter: invert(26%) sepia(9%) saturate(7482%) hue-rotate(206deg) brightness(93%) contrast(93%);
+          filter: invert(26%) sepia(9%) saturate(7482%) hue-rotate(206deg) brightness(93%) contrast(93%);
+}
+
+.payment-methods .payment-method__icon--dark {
+  -webkit-filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg) brightness(88%) contrast(80%);
+          filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg) brightness(88%) contrast(80%);
 }
 
 .payment-methods .payment-method__name {

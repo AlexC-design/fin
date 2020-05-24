@@ -277,7 +277,7 @@
 }
 
 .theme-dark .buttons-container-payments button:hover {
-  color: #000;
+  color: #fff;
 }
 
 .theme-light .buttons-container-payments button:active {
@@ -301,7 +301,7 @@
 }
 
 .theme-dark .buttons-container-payments button:active {
-  color: #000;
+  color: #fff;
 }
 
 .theme-light .buttons-container-payments button.--active {
@@ -325,7 +325,7 @@
 }
 
 .theme-dark .buttons-container-payments button.--active {
-  color: #000;
+  color: #fff;
 }
 
 @media (min-width: 1000px) {

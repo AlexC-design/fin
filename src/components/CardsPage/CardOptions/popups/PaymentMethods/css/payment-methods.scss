@@ -27,10 +27,14 @@
       height: 30px;
       margin: 10px;
       align-self: center;
-      filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg)
-        brightness(88%) contrast(80%);
-
       grid-area: icon;
+      filter: invert(26%) sepia(9%) saturate(7482%) hue-rotate(206deg)
+        brightness(93%) contrast(93%);
+
+      &--dark {
+        filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg)
+          brightness(88%) contrast(80%);
+      }
     }
 
     &__name {

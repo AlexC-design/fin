@@ -73,7 +73,13 @@ const CardOption = ({ name, description, icon, setPopupType, theme }) => {
       onClick={() => clickAction(name[active])}
       className={`card-option card-option${active ? "--active" : ""}`}
     >
-      <img src={icon} className="card-option__icon" alt="" />
+      <img
+        src={icon}
+        className={`card-option__icon card-option__icon${
+          theme === "dark" ? "--dark" : ""
+        }`}
+        alt=""
+      />
       <div className="card-option__name">{name[active]}</div>
       <div className="card-option__description">{description[active]}</div>
       {displayLoadingIcon && loading && (

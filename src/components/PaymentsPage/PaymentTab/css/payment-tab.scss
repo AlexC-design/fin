@@ -151,19 +151,19 @@
     &:hover {
       @include theme-aware("border-color", "primary-dark");
       @include theme-aware("background-color", "primary-dark");
-      @include theme-aware("color", "text-reversed");
+      @include theme-aware("color", "always-white");
     }
 
     &:active {
       @include theme-aware("border-color", "primary-light");
       @include theme-aware("background-color", "primary-light");
-      @include theme-aware("color", "text-reversed");
+      @include theme-aware("color", "always-white");
     }
 
     &.--active {
       @include theme-aware("border-color", "primary-light");
       @include theme-aware("background-color", "primary-light");
-      @include theme-aware("color", "text-reversed");
+      @include theme-aware("color", "always-white");
     }
 
     @include widthAbove1000 {
