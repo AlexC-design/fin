@@ -15,7 +15,7 @@ const PaymentMethod = ({ name, icon, setChanged }) => {
       onClick={toggleEnable}
     >
       {/* <img className="payment-method__icon" src={icon} alt="" /> */}
-      <div className="payment-method__icon" />
+      <img className="payment-method__icon" src={icon} />
       <p className="payment-method__name">{name}</p>
       <p className="payment-method__description">
         Click to {enabled ? "disable" : "enable"}

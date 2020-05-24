@@ -13,8 +13,8 @@
   padding: 100px 0;
   height: calc(100% - 220px);
   border-radius: 20px;
-  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out, background-color 0.6s ease-out;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out, background-color 0.6s ease-out;
 }
 
 .theme-light .navbar {
@@ -23,8 +23,8 @@
 }
 
 .theme-dark .navbar {
-  background: -webkit-gradient(linear, left top, left bottom, from(#364496), to(#131e56));
-  background: linear-gradient(#364496, #131e56);
+  background: -webkit-gradient(linear, left top, left bottom, from(#7b8bae), to(#4e5378));
+  background: linear-gradient(#7b8bae, #4e5378);
 }
 
 .navbar .navbar-link {
@@ -114,8 +114,8 @@
   .navbar .navbar-link__text {
     opacity: 0;
     position: absolute;
-    -webkit-transition: all 0.4s ease-in;
-    transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in, color 0.6s ease-out, background-color 0.6s ease-out;
+    transition: all 0.4s ease-in, color 0.6s ease-out, background-color 0.6s ease-out;
     font-size: 0.6em;
     bottom: -15px;
     pointer-events: none;
@@ -143,8 +143,8 @@
     background: linear-gradient(#131e56, #131e56);
   }
   .theme-dark .navbar {
-    background: -webkit-gradient(linear, left top, left bottom, from(#131e56), to(#131e56));
-    background: linear-gradient(#131e56, #131e56);
+    background: -webkit-gradient(linear, left top, left bottom, from(#4e5378), to(#4e5378));
+    background: linear-gradient(#4e5378, #4e5378);
   }
   .navbar .navbar-link {
     margin: 0;
@@ -152,8 +152,8 @@
     border-radius: 0 0 10px 10px;
     -ms-flex-item-align: start;
         align-self: flex-start;
-    -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out, background-color 0.6s ease-out;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out, background-color 0.6s ease-out;
   }
   .navbar .navbar-link__text {
     display: none;
@@ -162,7 +162,7 @@
     background-color: #fff;
   }
   .theme-dark .navbar .navbar-link--active {
-    background-color: #202020;
+    background-color: #24272e;
   }
   .navbar .navbar-link--active img {
     -webkit-animation: stretch-squeeze-side-ways 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
@@ -192,7 +192,7 @@
 }
 
 .theme-dark .link-bg {
-  background-color: #202020;
+  background-color: #24272e;
 }
 
 .link-bg--animate {
@@ -225,8 +225,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out, background-color 0.6s ease-out;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.6s ease-out, background-color 0.6s ease-out;
 }
 
 .theme-button-container .navbar-link {
@@ -244,7 +244,7 @@
 }
 
 .theme-dark .theme-button-container .navbar-link {
-  background-color: #202020;
+  background-color: #24272e;
 }
 
 .theme-button-container .navbar-link .icon-container {
@@ -270,7 +270,7 @@
 }
 
 .theme-dark .theme-button-container .navbar-link .icon-container {
-  background-color: #131e56;
+  background-color: #4e5378;
 }
 
 .theme-button-container .navbar-link .icon-container .icon {
@@ -291,7 +291,7 @@
 }
 
 .theme-dark .theme-button-container .navbar-link .text {
-  color: #131e56;
+  color: #4e5378;
 }
 
 .theme-button-container:hover .navbar-link {
@@ -325,8 +325,8 @@
     width: 40px;
   }
   .theme-button-container .navbar-link {
-    -webkit-transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86), background-color 0.6s ease-out;
-    transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86), background-color 0.6s ease-out;
+    -webkit-transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86), color 0.6s ease-out, background-color 0.6s ease-out;
+    transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86), color 0.6s ease-out, background-color 0.6s ease-out;
     min-width: 50px;
     min-height: 50px;
     padding: 9px;
@@ -422,7 +422,7 @@
 }
 
 .theme-dark .theme-light .navbar-link--active div {
-  color: #364496;
+  color: #7b8bae;
 }
 
 @media (max-width: 640px) {
@@ -430,7 +430,7 @@
     color: #fff;
   }
   .theme-dark .theme-light .navbar-link--active div {
-    color: #202020;
+    color: #24272e;
   }
 }
 

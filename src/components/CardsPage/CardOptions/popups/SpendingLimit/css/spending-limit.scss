@@ -64,22 +64,26 @@
           font-weight: bold;
           font-size: 1.5em;
           
-          @include theme-aware("color", "primary-dark");
+          @include theme-aware("color", "primary-light");
         }
         .limit {
           font-weight: bold;
           font-size: 1.5em;
 
-          @include theme-aware("color", "primary-dark");
+          @include theme-aware("color", "primary-light");
         }
         .limit-input {
           height: 20px;
           width: 67px;
           border: none;
-          border-bottom: 2px solid black;
+          border-bottom: 2px solid;
           font-size: 1.4em;
           font-weight: bold;
           overflow-y: hidden;
+
+          @include theme-aware("background-color", "tab-background");
+          @include theme-aware("color", "primary-light");
+          @include theme-aware("border-color", "primary-light");
 
           &:focus {
             outline: none;

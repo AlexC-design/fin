@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./css/payment-tab.css";
-import receive from "../../../assets/icons/misc/receive-payment.svg";
-import send from "../../../assets/icons/misc/send-payment.svg";
+import inLight from "../../../assets/icons/misc/in-light.svg";
+import outLight from "../../../assets/icons/misc/out-light.svg";
+import inDark from "../../../assets/icons/misc/in-dark.svg";
+import outDark from "../../../assets/icons/misc/out-dark.svg";
 import { setPopupType, setRecipient } from "../../../store/state/popup";
 import { connect } from "react-redux";
 
@@ -12,13 +14,25 @@ const FriendCard = ({
   type,
   direction,
   setPopupType,
-  setRecipient
+  setRecipient,
+  theme
 }) => {
   const [amount, setAmount] = useState(null);
 
   const openPopup = () => {
     setPopupType("send");
     setRecipient(name);
+  };
+
+  const icons = {
+    in: {
+      light: inLight,
+      dark: inDark
+    },
+    out: {
+      light: outLight,
+      dark: outDark
+    }
   };
 
   useEffect(() => {
@@ -41,7 +55,7 @@ const FriendCard = ({
           </div>
           <img
             className="friend-card__payments__icon"
-            src={direction === "in" ? receive : send}
+            src={direction === "in" ? icons.in[theme] : icons.out[theme]}
             alt=""
           />
         </div>
@@ -59,4 +73,8 @@ const mapDispatchToProps = dispatch => ({
   setRecipient: recipient => dispatch(setRecipient(recipient))
 });
 
-export default connect(null, mapDispatchToProps)(FriendCard);
+const mapStateToProps = state => ({
+  theme: state.theme
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FriendCard);

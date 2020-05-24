@@ -17,8 +17,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.6s ease-out, background-color 0.6s ease-out;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.6s ease-out, background-color 0.6s ease-out;
 }
 
 .theme-light .popup {
@@ -26,7 +26,7 @@
 }
 
 .theme-dark .popup {
-  background-color: rgba(32, 32, 32, 0.9);
+  background-color: rgba(36, 39, 46, 0.7);
 }
 
 .popup .popup_inner {
@@ -59,7 +59,7 @@
 }
 
 .theme-dark .popup .popup_inner {
-  background-color: #202020;
+  background-color: #24272e;
 }
 
 .theme-light .popup .popup_inner {
@@ -68,8 +68,8 @@
 }
 
 .theme-dark .popup .popup_inner {
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(8, 213, 232, 0.2);
-          box-shadow: 0px 0px 20px 0px rgba(8, 213, 232, 0.2);
+  -webkit-box-shadow: 0px 0px 20px 0px #1c1e24;
+          box-shadow: 0px 0px 20px 0px #1c1e24;
 }
 
 @-webkit-keyframes pop-in-vertical {

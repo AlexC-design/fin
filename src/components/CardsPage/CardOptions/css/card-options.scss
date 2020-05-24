@@ -17,7 +17,7 @@
     cursor: pointer;
 
     @include themed-stroke("2", "outline-color");
-    @include theme-aware("background-color", "background");
+    @include theme-aware("background-color", "tab-background");
 
     display: grid;
     grid-template-columns: 80px 50% 30%;
@@ -25,23 +25,28 @@
       "icon name special"
       "icon description special";
 
-    transition: all 0.4s $cbInOut;
+    transition: all 0.2s ease-out, color 0.6s ease-out,
+      background-color 0.6s ease-out;
 
     &__icon {
       margin: 10px;
       width: 40px;
       height: 40px;
-      background-color: rgb(0, 255, 255);
       grid-area: icon;
       user-select: none;
-      transition: all 0.4s $cbInOut;
+      filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg)
+        brightness(88%) contrast(80%);
+
+      transition: all 0.2s ease-out, color 0.6s ease-out,
+        background-color 0.6s ease-out;
     }
     &__name {
       font-weight: bold;
       align-self: end;
       grid-area: name;
       user-select: none;
-      transition: all 0.4s $cbInOut;
+      transition: all 0.2s ease-out, color 0.6s ease-out,
+        background-color 0.6s ease-out;
 
       @include theme-aware("color", "primary-light");
     }
@@ -49,7 +54,10 @@
       opacity: 0.5;
       grid-area: description;
       user-select: none;
-      transition: all 0.4s $cbInOut;
+      transition: all 0.2s ease-out, color 0.6s ease-out,
+        background-color 0.6s ease-out;
+
+      @include theme-aware("color", "primary-light");
     }
     &__loading-icon {
       align-self: center;
@@ -61,18 +69,18 @@
       animation: spin 0.4s ease-out infinite;
     }
 
-    transition: all 0.4s $cbInOut;
+    transition: all 0.2s ease-out, color 0.6s ease-out,
+      background-color 0.6s ease-out;
 
     &:hover {
       border: 2px solid rgba(255, 255, 255, 0);
       padding: 10px;
-      margin: 0;
+      margin: 2.5px;
 
       @include themed-shadow("0", "0", "20", "0", "outline-color");
 
       .card-option__icon {
-        width: 50px;
-        height: 50px;
+        margin: 12.5px 12.5px 12.5px 10px;
       }
       .card-option__name {
         font-size: 1.1em;
@@ -80,7 +88,8 @@
       }
       .card-option__description {
         font-size: 1.1em;
-        @include theme-aware("color", "primary-light");
+        opacity: 0.7;
+        @include theme-aware("color", "text-color");
       }
     }
 
@@ -94,19 +103,23 @@
       @include theme-aware("color", "background");
 
       .card-option__name {
-        @include theme-aware("color", "background");
+        @include theme-aware("color", "always-white");
+      }
+      .card-option__description {
+        @include theme-aware("color", "always-white");
+      }
+      .card-option__icon {
+        filter: invert(100%) sepia(0%) saturate(25%) hue-rotate(33deg)
+          brightness(105%) contrast(106%);
       }
 
       &:hover {
         .card-option__name {
-          @include theme-aware("color", "background");
+          @include theme-aware("color", "always-white");
         }
         .card-option__description {
-          @include theme-aware("color", "background");
+          @include theme-aware("color", "always-white");
         }
-      }
-
-      .card-option__icon {
       }
     }
 

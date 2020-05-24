@@ -32,17 +32,35 @@ const names = [
   "Misc"
 ];
 
+function hexToRgba(hex, percentage) {
+  var c;
+  if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+    c = hex.substring(1).split("");
+    if (c.length == 3) {
+      c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+    }
+    c = "0x" + c.join("");
+    return (
+      "rgba(" +
+      [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(",") +
+      `, ${percentage})`
+    );
+  }
+  throw new Error("Bad Hex");
+}
+
+
 const colors = [
-  "#71bddd",
-  "#2dbfa0",
-  "#dacfaa",
-  "#c3cdd8",
-  "#5461b5",
-  "#e67052",
-  "#69d1d1",
-  "#dfbc63",
-  "#6775bb",
-  "#7c7c7c"
+  { light: "#71bddd", dark: hexToRgba("#71bddd", 0.7) },
+  { light: "#2dbfa0", dark: hexToRgba("#2dbfa0", 0.7) },
+  { light: "#dacfaa", dark: hexToRgba("#dacfaa", 0.7) },
+  { light: "#c3cdd8", dark: hexToRgba("#c3cdd8", 0.7) },
+  { light: "#5461b5", dark: hexToRgba("#5461b5", 0.7) },
+  { light: "#e67052", dark: hexToRgba("#e67052", 0.7) },
+  { light: "#69d1d1", dark: hexToRgba("#69d1d1", 0.7) },
+  { light: "#dfbc63", dark: hexToRgba("#dfbc63", 0.7) },
+  { light: "#6775bb", dark: hexToRgba("#6775bb", 0.7) },
+  { light: "#7c7c7c", dark: hexToRgba("#7c7c7c", 0.7) }
 ];
 
 const mockCategories = () => {

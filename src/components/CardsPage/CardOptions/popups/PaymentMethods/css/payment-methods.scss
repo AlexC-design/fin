@@ -23,11 +23,12 @@
 
     &__icon {
       border-radius: 10px;
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
       margin: 10px;
-      border: 2px solid deepskyblue;
       align-self: center;
+      filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg)
+        brightness(88%) contrast(80%);
 
       grid-area: icon;
     }
@@ -40,7 +41,7 @@
       @include theme-aware("color", "primary-dark");
     }
     &__description {
-      opacity: 0.5;
+      opacity: 1;
       margin: 0;
       grid-area: description;
     }
@@ -55,7 +56,11 @@
         @include theme-aware("color", "primary-light");
       }
       .payment-method__icon {
-        border: 2px solid rgba(192, 192, 192, 0.253);
+        opacity: 0.5;
+      }
+
+      &:hover {
+        border-color: rgba(120, 123, 136, 0.5) !important;
       }
     }
 
@@ -63,7 +68,7 @@
       border: solid 2px;
       border-radius: 10px;
       transform: scale(1.1);
-      @include theme-aware("border-color", "outline-color");
+      @include theme-aware("border-color", "primary-light");
     }
   }
 

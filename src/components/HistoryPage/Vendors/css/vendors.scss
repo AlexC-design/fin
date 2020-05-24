@@ -27,7 +27,7 @@
       &__amount {
         font-size: 1em;
         font-weight: bold;
-        @include theme-aware("color", "primary-light");
+        @include theme-aware("color", "secondary");
       }
     }
 
@@ -119,15 +119,7 @@
       }
     }
 
-    &__separator {
-      height: 2px;
-      width: 100%;
-      @include theme-aware("background-color", "primary-light");
-      opacity: 0.2;
-      border-radius: 5px;
 
-      transition: all 0.2s $cbOut;
-    }
 
     &--hovered {
       padding: 40px 0px 20px;
@@ -157,7 +149,7 @@
         &__data {
           &__top {
             &__name {
-              @include theme-aware("color", "primary-dark");
+              @include theme-aware("color", "primary-light");
             }
 
             &__amount {

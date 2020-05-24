@@ -35,7 +35,7 @@
 }
 
 .theme-dark .month-ctrl__month {
-  color: #364496;
+  color: #7b8bae;
 }
 
 .month-ctrl .buttons-container {
@@ -77,11 +77,11 @@
 }
 
 .theme-light .month-ctrl .buttons-container .month-button {
-  background-color: #131e56;
+  background-color: #364496;
 }
 
 .theme-dark .month-ctrl .buttons-container .month-button {
-  background-color: #131e56;
+  background-color: #7b8bae;
 }
 
 .theme-light .month-ctrl .buttons-container .month-button {
@@ -89,7 +89,7 @@
 }
 
 .theme-dark .month-ctrl .buttons-container .month-button {
-  color: #202020;
+  color: #fff;
 }
 
 .month-ctrl .buttons-container .month-button img {
@@ -101,7 +101,7 @@
 }
 
 .month-ctrl .buttons-container .month-button--disabled {
-  background-color: #c5c9cd !important;
+  background-color: #bdc5ce !important;
   color: black !important;
   opacity: 0.5;
   pointer-events: none;
@@ -109,15 +109,12 @@
 }
 
 .month-ctrl .buttons-container .month-button--temp-disabled {
-  -webkit-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
-  opacity: 0.9;
   pointer-events: none;
   cursor: default;
 }
 
 .month-ctrl .buttons-container .month-button--left {
-  width: 45%;
+  width: 80%;
 }
 
 .month-ctrl .buttons-container .month-button--right {
@@ -136,11 +133,11 @@
 }
 
 .theme-light .month-ctrl .buttons-container .month-button:hover {
-  background-color: #364496;
+  background-color: #131e56;
 }
 
 .theme-dark .month-ctrl .buttons-container .month-button:hover {
-  background-color: #364496;
+  background-color: #4e5378;
 }
 
 .month-ctrl .buttons-container .month-button:active {
@@ -149,11 +146,11 @@
 }
 
 .theme-light .month-ctrl .buttons-container .month-button:active {
-  background-color: #131e56;
+  background-color: #364496;
 }
 
 .theme-dark .month-ctrl .buttons-container .month-button:active {
-  background-color: #131e56;
+  background-color: #7b8bae;
 }
 
 .month-ctrl .buttons-container .month-button:focus {

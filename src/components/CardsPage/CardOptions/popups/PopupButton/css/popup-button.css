@@ -17,7 +17,7 @@
 }
 
 .theme-dark .popup-button--primary {
-  background-color: #364496;
+  background-color: #7b8bae;
 }
 
 .theme-light .popup-button--primary {
@@ -25,7 +25,7 @@
 }
 
 .theme-dark .popup-button--primary {
-  color: #202020;
+  color: #fff;
 }
 
 .theme-light .popup-button--primary {
@@ -33,7 +33,7 @@
 }
 
 .theme-dark .popup-button--primary {
-  border-color: #364496;
+  border-color: #7b8bae;
 }
 
 .theme-light .popup-button--primary:hover {
@@ -41,7 +41,7 @@
 }
 
 .theme-dark .popup-button--primary:hover {
-  background-color: #131e56;
+  background-color: #4e5378;
 }
 
 .theme-light .popup-button--primary:hover {
@@ -49,7 +49,7 @@
 }
 
 .theme-dark .popup-button--primary:hover {
-  border-color: #131e56;
+  border-color: #4e5378;
 }
 
 .theme-light .popup-button--primary:active {
@@ -57,7 +57,7 @@
 }
 
 .theme-dark .popup-button--primary:active {
-  background-color: #364496;
+  background-color: #7b8bae;
 }
 
 .theme-light .popup-button--primary:active {
@@ -65,7 +65,7 @@
 }
 
 .theme-dark .popup-button--primary:active {
-  border-color: #364496;
+  border-color: #7b8bae;
 }
 
 .popup-button--primary:focus {
@@ -77,23 +77,23 @@
 }
 
 .theme-dark .popup-button--secondary {
-  background-color: #202020;
+  background-color: #24272e;
 }
 
 .theme-light .popup-button--secondary {
-  color: #131e56;
+  color: #364496;
 }
 
 .theme-dark .popup-button--secondary {
-  color: #131e56;
+  color: #7b8bae;
 }
 
 .theme-light .popup-button--secondary {
-  border-color: rgba(17, 62, 130, 0.2);
+  border-color: #364496;
 }
 
 .theme-dark .popup-button--secondary {
-  border-color: rgba(8, 213, 232, 0.2);
+  border-color: #7b8bae;
 }
 
 .theme-light .popup-button--secondary:hover {
@@ -101,7 +101,7 @@
 }
 
 .theme-dark .popup-button--secondary:hover {
-  background-color: #08d5e8;
+  background-color: #ff2f2f;
 }
 
 .theme-light .popup-button--secondary:hover {
@@ -109,7 +109,7 @@
 }
 
 .theme-dark .popup-button--secondary:hover {
-  color: #202020;
+  color: #fff;
 }
 
 .theme-light .popup-button--secondary:hover {
@@ -117,7 +117,7 @@
 }
 
 .theme-dark .popup-button--secondary:hover {
-  border-color: #08d5e8;
+  border-color: #ff2f2f;
 }
 
 .theme-light .popup-button--secondary:active {
@@ -125,7 +125,7 @@
 }
 
 .theme-dark .popup-button--secondary:active {
-  background-color: #08d5e8;
+  background-color: #ff2f2f;
 }
 
 .theme-light .popup-button--secondary:active {
@@ -133,7 +133,7 @@
 }
 
 .theme-dark .popup-button--secondary:active {
-  border-color: #202020;
+  border-color: #24272e;
 }
 
 .popup-button--secondary:focus {
@@ -145,23 +145,23 @@
 }
 
 .theme-dark .popup-button--ternary {
-  background-color: #202020;
+  background-color: #24272e;
 }
 
 .theme-light .popup-button--ternary {
-  color: #131e56;
+  color: #364496;
 }
 
 .theme-dark .popup-button--ternary {
-  color: #131e56;
+  color: #7b8bae;
 }
 
 .theme-light .popup-button--ternary {
-  border-color: rgba(17, 62, 130, 0.2);
+  border-color: #364496;
 }
 
 .theme-dark .popup-button--ternary {
-  border-color: rgba(8, 213, 232, 0.2);
+  border-color: #7b8bae;
 }
 
 .theme-light .popup-button--ternary:hover {
@@ -169,7 +169,7 @@
 }
 
 .theme-dark .popup-button--ternary:hover {
-  background-color: #131e56;
+  background-color: #4e5378;
 }
 
 .theme-light .popup-button--ternary:hover {
@@ -177,7 +177,7 @@
 }
 
 .theme-dark .popup-button--ternary:hover {
-  color: #202020;
+  color: #fff;
 }
 
 .theme-light .popup-button--ternary:hover {
@@ -185,7 +185,7 @@
 }
 
 .theme-dark .popup-button--ternary:hover {
-  border-color: #131e56;
+  border-color: #4e5378;
 }
 
 .theme-light .popup-button--ternary:active {
@@ -193,7 +193,7 @@
 }
 
 .theme-dark .popup-button--ternary:active {
-  background-color: #131e56;
+  background-color: #4e5378;
 }
 
 .theme-light .popup-button--ternary:active {
@@ -201,7 +201,7 @@
 }
 
 .theme-dark .popup-button--ternary:active {
-  border-color: #202020;
+  border-color: #24272e;
 }
 
 .popup-button--ternary:focus {
@@ -219,6 +219,6 @@
 }
 
 .theme-dark .popup-button--disabled {
-  background-color: rgba(8, 213, 232, 0.2);
+  background-color: #1c1e24;
 }
 /*# sourceMappingURL=popup-button.css.map */

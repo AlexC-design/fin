@@ -33,7 +33,7 @@
 }
 
 .theme-dark .payment-tab .friend-card__photo {
-  border-color: #364496;
+  border-color: #7b8bae;
 }
 
 .payment-tab .friend-card__name {
@@ -61,9 +61,9 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 3;
@@ -80,7 +80,7 @@
 }
 
 .theme-dark .payment-tab .friend-card__payments__amount {
-  color: #364496;
+  color: #7b8bae;
 }
 
 .theme-light .payment-tab .friend-card__payments__amount--in {
@@ -88,11 +88,17 @@
 }
 
 .theme-dark .payment-tab .friend-card__payments__amount--in {
-  color: #08d5e8;
+  color: #72baeb;
+}
+
+.payment-tab .friend-card__payments__icon {
+  height: 40px;
+  width: 40px;
 }
 
 .payment-tab .friend-card__send {
   border: none;
+  font-weight: bold;
   border-radius: 5px;
   padding: 7px;
   cursor: pointer;
@@ -107,7 +113,7 @@
 }
 
 .theme-dark .payment-tab .friend-card__send {
-  background-color: #364496;
+  background-color: #7b8bae;
 }
 
 .theme-light .payment-tab .friend-card__send {
@@ -115,7 +121,7 @@
 }
 
 .theme-dark .payment-tab .friend-card__send {
-  color: #202020;
+  color: #fff;
 }
 
 .theme-light .payment-tab .friend-card__send:hover {
@@ -123,7 +129,7 @@
 }
 
 .theme-dark .payment-tab .friend-card__send:hover {
-  background-color: #131e56;
+  background-color: #4e5378;
 }
 
 .theme-light .payment-tab .friend-card__send:active {
@@ -131,7 +137,7 @@
 }
 
 .theme-dark .payment-tab .friend-card__send:active {
-  background-color: #364496;
+  background-color: #7b8bae;
 }
 
 .payment-tab .friend-card__send:focus {
@@ -177,7 +183,7 @@
 }
 
 .theme-dark .payments-simplebar .simplebar-track.simplebar-vertical {
-  background-color: rgba(8, 213, 232, 0.2);
+  background-color: #1c1e24;
 }
 
 .payments-simplebar .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
@@ -191,7 +197,7 @@
 }
 
 .theme-dark .payments-simplebar .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
-  background: #364496;
+  background: #7b8bae;
 }
 
 .buttons-container-payments {
@@ -218,6 +224,8 @@
   border-radius: 100px;
   font-weight: bold;
   cursor: pointer;
+  -webkit-transition: color 0.6s ease-out, background-color 0.6s ease-out;
+  transition: color 0.6s ease-out, background-color 0.6s ease-out;
 }
 
 .theme-light .buttons-container-payments button {
@@ -225,7 +233,7 @@
 }
 
 .theme-dark .buttons-container-payments button {
-  border-color: #364496;
+  border-color: #7b8bae;
 }
 
 .theme-light .buttons-container-payments button {
@@ -233,7 +241,7 @@
 }
 
 .theme-dark .buttons-container-payments button {
-  background-color: #202020;
+  background-color: #24272e;
 }
 
 .theme-light .buttons-container-payments button {
@@ -241,7 +249,7 @@
 }
 
 .theme-dark .buttons-container-payments button {
-  color: #364496;
+  color: #7b8bae;
 }
 
 .buttons-container-payments button:focus {
@@ -253,7 +261,7 @@
 }
 
 .theme-dark .buttons-container-payments button:hover {
-  border-color: #131e56;
+  border-color: #4e5378;
 }
 
 .theme-light .buttons-container-payments button:hover {
@@ -261,7 +269,7 @@
 }
 
 .theme-dark .buttons-container-payments button:hover {
-  background-color: #131e56;
+  background-color: #4e5378;
 }
 
 .theme-light .buttons-container-payments button:hover {
@@ -277,7 +285,7 @@
 }
 
 .theme-dark .buttons-container-payments button:active {
-  border-color: #364496;
+  border-color: #7b8bae;
 }
 
 .theme-light .buttons-container-payments button:active {
@@ -285,7 +293,7 @@
 }
 
 .theme-dark .buttons-container-payments button:active {
-  background-color: #364496;
+  background-color: #7b8bae;
 }
 
 .theme-light .buttons-container-payments button:active {
@@ -301,7 +309,7 @@
 }
 
 .theme-dark .buttons-container-payments button.--active {
-  border-color: #364496;
+  border-color: #7b8bae;
 }
 
 .theme-light .buttons-container-payments button.--active {
@@ -309,7 +317,7 @@
 }
 
 .theme-dark .buttons-container-payments button.--active {
-  background-color: #364496;
+  background-color: #7b8bae;
 }
 
 .theme-light .buttons-container-payments button.--active {
@@ -333,7 +341,7 @@
     background-color: #fff;
   }
   .theme-dark .buttons-container-payments button {
-    background-color: #202020;
+    background-color: #24272e;
   }
   .theme-light .buttons-container-payments button {
     color: #000;
@@ -348,7 +356,7 @@
     background-color: #fff;
   }
   .theme-dark .buttons-container-payments button.--active {
-    background-color: #202020;
+    background-color: #24272e;
   }
   .theme-light .buttons-container-payments button.--active {
     color: #000;

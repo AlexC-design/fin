@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import Card from "./Card";
-import card1 from "../../../assets/cards/card1.svg";
-import card2 from "../../../assets/cards/card2.svg";
-import card3 from "../../../assets/cards/card3.svg";
+import card1 from "../../../assets/cards/card1.png";
+import card2 from "../../../assets/cards/card2.png";
+import card3 from "../../../assets/cards/card3.png";
 import arrowLeft from "../../../assets/icons/misc/arrow-circle-left.svg";
 import arrowRight from "../../../assets/icons/misc/arrow-circle-right.svg";
 import "./css/cards.css";

@@ -1,14 +1,24 @@
 import React from "react";
-import success from "../../../../../assets/icons/misc/success.svg";
+import successLight from "../../../../../assets/icons/misc/success-light.svg";
+import successDark from "../../../../../assets/icons/misc/success-dark.svg";
 import "./css/success-popup.css";
+import { connect } from "react-redux";
 
-const SuccessPopup = ({ message }) => {
+const SuccessPopup = ({ theme, message }) => {
   return (
     <div className="success-popup">
-      <img src={success} className="success-popup__image" alt="success" />
+      <img
+        src={theme === "light" ? successLight : successDark}
+        className="success-popup__image"
+        alt="success"
+      />
       <p className="success-popup__message">{message}</p>
     </div>
   );
 };
 
-export default SuccessPopup;
+const mapStateToProps = state => ({
+  theme: state.theme
+});
+
+export default connect(mapStateToProps)(SuccessPopup);

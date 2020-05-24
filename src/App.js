@@ -15,14 +15,14 @@ import { setCategories } from "./store/state/mockData/index";
 import "./css/app.css";
 
 const App = ({ setCategories, currentMoment, setTheme, theme }) => {
-  const changeTheme = newTheme => {
-    document.querySelector("body").classList.remove(`theme-${theme}`);
+  const changeTheme = (oldTheme, newTheme) => {
+    document.querySelector("body").classList.remove(`theme-${oldTheme}`);
     document.querySelector("body").classList.add(`theme-${newTheme}`);
 
-    document.querySelector("html").classList.remove(`theme-${theme}`);
+    document.querySelector("html").classList.remove(`theme-${oldTheme}`);
     document.querySelector("html").classList.add(`theme-${newTheme}`);
 
-    if (theme !== newTheme) {
+    if (oldTheme !== newTheme) {
       setTheme(newTheme);
     }
   };
@@ -48,6 +48,10 @@ const App = ({ setCategories, currentMoment, setTheme, theme }) => {
 
     return { categories, total };
   };
+
+  useEffect(() => {
+    changeTheme(theme === "light" ? "dark" : "light", theme);
+  }, []);
 
   useEffect(() => {
     setCategories(mockData().categories, mockData().total);

@@ -7,7 +7,7 @@ import "./css/navbar.css";
 const ThemeChangeButton = ({ theme, changeTheme }) => {
   return (
     <div
-      onClick={() => changeTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => changeTheme(theme, theme === "light" ? "dark" : "light")}
       className="theme-button-container"
     >
       <div className={`navbar-link`}>

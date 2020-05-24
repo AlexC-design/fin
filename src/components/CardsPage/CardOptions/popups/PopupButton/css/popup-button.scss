@@ -12,7 +12,7 @@
 
   &--primary {
     @include theme-aware("background-color", "primary-light");
-    @include theme-aware("color", "background");
+    @include theme-aware("color", "always-white");
     @include theme-aware("border-color", "primary-light");
 
     &:hover {
@@ -29,13 +29,13 @@
   }
 
   &--secondary {
-    @include theme-aware("background-color", "background");
-    @include theme-aware("color", "primary-dark");
-    @include theme-aware("border-color", "outline-color");
+    @include theme-aware("background-color", "tab-background");
+    @include theme-aware("color", "primary-light");
+    @include theme-aware("border-color", "primary-light");
 
     &:hover {
       @include theme-aware("background-color", "ternary");
-      @include theme-aware("color", "background");
+      @include theme-aware("color", "always-white");
       @include theme-aware("border-color", "ternary");
     }
     &:active {
@@ -49,12 +49,12 @@
 
   &--ternary {
     @include theme-aware("background-color", "background");
-    @include theme-aware("color", "primary-dark");
-    @include theme-aware("border-color", "outline-color");
+    @include theme-aware("color", "primary-light");
+    @include theme-aware("border-color", "primary-light");
 
     &:hover {
       @include theme-aware("background-color", "primary-dark");
-      @include theme-aware("color", "background");
+      @include theme-aware("color", "always-white");
       @include theme-aware("border-color", "primary-dark");
     }
     &:active {

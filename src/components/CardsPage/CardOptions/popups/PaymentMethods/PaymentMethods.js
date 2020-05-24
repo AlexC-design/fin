@@ -7,23 +7,27 @@ import {
   setPopupType,
   setSuccessMessage
 } from "../../../../../store/state/popup/index";
+import contactless from '../../../../../assets/icons/card-options/contactless.svg'
+import swipe from '../../../../../assets/icons/card-options/swipe.svg'
+import atm from '../../../../../assets/icons/card-options/atm.svg'
+import online from '../../../../../assets/icons/card-options/online.svg'
 
 const methods = [
   {
-    name: "Contactless payments"
-    // icon: contactless
+    name: "Contactless payments",
+    icon: contactless
   },
   {
-    name: "Swipe payments"
-    // icon: swipe
+    name: "Swipe payments",
+    icon: swipe
   },
   {
-    name: "ATM withdrawals"
-    // icon: atm
+    name: "ATM withdrawals",
+    icon: atm
   },
   {
-    name: "Online transactions"
-    // icon: online
+    name: "Online transactions",
+    icon: online
   }
 ];
 
@@ -50,7 +54,7 @@ const PaymentMethods = ({ setPopupType, setSuccessMessage }) => {
             <PaymentMethod
               key={method.name}
               name={method.name}
-              icon={""}
+              icon={method.icon}
               setChanged={setChanged}
             />
           );

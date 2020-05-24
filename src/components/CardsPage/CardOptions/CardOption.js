@@ -5,7 +5,7 @@ import loadingWhite from "../../../assets/icons/misc/loading-white.png";
 import { setPopupType } from "../../../store/state/popup";
 import { connect } from "react-redux";
 
-const CardOption = ({ name, description, icon, setPopupType }) => {
+const CardOption = ({ name, description, icon, setPopupType, theme }) => {
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState(0);
 
@@ -79,7 +79,13 @@ const CardOption = ({ name, description, icon, setPopupType }) => {
       {displayLoadingIcon && loading && (
         <img
           className="card-option__loading-icon"
-          src={active ? loadingWhite : loadingBlue}
+          src={
+            theme === "dark"
+              ? loadingWhite
+              : active
+              ? loadingWhite
+              : loadingBlue
+          }
           alt="loading"
         />
       )}
@@ -91,4 +97,8 @@ const mapDispatchToProps = dispatch => ({
   setPopupType: type => dispatch(setPopupType(type))
 });
 
-export default connect(null, mapDispatchToProps)(CardOption);
+const mapStateToProps = state => ({
+  theme: state.theme
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardOption);

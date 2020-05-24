@@ -38,7 +38,7 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
-      align-items: flex-end;
+      align-items: center;
 
       grid-area: right;
 
@@ -52,13 +52,16 @@
         }
       }
       &__icon {
+        height: 40px;
+        width: 40px;
       }
     }
 
     &__send {
       @include theme-aware("background-color", "primary-light");
-      @include theme-aware("color", "background");
+      @include theme-aware("color", "always-white");
       border: none;
+      font-weight: bold;
       border-radius: 5px;
       padding: 7px;
       cursor: pointer;
@@ -138,6 +141,8 @@
     @include theme-aware("color", "primary-light");
     font-weight: bold;
     cursor: pointer;
+
+    transition: color 0.6s ease-out, background-color 0.6s ease-out;
 
     &:focus {
       outline: none;

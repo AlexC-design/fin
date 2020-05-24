@@ -11,7 +11,8 @@ const Doughnut = ({
   setGlobalHovered,
   globalHovered,
   currentMoment,
-  total
+  total,
+  theme
 }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
@@ -44,7 +45,7 @@ const Doughnut = ({
             data: categories.map(cat => {
               return cat.data;
             }),
-            backgroundColor: categories.map(cat => cat.color),
+            backgroundColor: categories.map(cat => cat.color[`${theme}`]),
             hoverBorderColor: "transparent",
             borderWidth: 2
           }
@@ -149,7 +150,8 @@ const mapStateToProps = state => ({
   globalHovered: state.hovered.index,
   currentMoment: state.currentMoment.moment,
   categories: state.mockData.categories,
-  total: state.mockData.total
+  total: state.mockData.total,
+  theme: state.theme
 });
 const mapDispatchToProps = dispatch => ({
   setGlobalHovered: index => dispatch(setHovered(index))

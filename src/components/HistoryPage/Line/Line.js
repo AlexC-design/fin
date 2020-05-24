@@ -9,7 +9,8 @@ const Line = ({
   globalHovered,
   currentMoment,
   total,
-  days
+  days,
+  theme
 }) => {
   const [localHovered, setLocalHovered] = useState(null);
   const [sectionHover, setSectionHover] = useState(false);
@@ -45,8 +46,14 @@ const Line = ({
       0,
       chartRef.current.clientHeight * (mode === "total" ? 3.4 : 20)
     );
-    gradientFill.addColorStop(0, "rgba(54, 68, 150, 0.5)");
-    gradientFill.addColorStop(1, "rgba(54, 68, 150, 0)");
+    gradientFill.addColorStop(
+      0,
+      theme === "light" ? "rgba(54, 68, 150, 0.5)" : "rgba(123, 139, 174, 0.9)"
+    );
+    gradientFill.addColorStop(
+      1,
+      theme === "light" ? "rgba(54, 68, 150, 0)" : "rgba(123, 139, 174, 0)"
+    );
 
     //============================== OPTIONS ====================================
     let options = {
@@ -57,7 +64,10 @@ const Line = ({
         display: true,
         fontSize: 18,
         padding: 20,
-        fontColor: "rgba(54, 68, 150, 0.9)",
+        fontColor:
+          theme === "light"
+            ? "rgba(54, 68, 150, 0.9)"
+            : "rgba(114, 186, 235, 0.9)",
         text: "Total spendings: £" + total
       },
       scales: {
@@ -120,7 +130,10 @@ const Line = ({
             data: days.map(day => {
               return mode === "total" ? day.accTotal : day.amount;
             }),
-            borderColor: "rgba(54, 68, 150, 0.9)",
+            borderColor:
+              theme === "light"
+                ? "rgba(54, 68, 150, 1)"
+                : "rgba(114, 186, 235, 1)",
             fill: true,
             backgroundColor: gradientFill,
             // hoverBorderWidth: 2,
@@ -143,7 +156,7 @@ const Line = ({
       myLine.destroy();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentMoment, days, mode]);
+  }, [currentMoment, days, mode, theme]);
 
   // = = = = = = = = = = = = = = =  CDU hover local = = = = = = = = = = = = = = = = = = = =
   useEffect(() => {
@@ -198,7 +211,8 @@ const mapStateToProps = state => ({
   globalHovered: state.hovered.index,
   currentMoment: state.currentMoment.moment,
   days: state.mockData.days,
-  total: state.mockData.total
+  total: state.mockData.total,
+  theme: state.theme
 });
 const mapDispatchToProps = dispatch => ({
   setGlobalHovered: index => dispatch(setHovered(index))

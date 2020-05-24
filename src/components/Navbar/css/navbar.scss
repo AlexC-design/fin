@@ -33,8 +33,7 @@
       animation: bump 0.4s $cbOut forwards;
 
       @include width1280 {
-        animation: stretch-squeeze-both-ways 0.4s
-          $cbOut forwards;
+        animation: stretch-squeeze-both-ways 0.4s $cbOut forwards;
 
         .navbar-link__text {
           opacity: 1;
@@ -54,7 +53,8 @@
   height: calc(100% - 220px);
   border-radius: 20px;
 
-  transition: all 0.4s $cbOut;
+  transition: all 0.4s $cbOut, color 0.6s ease-out,
+    background-color 0.6s ease-out;
 
   .navbar-link {
     margin: 0 50px 40px;
@@ -87,7 +87,8 @@
       &__text {
         opacity: 0;
         position: absolute;
-        transition: all 0.4s ease-in;
+        transition: all 0.4s ease-in, color 0.6s ease-out,
+          background-color 0.6s ease-out;
         font-size: 0.6em;
         bottom: -15px;
         pointer-events: none;
@@ -115,7 +116,8 @@
       border-radius: 0 0 10px 10px;
       align-self: flex-start;
 
-      transition: all 0.4s $cbOut;
+      transition: all 0.4s $cbOut, color 0.6s ease-out,
+        background-color 0.6s ease-out;
 
       &__text {
         display: none;
@@ -128,8 +130,7 @@
         @include theme-aware("background-color", "background");
 
         img {
-          animation: stretch-squeeze-side-ways 0.4s
-            $cbOut forwards;
+          animation: stretch-squeeze-side-ways 0.4s $cbOut forwards;
         }
 
         div {
@@ -148,12 +149,11 @@
   z-index: -1;
 
   &--animate {
-    animation: stretch-squeeze-both-ways 0.4s
-      $cbOut forwards;
+    animation: stretch-squeeze-both-ways 0.4s $cbOut forwards;
   }
 
-  transition: all 0.4s $cbOut,
-    color 0.6s ease-out, background-color 0.6s ease-out;
+  transition: all 0.4s $cbOut, color 0.6s ease-out,
+    background-color 0.6s ease-out;
 
   transform-origin: right;
 
@@ -185,7 +185,8 @@
   justify-content: center;
   align-items: center;
 
-  transition: all 0.4s $cbOut;
+  transition: all 0.4s $cbOut, color 0.6s ease-out,
+    background-color 0.6s ease-out;
 
   .navbar-link {
     padding: 9px;
@@ -195,8 +196,8 @@
     margin: 0;
     @include theme-aware("background-color", "background");
 
-    transition: all 0.4s $cbOut,
-      color 0.6s ease-out, background-color 0.6s ease-out;
+    transition: all 0.4s $cbOut, color 0.6s ease-out,
+      background-color 0.6s ease-out;
 
     .icon-container {
       width: 100%;
@@ -208,8 +209,8 @@
       align-items: center;
       @include theme-aware("background-color", "primary-dark");
 
-      transition: all 0.4s $cbOut,
-        color 0.6s ease-out, background-color 0.6s ease-out;
+      transition: all 0.4s $cbOut, color 0.6s ease-out,
+        background-color 0.6s ease-out;
       .icon {
         transform: scale(0.8);
       }
@@ -220,8 +221,7 @@
       opacity: 0;
       font-weight: bold;
       @include theme-aware("color", "primary-dark");
-      transition: opacity 0.2s ease-out,
-        width 0.4s $cbOut, color 0.6s ease-out,
+      transition: opacity 0.2s ease-out, width 0.4s $cbOut, color 0.6s ease-out,
         background-color 0.6s ease-out;
     }
   }
@@ -241,9 +241,8 @@
       }
 
       .text {
-        transition: opacity 0.2s 0.2s ease-out,
-          width 0.1s $cbOut, color 0.6s ease-out,
-          background-color 0.6s ease-out;
+        transition: opacity 0.2s 0.2s ease-out, width 0.1s $cbOut,
+          color 0.6s ease-out, background-color 0.6s ease-out;
         width: 100%;
         opacity: 1;
       }
@@ -264,7 +263,7 @@
     width: 40px;
 
     .navbar-link {
-      transition: all 0.2s $cbSlowInMild,
+      transition: all 0.2s $cbSlowInMild, color 0.6s ease-out,
         background-color 0.6s ease-out;
       min-width: 50px;
       min-height: 50px;

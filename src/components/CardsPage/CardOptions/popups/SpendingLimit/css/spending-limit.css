@@ -70,7 +70,7 @@
 }
 
 .theme-dark .spending-limit .main-container .text-container {
-  color: #364496;
+  color: #7b8bae;
 }
 
 .spending-limit .main-container .text-container .numbers-container {
@@ -101,11 +101,11 @@
 }
 
 .theme-light .spending-limit .main-container .text-container .numbers-container .slash {
-  color: #131e56;
+  color: #364496;
 }
 
 .theme-dark .spending-limit .main-container .text-container .numbers-container .slash {
-  color: #131e56;
+  color: #7b8bae;
 }
 
 .spending-limit .main-container .text-container .numbers-container .limit {
@@ -114,21 +114,45 @@
 }
 
 .theme-light .spending-limit .main-container .text-container .numbers-container .limit {
-  color: #131e56;
+  color: #364496;
 }
 
 .theme-dark .spending-limit .main-container .text-container .numbers-container .limit {
-  color: #131e56;
+  color: #7b8bae;
 }
 
 .spending-limit .main-container .text-container .numbers-container .limit-input {
   height: 20px;
   width: 67px;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid;
   font-size: 1.4em;
   font-weight: bold;
   overflow-y: hidden;
+}
+
+.theme-light .spending-limit .main-container .text-container .numbers-container .limit-input {
+  background-color: #fff;
+}
+
+.theme-dark .spending-limit .main-container .text-container .numbers-container .limit-input {
+  background-color: #24272e;
+}
+
+.theme-light .spending-limit .main-container .text-container .numbers-container .limit-input {
+  color: #364496;
+}
+
+.theme-dark .spending-limit .main-container .text-container .numbers-container .limit-input {
+  color: #7b8bae;
+}
+
+.theme-light .spending-limit .main-container .text-container .numbers-container .limit-input {
+  border-color: #364496;
+}
+
+.theme-dark .spending-limit .main-container .text-container .numbers-container .limit-input {
+  border-color: #7b8bae;
 }
 
 .spending-limit .main-container .text-container .numbers-container .limit-input:focus {
@@ -145,6 +169,6 @@
 }
 
 .theme-dark .spending-limit .error-message {
-  color: #08d5e8;
+  color: #ff2f2f;
 }
 /*# sourceMappingURL=spending-limit.css.map */

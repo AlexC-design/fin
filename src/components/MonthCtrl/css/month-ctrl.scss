@@ -35,8 +35,8 @@
       user-select: none;
       cursor: pointer;
 
-      @include theme-aware("background-color", "primary-dark");
-      @include theme-aware("color", "background");
+      @include theme-aware("background-color", "primary-light");
+      @include theme-aware("color", "always-white");
 
       transition: background-color 0.1s ease-out;
 
@@ -49,7 +49,7 @@
       }
 
       &--disabled {
-        background-color: #c5c9cd !important;
+        background-color: #bdc5ce !important;
         color: black !important;
         opacity: 0.5;
         pointer-events: none;
@@ -57,14 +57,14 @@
       }
 
       &--temp-disabled {
-        transition: opacity 0.2s ease-out;
-        opacity: 0.9;
+        // transition: opacity 0.2s ease-out;
+        // opacity: 1;
         pointer-events: none;
         cursor: default;
       }
 
       &--left {
-        width: 45%;
+        width: 80%;
       }
       &--right {
         flex-direction: row-reverse;
@@ -77,11 +77,11 @@
       }
 
       &:hover {
-        @include theme-aware("background-color", "primary-light");
+        @include theme-aware("background-color", "primary-dark");
       }
 
       &:active {
-        @include theme-aware("background-color", "primary-dark");
+        @include theme-aware("background-color", "primary-light");
         transform: scale(1.01, 0.99);
       }
 

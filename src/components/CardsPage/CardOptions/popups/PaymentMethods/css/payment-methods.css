@@ -28,13 +28,14 @@
 
 .payment-methods .payment-method__icon {
   border-radius: 10px;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   margin: 10px;
-  border: 2px solid deepskyblue;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  -webkit-filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg) brightness(88%) contrast(80%);
+          filter: invert(58%) sepia(36%) saturate(320%) hue-rotate(183deg) brightness(88%) contrast(80%);
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -57,11 +58,11 @@
 }
 
 .theme-dark .payment-methods .payment-method__name {
-  color: #131e56;
+  color: #4e5378;
 }
 
 .payment-methods .payment-method__description {
-  opacity: 0.5;
+  opacity: 1;
   margin: 0;
   -ms-grid-row: 2;
   -ms-grid-column: 2;
@@ -82,11 +83,15 @@
 }
 
 .theme-dark .payment-methods .payment-method--disabled .payment-method__description {
-  color: #364496;
+  color: #7b8bae;
 }
 
 .payment-methods .payment-method--disabled .payment-method__icon {
-  border: 2px solid rgba(192, 192, 192, 0.253);
+  opacity: 0.5;
+}
+
+.payment-methods .payment-method--disabled:hover {
+  border-color: rgba(120, 123, 136, 0.5) !important;
 }
 
 .payment-methods .payment-method:hover {
@@ -97,11 +102,11 @@
 }
 
 .theme-light .payment-methods .payment-method:hover {
-  border-color: rgba(17, 62, 130, 0.2);
+  border-color: #364496;
 }
 
 .theme-dark .payment-methods .payment-method:hover {
-  border-color: rgba(8, 213, 232, 0.2);
+  border-color: #7b8bae;
 }
 
 @media (max-width: 768px) {

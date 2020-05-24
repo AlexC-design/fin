@@ -31,7 +31,7 @@
 }
 
 .theme-dark .send-popup__field {
-  color: #364496;
+  color: #7b8bae;
 }
 
 .send-popup__field__input {
@@ -49,7 +49,7 @@
 }
 
 .theme-dark .send-popup__field__input {
-  border: solid 1px rgba(8, 213, 232, 0.2);
+  border: solid 1px #1c1e24;
 }
 
 .send-popup__field__input:focus {
@@ -61,6 +61,6 @@
 }
 
 .theme-dark .send-popup__field__input:focus {
-  border: solid 1px #364496;
+  border: solid 1px #7b8bae;
 }
 /*# sourceMappingURL=send-popup.css.map */

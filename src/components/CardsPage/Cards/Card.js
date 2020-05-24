@@ -7,7 +7,7 @@ const Card = ({ type, image, setOrder, order, position, selected }) => {
       left: "0%",
       top: "50%",
       transform: "translate(0%, -50%) scale(0.8)",
-      opacity: "0.5",
+      opacity: "0.7",
 
       zIndex: "2"
     },
@@ -22,7 +22,7 @@ const Card = ({ type, image, setOrder, order, position, selected }) => {
       left: "100%",
       top: "50%",
       transform: "translate(-100%, -50%) scale(0.8)",
-      opacity: "0.5",
+      opacity: "0.7",
 
       zIndex: "2"
     }
