@@ -58,6 +58,10 @@ const App = ({ setCategories, currentMoment, setTheme, theme }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMoment]);
 
+  useEffect(() => {
+    console.log('updating')
+  })
+
   return (
     <HashRouter basename="/">
       <MockDays />

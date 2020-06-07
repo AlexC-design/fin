@@ -3,9 +3,15 @@ import Section from "../Section/Section";
 import PaymentTab from "./PaymentTab/PaymentTab";
 import "./css/payments-page.css";
 import { connect } from "react-redux";
+import { setPopupType, setSuccessMessage } from "../../store/state/popup";
 import Popup from "../CardsPage/CardOptions/popups/Popup";
 
-const PaymentsPage = ({ popupType, successMessage }) => {
+const PaymentsPage = ({
+  popupType,
+  successMessage,
+  setPopupType,
+  setSuccessMessage
+}) => {
   const [active, setActive] = useState("friends");
   const [mobileView, setMobileView] = useState(false);
 
@@ -17,6 +23,9 @@ const PaymentsPage = ({ popupType, successMessage }) => {
     window.addEventListener("resize", handleResize);
 
     handleResize();
+
+    setPopupType(null);
+    setSuccessMessage("");
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -45,4 +54,9 @@ const mapStateToProps = state => ({
   successMessage: state.popup.message
 });
 
-export default connect(mapStateToProps)(PaymentsPage);
+const mapDispatchToProps = dispatch => ({
+  setPopupType: type => dispatch(setPopupType(type)),
+  setSuccessMessage: message => dispatch(setSuccessMessage(message))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentsPage);

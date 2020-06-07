@@ -15,7 +15,7 @@
 }
 
 .history-page__left, .history-page__right {
-  width: 50%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,6 +23,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.history-page__left {
+  width: auto;
 }
 
 @media (max-width: 1000px) {
@@ -36,6 +40,9 @@
   }
   .history-page__left {
     width: 100%;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
   }
   .history-page__right {
     width: 100%;

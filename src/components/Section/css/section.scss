@@ -20,9 +20,12 @@
 
   &--main {
     position: relative;
+    max-width: 55vh;
   }
   &--second {
     height: 100%;
+    max-width: 55vh;
+    min-width: 55vh;
   }
   &--third {
     height: 100%;
@@ -50,6 +53,15 @@
   @include width1000 {
     margin: 5px;
     padding: 5px;
+
+    &--main {
+      max-width: unset;
+      min-width: unset;
+    }
+    &--second {
+      max-width: unset;
+      min-width: unset;
+    }
 
     &--third {
       height: 100%;

@@ -38,10 +38,13 @@
 
 .section--main {
   position: relative;
+  max-width: 55vh;
 }
 
 .section--second {
   height: 100%;
+  max-width: 55vh;
+  min-width: 55vh;
 }
 
 .section--third {
@@ -74,6 +77,14 @@
   .section {
     margin: 5px;
     padding: 5px;
+  }
+  .section--main {
+    max-width: unset;
+    min-width: unset;
+  }
+  .section--second {
+    max-width: unset;
+    min-width: unset;
   }
   .section--third {
     height: 100%;

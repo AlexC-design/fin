@@ -14,6 +14,7 @@ const BreakdownPage = ({ setMobileViewGlobal, mobileViewGlobal }) => {
 
   useEffect(() => {
     const handleResize = () => {
+      //matching main section height with its width
       setMainHeight(
         document.querySelector(".section--main")
           ? document.querySelector(".section--main").clientWidth -
@@ -32,6 +33,7 @@ const BreakdownPage = ({ setMobileViewGlobal, mobileViewGlobal }) => {
 
       setSimplebarHeight(0);
 
+      //matching simplebar height with its third section height
       setSimplebarHeight(
         document.querySelector(".section--third")
           ? document.querySelector(".section--third").clientHeight -

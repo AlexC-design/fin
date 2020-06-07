@@ -16,15 +16,15 @@
 }
 
 .card-options .card-option {
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 5px;
   width: 50%;
   border-radius: 10px;
   cursor: pointer;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 80px 50% 30%;
-      grid-template-columns: 80px 50% 30%;
+  -ms-grid-columns: 60px 50% 30%;
+      grid-template-columns: 60px 50% 30%;
       grid-template-areas: "icon name special" "icon description special";
   -webkit-transition: all 0.2s ease-out, color 0.6s ease-out, background-color 0.6s ease-out;
   transition: all 0.2s ease-out, color 0.6s ease-out, background-color 0.6s ease-out;
@@ -49,8 +49,8 @@
 
 .card-options .card-option__icon {
   margin: 10px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -133,8 +133,10 @@
 
 .card-options .card-option:hover {
   border: 2px solid rgba(255, 255, 255, 0);
-  padding: 10px;
+  padding: 5px;
   margin: 2.5px;
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
 }
 
 .theme-light .card-options .card-option:hover {

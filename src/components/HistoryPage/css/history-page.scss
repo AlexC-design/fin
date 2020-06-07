@@ -12,9 +12,13 @@
 
   &__left,
   &__right {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  &__left {
+    width: auto;
   }
 
   @include width1000 {
@@ -24,6 +28,7 @@
 
     &__left {
       width: 100%;
+      align-items: unset;
     }
     &__right {
       width: 100%;

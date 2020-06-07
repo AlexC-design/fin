@@ -10,7 +10,7 @@
   animation: fade-in 1s ease-out;
 
   .card-option {
-    margin: 10px 0;
+    margin: 5px 0;
     padding: 5px;
     width: 50%;
     border-radius: 10px;
@@ -20,7 +20,7 @@
     @include theme-aware("background-color", "tab-background");
 
     display: grid;
-    grid-template-columns: 80px 50% 30%;
+    grid-template-columns: 60px 50% 30%;
     grid-template-areas:
       "icon name special"
       "icon description special";
@@ -30,8 +30,8 @@
 
     &__icon {
       margin: 10px;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       grid-area: icon;
       user-select: none;
       filter: invert(26%) sepia(9%) saturate(7482%) hue-rotate(206deg)
@@ -79,10 +79,12 @@
 
     &:hover {
       border: 2px solid rgba(255, 255, 255, 0);
-      padding: 10px;
+      padding: 5px;
       margin: 2.5px;
 
       @include themed-shadow("0", "0", "20", "0", "outline-color");
+
+      transform: translateX(10px);
 
       .card-option__icon {
         margin: 12.5px 12.5px 12.5px 10px;
