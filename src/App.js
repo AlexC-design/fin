@@ -59,8 +59,8 @@ const App = ({ setCategories, currentMoment, setTheme, theme }) => {
   }, [currentMoment]);
 
   useEffect(() => {
-    console.log('updating')
-  })
+    console.log("updating");
+  });
 
   return (
     <HashRouter basename="/">

@@ -65,8 +65,8 @@
 
 @media (max-width: 1280px) {
   .navbar .navbar-link--active {
-    -webkit-animation: stretch-squeeze-both-ways 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-            animation: stretch-squeeze-both-ways 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    -webkit-animation: stretch-squeeze-side-ways 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            animation: stretch-squeeze-side-ways 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
   }
   .navbar .navbar-link--active .navbar-link__text {
     opacity: 1;
@@ -210,6 +210,8 @@
 @media (max-width: 640px) {
   .link-bg {
     display: none;
+    -webkit-transition: none;
+    transition: none;
   }
 }
 
@@ -470,8 +472,8 @@
             transform: scale(1, 1);
   }
   50% {
-    -webkit-transform: scale(0.7, 1.05);
-            transform: scale(0.7, 1.05);
+    -webkit-transform: scale(0.7, 1.1);
+            transform: scale(0.7, 1.1);
   }
   to {
     -webkit-transform: scale(1, 1);
@@ -485,8 +487,8 @@
             transform: scale(1, 1);
   }
   50% {
-    -webkit-transform: scale(0.7, 1.05);
-            transform: scale(0.7, 1.05);
+    -webkit-transform: scale(0.7, 1.1);
+            transform: scale(0.7, 1.1);
   }
   to {
     -webkit-transform: scale(1, 1);

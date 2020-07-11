@@ -33,7 +33,7 @@
       animation: bump 0.4s $cbOut forwards;
 
       @include width1280 {
-        animation: stretch-squeeze-both-ways 0.4s $cbOut forwards;
+        animation: stretch-squeeze-side-ways 0.4s $cbOut forwards;
 
         .navbar-link__text {
           opacity: 1;
@@ -172,6 +172,7 @@
   //small
   @include width640 {
     display: none;
+    transition: none;
   }
 }
 
@@ -407,7 +408,7 @@
     transform: scale(1, 1);
   }
   50% {
-    transform: scale(0.7, 1.05);
+    transform: scale(0.7, 1.1);
   }
   to {
     transform: scale(1, 1);
